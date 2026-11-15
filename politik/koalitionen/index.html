@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de" class="kk-b-poli">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koalitionsrechner · Kaffee und Kommiss</title>
+<meta name="description" content="Welche Koalitionen hätten nach aktuellen Umfragen eine Mehrheit? Für die nächste Bundestagswahl und alle anstehenden Landtagswahlen, mit Kennzeichnung bisher nie gebildeter Bündnisse als „rein rechnerisch“.">
+<link rel="canonical" href="https://kaffeeundkommiss.github.io/politik/koalitionen/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Kaffee und Kommiss">
+<meta property="og:title" content="Koalitionsrechner · Kaffee und Kommiss">
+<meta property="og:description" content="Mögliche Koalitionen nach aktuellen Umfragen für Bund und Länder, bisher nie gebildete Bündnisse als „rein rechnerisch“ gekennzeichnet.">
+<meta property="og:url" content="https://kaffeeundkommiss.github.io/politik/koalitionen/">
+<!-- Vorschau für Linkvorschauen, erzeugt mit werkzeuge/vorschau.js -->
+<meta property="og:image" content="https://kaffeeundkommiss.github.io/vorschau/koalitionen.jpg?v=c356a048">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Koalitionsrechner: Kaffee und Kommiss">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kaffeeundkommiss.github.io/vorschau/koalitionen.jpg?v=c356a048">
+<link rel="icon" href="../../icons/koalitionen.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#23211C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../../basis.css">
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="koalitionen.css">
+</head>
+<body class="kk-b-poli">
+<div class="kk-leiste"><div class="kk-in">
+  <a class="kk-haus" href="https://kaffeeundkommiss.github.io/"><img src="../../kk-tasse.svg" alt="" width="22" height="22"><span>Kaffee und Kommiss</span></a>
+  <nav class="kk-bereiche" aria-label="Bereiche"><a href="https://kaffeeundkommiss.github.io/geschichte/">Geschichte</a><a href="https://kaffeeundkommiss.github.io/sicherheitspolitik/"><span class="kk-lang">Sicherheitspolitik</span><span class="kk-kurz">Sicherheit</span></a><a href="https://kaffeeundkommiss.github.io/politik/" aria-current="true">Politik</a></nav>
+</div></div>
+<header class="kk-kopf">
+  <div class="wrap">
+    <a class="kk-schild" href="../">
+      <img class="logo" src="../../icons/koalitionen.svg" alt="" width="44" height="44">
+      <div>
+        <div class="kk-name">Koalitionsrechner</div>
+        <div class="kk-unter">Mögliche Mehrheiten nach aktuellen Umfragen</div>
+      </div>
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="einleitung">
+    <div class="kicker">Bereich Politik</div>
+    <h1>Welche Koalition hätte eine Mehrheit?</h1>
+    <p>Für die nächste Bundestagswahl und jede anstehende Landtagswahl: Welche Bündnisse kämen nach dem Durchschnitt der aktuellen Umfragen auf mehr als die Hälfte der Sitze? Bündnisse, die es im jeweiligen Land oder im Bund noch nie als Regierung gab, tragen den Vermerk „rein rechnerisch“.</p>
+    <p><strong>Umfragen sind Momentaufnahmen, keine Prognosen.</strong> Die Seite rechnet nur. Ob Parteien eine Koalition anstreben oder ausschließen, bewertet sie nicht.</p>
+    <div class="stand" id="stand"></div>
+  </section>
+
+  <details class="erklaer">
+    <summary>So wird gerechnet</summary>
+    <p class="definition"><strong>„Rein rechnerisch“</strong> heißt: Genau diese Parteienkombination hat auf dieser Ebene (im jeweiligen Land bzw. im Bund) noch nie gemeinsam eine Regierung gebildet. Gezählt werden vereidigte Landesregierungen und Senate seit Gründung des Landes bzw. Bundesregierungen seit 1949, auch Minderheitsregierungen; Tolerierungen und Bündnisse in anderen Ländern zählen nicht. Eine Regierung mit zusätzlichen Partnern zählt nicht als Vorbild für die kleinere Kombination. Vorläuferparteien werden mitgezählt: PDS als Linke, Alternative Liste, GAL und Bündnis 90 als Grüne, FDP/DVP und FDP/DPS als FDP. Laufende Koalitionsverhandlungen zählen erst, wenn die Regierung im Amt ist.</p>
+    <ul>
+      <li><strong>Umfragebasis:</strong> nur Umfragen nach der letzten Wahl im Parlament. Von jedem Institut zählt die neueste Umfrage, und nur, wenn sie höchstens 90 Tage vor der neuesten Umfrage insgesamt liegt (Startwert). Daraus der einfache Mittelwert je Partei, ungewichtet.</li>
+      <li><strong>Sperrklausel:</strong> Parteien unter 5 % ziehen in der Rechnung nicht ein. Ausnahme: Der SSW ist in Schleswig-Holstein als Partei der dänischen Minderheit von der 5-%-Hürde befreit.</li>
+      <li><strong>Grundmandatsklausel:</strong> Wo eine Partei unter 5 % über gewonnene Wahlkreise einziehen kann (im Bund ab drei Wahlkreisen), lässt sich das aus Umfragen nicht ableiten. Solche Parteien bleiben draußen; ab 3 % steht ein Hinweis.</li>
+      <li><strong>Sitze:</strong> Die Sitze verteilen sich näherungsweise im Verhältnis der Stimmen der Parteien, die einziehen. Überhang- und Ausgleichsmandate, Rundung und Wahlkreisergebnisse bleiben unberücksichtigt.</li>
+      <li><strong>Koalitionen:</strong> alle Bündnisse aus höchstens drei Parteien mit mehr als 50 % der Sitze, ohne überflüssigen Partner (fällt eine Partei weg, ist die Mehrheit weg). Unter 52 % gilt eine Mehrheit als knapp (Startwert). Die Schwankungsbreite einer Einzelumfrage liegt bei mehreren Prozentpunkten.</li>
+      <li><strong>Aktualisierung:</strong> Die Seite holt beim Aufruf die neuesten Umfragen live von dawum.de. Ist dawum nicht erreichbar, zeigt sie den gespeicherten Stand, der wöchentlich aktualisiert wird.</li>
+    </ul>
+  </details>
+
+  <div id="inhalt"><p class="basis">Lade Umfragen …</p></div>
+
+  <section class="quellen" aria-labelledby="quellen-titel">
+    <h2 id="quellen-titel">Quellen</h2>
+    <ul id="quellen-liste"></ul>
+  </section>
+</main>
+
+<footer class="kk-fuss"><div class="kk-in">
+  <p><a href="https://kaffeeundkommiss.github.io/">Kaffee und Kommiss</a>: Politik, Geschichte und Sicherheitspolitik mit Quellen. Private, nichtkommerzielle Zusammenstellung. Fehler gefunden? Bitte mit Quelle melden.</p>
+  <p>Umfragedaten: <a href="https://dawum.de/">dawum.de</a>, Lizenz <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODC-ODbL</a>.</p>
+</div></footer>
+
+<script src="koalitionen.js"></script>
+<script src="seite.js"></script>
+</body>
+</html>
