@@ -53,43 +53,45 @@
     <p>Je Partei eine Seite mit gleichem Aufbau: aktuelle Umfragewerte für Bund und Länder (Quelle dawum.de), amtliche Wahlergebnisse und Daten zur Partei auf Bundesebene.</p>
   </section>
 
+  <div class="netz" id="netz">
+  <svg class="leitungen" aria-hidden="true" focusable="false"></svg>
   <section class="projekte" aria-label="Partei-Monitore">
-    <a class="projekt kk-b-poli" href="https://kaffeeundkommiss.github.io/fdp-monitor/">
+    <a class="projekt kk-b-poli" data-linie="fdp" href="https://kaffeeundkommiss.github.io/fdp-monitor/">
       <span class="band"><img src="../icons/fdp.svg" alt="" width="40" height="40"></span>
       <span class="rubrik">Politik</span>
       <span class="titel">FDP-Monitor</span>
       <span class="text">Umfragewerte der FDP für Bundestag und Landtagswahlen mit Abstand zur 5-%-Hürde, Wahlergebnisse seit 1998 und die Themen der Wahlprogramme.</span>
       <span class="hinweis">Wird wöchentlich aktualisiert</span>
     </a>
-    <a class="projekt kk-b-poli" href="https://kaffeeundkommiss.github.io/spd-monitor/">
+    <a class="projekt kk-b-poli" data-linie="spd" href="https://kaffeeundkommiss.github.io/spd-monitor/">
       <span class="band"><img src="../icons/spd.svg" alt="" width="40" height="40"></span>
       <span class="rubrik">Politik</span>
       <span class="titel">SPD-Monitor</span>
       <span class="text">Umfragewerte der SPD für Bundestag und Landtagswahlen im Vergleich zur jeweils letzten Wahl, dazu Wahlergebnisse seit 1998 und der Parteivorsitz seit 1946.</span>
       <span class="hinweis">Wird wöchentlich aktualisiert</span>
     </a>
-    <a class="projekt kk-b-poli" href="https://kaffeeundkommiss.github.io/cducsu-monitor/">
+    <a class="projekt kk-b-poli" data-linie="union" href="https://kaffeeundkommiss.github.io/cducsu-monitor/">
       <span class="band"><img src="../icons/cducsu.svg" alt="" width="40" height="40"></span>
       <span class="rubrik">Politik</span>
       <span class="titel">CDU/CSU-Monitor</span>
       <span class="text">Umfragewerte der Union für Bundestag und Landtagswahlen im Vergleich zur jeweils letzten Wahl, dazu Wahlergebnisse seit 1998, CDU- und CSU-Vorsitz.</span>
       <span class="hinweis">Wird wöchentlich aktualisiert</span>
     </a>
-    <a class="projekt kk-b-poli" href="https://kaffeeundkommiss.github.io/afd-monitor/">
+    <a class="projekt kk-b-poli" data-linie="afd" href="https://kaffeeundkommiss.github.io/afd-monitor/">
       <span class="band"><img src="../icons/afd.svg" alt="" width="40" height="40"></span>
       <span class="rubrik">Politik</span>
       <span class="titel">AfD-Monitor</span>
       <span class="text">Umfragewerte der AfD für Bundestag und Landtagswahlen im Vergleich zur jeweils letzten Wahl, dazu Wahlergebnisse seit 2013, Bundesvorsitz und die Einstufung durch den Verfassungsschutz mit Rechtsstand.</span>
       <span class="hinweis">Wird wöchentlich aktualisiert</span>
     </a>
-    <a class="projekt kk-b-poli" href="https://kaffeeundkommiss.github.io/linke-monitor/">
+    <a class="projekt kk-b-poli" data-linie="linke" href="https://kaffeeundkommiss.github.io/linke-monitor/">
       <span class="band"><img src="../icons/linke.svg" alt="" width="40" height="40"></span>
       <span class="rubrik">Politik</span>
       <span class="titel">Linke-Monitor</span>
       <span class="text">Umfragewerte der Linken für Bundestag und Landtagswahlen im Vergleich zur jeweils letzten Wahl, dazu Wahlergebnisse seit 1998 (bis 2005 PDS) und der Parteivorsitz seit 2007.</span>
       <span class="hinweis">Wird wöchentlich aktualisiert</span>
     </a>
-    <a class="projekt kk-b-poli" href="https://kaffeeundkommiss.github.io/gruene-monitor/">
+    <a class="projekt kk-b-poli" data-linie="gruene" href="https://kaffeeundkommiss.github.io/gruene-monitor/">
       <span class="band"><img src="../icons/gruene.svg" alt="" width="40" height="40"></span>
       <span class="rubrik">Politik</span>
       <span class="titel">Grünen-Monitor</span>
@@ -97,10 +99,21 @@
       <span class="hinweis">Wird wöchentlich aktualisiert</span>
     </a>
   </section>
+  <a class="knoten" href="https://kaffeeundkommiss.github.io/politik/koalitionen/" aria-labelledby="koalitionen-titel">
+    <img class="knoten-symbol" src="../icons/koalitionen.svg" alt="" width="72" height="72">
+    <span class="knoten-text">
+      <span class="kicker">Aus allen Monitoren · Wahlen</span>
+      <span class="knoten-titel" id="koalitionen-titel">Mögliche Koalitionen</span>
+      <span class="text">Welche Bündnisse hätten nach aktuellen Umfragen eine Mehrheit? Für die nächste Bundestagswahl und alle anstehenden Landtagswahlen, mit 5-%-Hürde. Bisher nie gebildete Bündnisse sind als „rein rechnerisch“ gekennzeichnet.</span>
+      <span class="hinweis">Koalitionsrechner · Umfragen live von dawum.de, wöchentlich gesichert</span>
+    </span>
+  </a>
+</div>
 </main>
 
 <footer class="kk-fuss"><div class="kk-in">
   <p><a href="https://kaffeeundkommiss.github.io/">Kaffee und Kommiss</a>: Politik, Geschichte und Sicherheitspolitik mit Quellen. Private, nichtkommerzielle Zusammenstellung. Fehler gefunden? Bitte mit Quelle melden.</p>
 </div></footer>
+<script src="netz.js"></script>
 </body>
 </html>
