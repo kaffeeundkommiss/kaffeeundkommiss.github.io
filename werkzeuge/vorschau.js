@@ -4,10 +4,12 @@
 //   { "basis": "https://kaffeeundkommiss.github.io/<repo>/", "ordner": "vorschau",
 //     "seiten": [ { "datei": "index.html", "bild": "start", "kicker": "…", "titel": "…", "unter": "…", "karte": "svg.kartesvg" } ] }
 // Ohne "unter" wird die Beschreibung (meta description) der Seite verwendet. "karte" ist optional:
-// ein Selektor, dessen Element rechts im Bild erscheint.
+// ein Selektor, dessen Element rechts im Bild erscheint. "vorbereitung" ist optional: JavaScript, das vor dem
+// Bau des Bildes in der Seite läuft (etwa um eine Karte auf einen bestimmten Stand zu stellen).
 //
 // Das Bild wird aus der Seite selbst gebaut (Leiste, Kopfband, Schriften), damit es zum Design passt.
 // Aufruf im Repo-Ordner:  npm install playwright  &&  npx playwright install chromium  &&  node werkzeuge/vorschau.js
+// Nur einzelne Bilder neu bauen:  node werkzeuge/vorschau.js <bild> [<bild> …]   (Namen aus "bild")
 // Nach Änderungen an Titeln, Beschreibungen oder Kopfband neu ausführen.
 'use strict';
 const fs = require('fs');
@@ -114,10 +116,13 @@ function eintragen(datei, s, bildUrl) {
   fs.mkdirSync(ORDNER, { recursive: true });
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, colorScheme: 'light' });
+  const nur = process.argv.slice(2);
   for (const s of CFG.seiten) {
+    if (nur.length && !nur.includes(s.bild)) continue;
     await page.goto('file://' + path.join(WURZEL, s.datei), { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
-    const adresse = (CFG.basis + (s.datei === 'index.html' ? '' : s.datei)).replace(/^https:\/\//, '').replace(/\/$/, '');
+    if (s.vorbereitung) await page.evaluate(s.vorbereitung);
+    const adresse = (CFG.basis + (s.datei === 'index.html' ? '' : s.datei)).replace(/^https:\/\//, '').replace(/\/index\.html$/, '').replace(/\/$/, '');
     await page.evaluate(rendern, { ...s, adresse });
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(150);
