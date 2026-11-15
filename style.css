@@ -54,3 +54,7 @@ h1{margin:6px 0 0;font:700 clamp(30px,5vw,42px)/1.02 var(--kk-titel);text-transf
 }
 :root[data-theme="light"] body.kk-b-poli{--kk-grund:#FFFFFF;--kk-papier:#FFFFFF;--kk-schild:rgba(255,255,255,.96);--kk-linie:#D6D6D6}
 :root[data-theme="light"] body.kk-b-gesch{--kk-grund:#F0F0EE;--kk-papier:#FFFFFF;--kk-schild:rgba(255,255,255,.96);--kk-linie:#D6D6D6}
+
+/* Zweiter Abschnitt auf einer Bereichsübersicht (Politik: Koalitionsrechner, 15.11.2026) */
+.bereich-zwei{margin-top:12px;padding-top:20px;border-top:1px solid var(--kk-linie)}
+.bereich-zwei h2{margin:6px 0 0;font:700 clamp(24px,4vw,32px)/1.05 var(--kk-titel);text-transform:uppercase;letter-spacing:.01em}

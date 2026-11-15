@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Koalitionsrechner">
+  <title>Koalitionsrechner</title>
+  <rect width="120" height="120" rx="27" fill="#1E4FD8"/>
+  <path d="M18 84 A42 42 0 0 1 60 42 L60 62 A22 22 0 0 0 38 84 Z" fill="#FFFFFF"/>
+  <path d="M62 42 A42 42 0 0 1 86 50 L74 66 A22 22 0 0 0 62 62 Z" fill="#FFFFFF" fill-opacity=".75"/>
+  <path d="M88 52 A42 42 0 0 1 102 84 L82 84 A22 22 0 0 0 76 68 Z" fill="#FFFFFF" fill-opacity=".45"/>
+  <line x1="60" y1="30" x2="60" y2="96" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="7 5"/>
+</svg>
