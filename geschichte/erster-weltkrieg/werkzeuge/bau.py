@@ -188,6 +188,40 @@ PERSONEN = [
 PERSON_ZUSATZ = {'wilson': ('A14', 'S14')}
 
 
+# ---------------------------------------------------------------- Bildnachweis
+# Schlüssel: (Commons-Dateiname, Urheber, Datum, Lizenz) – alles nur laut Commons-Beschreibung, nicht unabhängig geprüft.
+BILDER = {
+ 'richthofen': ('Manfred von Richthofen.jpg', 'C. J. von Dühren (gest. 1931), Postkarte Willi Sanke Nr. 503', 'um 1917', 'gemeinfrei'),
+ 'franzferdinand': ('Archduke Franz Ferdinand (48059749968).jpg', 'Carl Pietzner', 'um 1896', 'gemeinfrei'),
+ 'kemal': ('Mustafa Kemal in Gallipoli.jpg', 'unbekannt (Quelle: türkischer Generalstab)', '1915', 'gemeinfrei'),
+ 'ferdinand': ('BASA-237K-1-361-1a-Ferdinand I of Bulgaria, 1915.jpg', 'unbekannt (Bulgarische Staatsarchive)', 'vor 1915', 'gemeinfrei'),
+ 'putnik': ('Général Putnik, généralissime serbe - btv1b69310497.jpg', 'Agence Rol (Bibliothèque nationale de France)', '1914', 'gemeinfrei'),
+ 'nikola': ('Nicholas I, King of Montenegro, 1841-1921, head and shoulders portrait, facing left LCCN2005680731.tif', 'George Grantham Bain Collection (Library of Congress)', 'ohne Datum', 'gemeinfrei'),
+ 'nikolaus': ('Nicholas II by E.Lipgart (1914, Russian museum).jpg', 'Ernst von Liphart (Gemälde)', '1914', 'gemeinfrei'),
+ 'clemenceau': ('CLEMENCEAU, Georges, Nadar, GALLICA.jpg', 'Paul Nadar (Gallica)', 'um 1910', 'CC0'),
+ 'churchill': ('Churchill Admiralty Uniform 1914.jpg', 'unbekannt', '16.09.1914', 'gemeinfrei'),
+ 'albert': ('Portrait of Albert I of Belgium (cropped).jpg', 'Richard Speaight', '1917', 'gemeinfrei'),
+ 'okuma': ('Okuma Shigenobu bust portrait.jpg', 'unbekannt (Diplomatisches Archiv des japanischen Außenministeriums)', 'vor 1922', 'gemeinfrei'),
+ 'dannunzio': ('Photo of prince d\' annunzio.jpg', 'unbekannt', '1920', 'gemeinfrei'),
+ 'milhais': ('Anibal Milhais.jpg', 'J. Fernandes (Biblioteca Nacional de Portugal)', '1918', 'gemeinfrei'),
+ 'marie': ('Queen Marie of Romania wearing the steel crown.jpg', 'Adolf Klingsberg', '1922', 'gemeinfrei'),
+ 'wilson': ('Thomas Woodrow Wilson, Harris & Ewing bw photo portrait, 1919.jpg', 'Harris & Ewing (Library of Congress)', '1919', 'gemeinfrei'),
+ 'venizelos': ('Eleftherios Venizelos 1917.jpg', 'Agence Rol (Bibliothèque nationale de France)', '1917', 'gemeinfrei'),
+}
+
+
+def bildnachweis_html():
+    from urllib.parse import quote
+    out = []
+    for k, staat, bild, name, *_ in PERSONEN:
+        if not (HIER / 'bilder' / f'{bild}.jpg').exists() or bild not in BILDER:
+            continue
+        datei, urheber, datum, lizenz = BILDER[bild]
+        url = 'https://commons.wikimedia.org/wiki/File:' + quote(datei.replace(' ', '_'))
+        out.append(f'<li>{esc(name)}: {esc(urheber)}, {esc(datum)}. {esc(lizenz)}. Wikimedia Commons, <a href="{url}">{esc(datei)}</a>.</li>')
+    return '\n'.join(out)
+
+
 def esc(s):
     return html.escape(s, quote=True)
 
@@ -243,6 +277,7 @@ def main():
     T = re.sub(r'\{\{(q1?):([^}]+)\}\}', rep, T)
     T = T.replace('{{TABELLE}}', tabelle_html())
     T = T.replace('{{PERSONEN}}', personen_html())
+    T = T.replace('{{BILDER}}', bildnachweis_html())
     T = T.replace('{{KARTE}}', (HIER / 'karte.svg').read_text())
     T = T.replace('{{N_STAATEN}}', str(len(STAATEN)))
     T = T.replace('{{N_M}}', str(sum(1 for s in STAATEN if s[2] == 'M')))

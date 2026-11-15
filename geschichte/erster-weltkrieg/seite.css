@@ -108,8 +108,8 @@ td.d{font-family:var(--kk-mono);font-size:13.5px;white-space:nowrap}
 .weiter a b{display:block;font:700 18px/1.1 var(--kk-titel);text-transform:uppercase}
 .weiter a span{font-size:14px;color:var(--kk-grau)}
 .weiter a:hover b{text-decoration:underline;text-decoration-color:var(--kk-akzent)}
-ol.quellen{margin:0;padding-left:0;list-style:none;font-size:14.5px;display:grid;gap:8px}
-ol.quellen li{max-width:46em;scroll-margin-top:16px;overflow-wrap:anywhere}
+ol.quellen,ul.bildnachweis{margin:0;padding-left:0;list-style:none;font-size:14.5px;display:grid;gap:8px}
+ol.quellen li,ul.bildnachweis li{max-width:46em;scroll-margin-top:16px;overflow-wrap:anywhere}
 ol.quellen li b{font-family:var(--kk-mono);font-weight:600;margin-right:4px}
 ol.quellen li:target{background:var(--kk-akzent-hell);outline:6px solid var(--kk-akzent-hell)}
 .stand{font-size:13.5px;color:var(--kk-grau)}
