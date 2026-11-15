@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-40 -40 80 80">
+  <!-- Symbol Übersicht Erster Weltkrieg: Weltkugel mit Gradnetz auf Ring, Bereichsrot -->
+  <circle r="38" fill="#FFFFFF" stroke="#23211C" stroke-width="3"/>
+  <circle r="32.5" fill="none" stroke="#23211C" stroke-width="1" opacity=".5"/>
+  <g fill="none" stroke="#AD281D" stroke-width="2.4">
+    <circle r="22"/>
+    <ellipse rx="9.5" ry="22"/>
+    <path d="M0,-22 V22 M-22,0 H22 M-19,-11 H19 M-19,11 H19"/>
+  </g>
+</svg>

@@ -67,3 +67,4 @@
   var start = 0;
   regler.value = start; zeige(start);
 })();
+

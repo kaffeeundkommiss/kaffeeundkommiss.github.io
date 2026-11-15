@@ -1,0 +1,11 @@
+/* Gemeinsame Reiter der Übersichtsseiten, Aussehen wie auf der Richthofen-Seite (nav.pages). */
+.seitenkopf{display:grid;gap:6px}
+.seitenkopf .kicker{color:var(--kk-akzent)}
+.seitenkopf h1{margin:0;font-size:clamp(30px,5vw,50px);line-height:1}
+nav.pages{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+nav.pages a{font:600 14px/1 var(--kk-titel);letter-spacing:.08em;text-transform:uppercase;color:var(--kk-tinte);text-decoration:none;
+  border:1px solid var(--kk-linie);border-radius:2px;padding:9px 12px 8px;background:var(--kk-papier)}
+nav.pages a:hover{border-color:var(--kk-tinte)}
+nav.pages a[aria-current="page"]{background:var(--kk-tinte);color:var(--kk-papier);border-color:var(--kk-tinte)}
+nav.pages a:focus-visible{outline:2px solid var(--kk-akzent);outline-offset:2px}
+main section[data-reiter][hidden]{display:none}
