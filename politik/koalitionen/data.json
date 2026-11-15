@@ -349,7 +349,6 @@
     "name": "Wikipedia: Landesregierung von Schleswig-Holstein (abgerufen 15.11.2026)",
     "url": "https://de.wikipedia.org/wiki/Landesregierung_von_Schleswig-Holstein"
    },
-   "historie_geprueft": false,
    "umfragen": [
     {
      "institut": "INSA",
@@ -401,7 +400,8 @@
     "SSW"
    ],
    "grundmandat": "ein Wahlkreis",
-   "ebene": "Land"
+   "ebene": "Land",
+   "historie_abgleich": "15.11.2026: Tabelle „Landesregierungen seit 1946“ der Wikipedia-Seite eingesehen, alle Kombinationen stimmen."
   },
   {
    "id": "nrw",
@@ -841,7 +841,6 @@
     "name": "Wikipedia: Hessische Landesregierung (abgerufen 15.11.2026)",
     "url": "https://de.wikipedia.org/wiki/Hessische_Landesregierung"
    },
-   "historie_geprueft": false,
    "umfragen": [
     {
      "institut": "Infratest dimap",
@@ -889,7 +888,8 @@
      }
     }
    ],
-   "ebene": "Land"
+   "ebene": "Land",
+   "historie_abgleich": "15.11.2026: Wikipedia-Seite nennt nur Parteien der Ministerpräsidenten. Koalitionen belegt über KAS „Geschichte der CDU: Hessen“ (SPD+CDU 1946–50), Statista „Koalitionsbündnisse in Hessen“ (SPD+GB/BHE, SPD+FDP 1970–82, SPD+Grüne), hessen.de (CDU+FDP 1999, CDU allein 2003), Wikipedia „Schwarz-grüne Koalition“ (CDU+Grüne 2014), Wikipedia „Landesregierung (Deutschland)“ (CDU+SPD seit 18.01.2024). SPD-Alleinregierung nicht gesondert belegt."
   },
   {
    "id": "brandenburg",
@@ -1350,7 +1350,6 @@
     "name": "Wikipedia: Senat von Berlin (abgerufen 15.11.2026)",
     "url": "https://de.wikipedia.org/wiki/Senat_von_Berlin"
    },
-   "historie_geprueft": false,
    "umfragen": [
     {
      "institut": "pollytix",
@@ -1371,7 +1370,8 @@
    ],
    "grundmandat": "ein Wahlkreis",
    "hinweis": "Bisherige Senate: West-Berlin 1951 bis 1990, danach Gesamtberlin.",
-   "ebene": "Land"
+   "ebene": "Land",
+   "historie_abgleich": "15.11.2026: rbb24, „Von Reuter bis Müller: Die Regierenden Bürgermeister Berlins“ (21.12.2021) belegt SPD+CDU+FDP, CDU+FDP, SPD+CDU, SPD+FDP, SPD allein, CDU-Minderheitssenat, SPD+AL, SPD+Grüne, SPD+Linke+Grüne; SPD+PDS 2002–2011 laut Wikipedia „Senat Wowereit II“ und Spiegel."
   },
   {
    "id": "mecklenburg-vorpommern",
@@ -1399,7 +1399,6 @@
     "name": "Wikipedia: Landesregierung von Mecklenburg-Vorpommern (abgerufen 15.11.2026)",
     "url": "https://de.wikipedia.org/wiki/Landesregierung_von_Mecklenburg-Vorpommern"
    },
-   "historie_geprueft": false,
    "umfragen": [
     {
      "institut": "INSA",
@@ -1416,7 +1415,8 @@
      }
     }
    ],
-   "ebene": "Land"
+   "ebene": "Land",
+   "historie_abgleich": "15.11.2026: Tabelle der Wikipedia-Seite (Stand 26.11.2025) eingesehen, alle Kombinationen stimmen. SPD+Linke+Grüne erst nach Vereidigung (MP-Wahl 16.11.2026) ergänzen."
   },
   {
    "id": "sachsen-anhalt",
@@ -1457,9 +1457,9 @@
     "name": "Wikipedia: Ministerpräsident des Landes Sachsen-Anhalt (abgerufen 15.11.2026)",
     "url": "https://de.wikipedia.org/wiki/Ministerpräsident_des_Landes_Sachsen-Anhalt"
    },
-   "historie_geprueft": false,
    "umfragen": [],
-   "ebene": "Land"
+   "ebene": "Land",
+   "historie_abgleich": "15.11.2026: Tabelle der Wikipedia-Seite „Landesregierung von Sachsen-Anhalt“ eingesehen (inkl. Kabinett Schulze, CDU+SPD+FDP seit 2026), alle Kombinationen stimmen."
   }
  ]
 }
