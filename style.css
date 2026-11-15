@@ -55,6 +55,22 @@ h1{margin:6px 0 0;font:700 clamp(30px,5vw,42px)/1.02 var(--kk-titel);text-transf
 :root[data-theme="light"] body.kk-b-poli{--kk-grund:#FFFFFF;--kk-papier:#FFFFFF;--kk-schild:rgba(255,255,255,.96);--kk-linie:#D6D6D6}
 :root[data-theme="light"] body.kk-b-gesch{--kk-grund:#F0F0EE;--kk-papier:#FFFFFF;--kk-schild:rgba(255,255,255,.96);--kk-linie:#D6D6D6}
 
-/* Zweiter Abschnitt auf einer Bereichsübersicht (Politik: Koalitionsrechner, 15.11.2026) */
-.bereich-zwei{margin-top:12px;padding-top:20px;border-top:1px solid var(--kk-linie)}
-.bereich-zwei h2{margin:6px 0 0;font:700 clamp(24px,4vw,32px)/1.05 var(--kk-titel);text-transform:uppercase;letter-spacing:.01em}
+/* Politik: Koalitionsrechner als eigener Knoten unter den Partei-Monitoren (15.11.2026).
+   Linien in den Farben der Monitore führen zu ihm; gezeichnet von politik/netz.js. Ohne JS bleibt nur der Kasten. */
+[data-linie="fdp"]{--linie:#EFC41A} [data-linie="spd"]{--linie:#E3000F} [data-linie="union"]{--linie:#1F1F1F}
+[data-linie="afd"]{--linie:#009EE0} [data-linie="linke"]{--linie:#BE3075} [data-linie="gruene"]{--linie:#1F8A3B}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) [data-linie="union"]{--linie:#C9C9C9} }
+:root[data-theme="dark"] [data-linie="union"]{--linie:#C9C9C9}
+.netz{position:relative;display:flex;flex-direction:column}
+.netz .leitungen{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.netz .projekte,.knoten{position:relative;z-index:1}
+.projekt[data-linie]{border-bottom:3px solid var(--linie)}
+.knoten{display:flex;align-items:center;gap:22px;margin-top:72px;padding:22px 24px;background:var(--kk-papier);border:2px solid var(--kk-akzent);color:var(--kk-tinte);text-decoration:none}
+.knoten-symbol{flex:none;width:72px;height:72px}
+.knoten-text{display:flex;flex-direction:column;gap:6px;min-width:0}
+.knoten .kicker{color:var(--kk-akzent)}
+.knoten-titel{font:700 clamp(26px,4vw,34px)/1.05 var(--kk-titel);text-transform:uppercase;letter-spacing:.01em}
+.knoten .text{max-width:44em}
+.knoten:hover .knoten-titel,.knoten:focus-visible .knoten-titel{text-decoration:underline;text-decoration-color:var(--kk-akzent);text-decoration-thickness:2px;text-underline-offset:3px}
+.knoten:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:3px}
+@media (max-width:560px){ .knoten{flex-direction:column;align-items:flex-start;gap:14px;padding:18px} .knoten-symbol{width:56px;height:56px} }

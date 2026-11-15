@@ -1,8 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Koalitionsrechner">
   <title>Koalitionsrechner</title>
   <rect width="120" height="120" rx="27" fill="#1E4FD8"/>
-  <path d="M18 84 A42 42 0 0 1 60 42 L60 62 A22 22 0 0 0 38 84 Z" fill="#FFFFFF"/>
-  <path d="M62 42 A42 42 0 0 1 86 50 L74 66 A22 22 0 0 0 62 62 Z" fill="#FFFFFF" fill-opacity=".75"/>
-  <path d="M88 52 A42 42 0 0 1 102 84 L82 84 A22 22 0 0 0 76 68 Z" fill="#FFFFFF" fill-opacity=".45"/>
-  <line x1="60" y1="30" x2="60" y2="96" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="7 5"/>
+  <circle cx="60" cy="60" r="43" fill="#FFFFFF"/>
+  <path d="M60 60 L60.0 22.0 A38 38 0 0 1 97.3 52.9 Z" fill="#E3000F" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M60 60 L97.3 52.9 A38 38 0 0 1 64.8 97.7 Z" fill="#1F1F1F" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M60 60 L64.8 97.7 A38 38 0 0 1 25.6 76.2 Z" fill="#009EE0" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M60 60 L25.6 76.2 A38 38 0 0 1 22.7 52.9 Z" fill="#BE3075" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M60 60 L22.7 52.9 A38 38 0 0 1 37.7 29.3 Z" fill="#1F8A3B" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M60 60 L37.7 29.3 A38 38 0 0 1 60.0 22.0 Z" fill="#EFC41A" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
 </svg>
