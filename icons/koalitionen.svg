@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Koalitionsrechner">
+  <title>Koalitionsrechner</title>
+  <rect width="120" height="120" rx="27" fill="#1E4FD8"/>
+  <circle cx="60" cy="60" r="43" fill="#FFFFFF"/>
+  <path d="M60 60 L60.0 22.0 A38 38 0 0 1 97.3 52.9 Z" fill="#E3000F" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M60 60 L97.3 52.9 A38 38 0 0 1 64.8 97.7 Z" fill="#1F1F1F" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M60 60 L64.8 97.7 A38 38 0 0 1 25.6 76.2 Z" fill="#009EE0" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M60 60 L25.6 76.2 A38 38 0 0 1 22.7 52.9 Z" fill="#BE3075" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M60 60 L22.7 52.9 A38 38 0 0 1 37.7 29.3 Z" fill="#1F8A3B" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M60 60 L37.7 29.3 A38 38 0 0 1 60.0 22.0 Z" fill="#EFC41A" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>
