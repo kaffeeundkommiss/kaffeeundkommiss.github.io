@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-40 -40 80 80">
+  <!-- Symbol Einigungskriege 1864–1871: drei Jahreszahlen der Kriege auf Ring, Bereichsrot -->
+  <circle r="38" fill="#FFFFFF" stroke="#23211C" stroke-width="3"/>
+  <circle r="32.5" fill="none" stroke="#23211C" stroke-width="1" opacity=".5"/>
+  <path d="M-24,-6 H24 M-24,6 H24" stroke="#AD281D" stroke-width="1.6"/>
+  <g font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" text-anchor="middle" fill="#23211C">
+    <text x="0" y="-11" font-size="15">1864</text>
+    <text x="0" y="4.6" font-size="13" fill="#AD281D">1866</text>
+    <text x="0" y="22" font-size="15">1871</text>
+  </g>
+</svg>

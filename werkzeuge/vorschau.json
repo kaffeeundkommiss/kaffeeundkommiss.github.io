@@ -37,6 +37,14 @@
       "kicker": "Kaffee und Kommiss · Politik",
       "titel": "Koalitionsrechner",
       "unter": "Welche Koalition hätte nach aktuellen Umfragen eine Mehrheit? Bund und alle anstehenden Landtagswahlen, bisher nie gebildete Bündnisse als „rein rechnerisch“ gekennzeichnet."
+    },
+    {
+      "datei": "geschichte/einigungskriege/index.html",
+      "bild": "einigungskriege",
+      "kicker": "Kaffee und Kommiss · Geschichte",
+      "titel": "Einigungskriege 1864–1871",
+      "unter": "Dänemark 1864, Österreich 1866, Frankreich 1870/71: Ursachen, Anlässe, Karte der Staaten im Zeitverlauf und bekannte Personen.",
+      "karte": "#ek-svg"
     }
   ]
 }
