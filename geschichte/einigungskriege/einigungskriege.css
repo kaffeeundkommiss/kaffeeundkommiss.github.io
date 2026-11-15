@@ -109,7 +109,9 @@ p{margin:0 0 12px}
 .person h3{margin:6px 0 2px}
 .person .leben{font:500 13px var(--kk-mono);color:var(--kk-grau);margin:0 0 8px}
 .person p{font-size:15px;margin:0 0 6px}
-.person .bild{font-size:12px;color:var(--kk-grau);margin-top:auto;padding:0 14px 12px}
+.person .bild{font-size:12px;color:var(--kk-grau);margin:auto 0 0;padding:0 14px 12px}
+.person .bild a{color:var(--kk-grau)}
+.person .foto img[src$="christian9.jpg"],.person .foto img[src$="napoleon3.jpg"],.person .foto img[src$="ludwig2.jpg"]{object-position:50% 12%}
 
 /* Weiterlesen */
 .weiter{display:flex;gap:14px;align-items:center;background:var(--kk-papier);border:1px solid var(--kk-linie);border-left:4px solid var(--kk-akzent);padding:12px 14px;text-decoration:none;color:var(--kk-tinte)}
