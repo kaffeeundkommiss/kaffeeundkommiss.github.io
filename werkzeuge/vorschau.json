@@ -45,6 +45,15 @@
       "titel": "Einigungskriege 1864–1871",
       "unter": "Dänemark 1864, Österreich 1866, Frankreich 1870/71: Ursachen, Anlässe, Karte der Staaten im Zeitverlauf und bekannte Personen.",
       "karte": "#ek-svg"
+    },
+    {
+      "datei": "geschichte/erster-weltkrieg/index.html",
+      "bild": "erster-weltkrieg",
+      "kicker": "Kaffee und Kommiss · Geschichte",
+      "titel": "Der Erste Weltkrieg 1914–1918",
+      "unter": "Ursachen, Julikrise, Kriegsschuldfrage, Karte der beteiligten Staaten im Zeitverlauf und je Staat eine bekannte Person.",
+      "karte": "#wk-karte",
+      "vorbereitung": "(() => { const r = document.getElementById('wk-regler'); r.value = 17; r.dispatchEvent(new Event('input')); document.querySelector('[data-ausschnitt=\"europa\"]').click(); document.querySelectorAll('#wk-karte path.neu').forEach((p) => p.classList.remove('neu')); })()"
     }
   ]
 }
