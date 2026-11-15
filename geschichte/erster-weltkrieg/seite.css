@@ -1,0 +1,122 @@
+/* Übersicht Erster Weltkrieg (geschichte/erster-weltkrieg/). Grundsystem aus ../../basis.css und ../../style.css,
+   hier nur die Bausteine dieser Seite. Kartenfarben als Tokens, mit Dunkelmodus. */
+:root{
+  --wk-m:#3E3A33;      /* Mittelmächte */
+  --wk-a:#AD281D;      /* Alliierte / Entente */
+  --wk-x:#B9A27A;      /* ausgeschieden (Waffenstillstand / Frieden) */
+  --wk-b:#C9C2B4;      /* nur Abbruch der Beziehungen */
+  --wk-n:#E4E1DA;      /* nicht beteiligt */
+  --wk-meer:#F7F6F3; --wk-rand:#FFFFFF;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--wk-m:#9C968A;--wk-a:#E4533F;--wk-x:#8A7650;--wk-b:#5A554B;--wk-n:#38342C;--wk-meer:#1D1B16;--wk-rand:#26231C}
+}
+:root[data-theme="dark"]{--wk-m:#9C968A;--wk-a:#E4533F;--wk-x:#8A7650;--wk-b:#5A554B;--wk-n:#38342C;--wk-meer:#1D1B16;--wk-rand:#26231C}
+
+main{gap:30px}
+.einleitung h1{max-width:18em}
+.eckdaten{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0 0;padding:0;list-style:none}
+.eckdaten li{background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:3px solid var(--kk-akzent);padding:10px 12px}
+.eckdaten b{display:block;font:700 20px/1.1 var(--kk-titel);letter-spacing:.02em}
+.eckdaten span{font-size:13.5px;color:var(--kk-grau)}
+
+.abschnitt h2{margin:0 0 4px;font:700 26px/1.05 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em}
+.abschnitt>p.lead{margin:6px 0 14px;color:var(--kk-grau)}
+.abschnitt h3{margin:0;font:700 19px/1.15 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em}
+
+.inhalt{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0;padding:10px 0 0;list-style:none;font:500 14px var(--kk-text)}
+.inhalt a{color:var(--kk-tinte);text-decoration-color:var(--kk-akzent);text-underline-offset:3px}
+
+.karten{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.karte-text{background:var(--kk-papier);border:1px solid var(--kk-linie);padding:14px 16px}
+.karte-text p{margin:8px 0 0}
+
+/* Quellenverweise im Text */
+.q{font:500 11.5px var(--kk-mono);white-space:nowrap;vertical-align:1px}
+.q a{color:var(--kk-grau);text-decoration:none;border-bottom:1px dotted currentColor}
+.q a:hover{color:var(--kk-akzent)}
+.einfach{display:inline-block;font:600 11px/1 var(--kk-mono);color:var(--kk-akzent);border:1px solid currentColor;padding:2px 4px;border-radius:3px;vertical-align:1px}
+
+/* Zeitleiste Julikrise */
+.zeit{list-style:none;margin:0;padding:0;border-left:3px solid var(--kk-akzent)}
+.zeit li{position:relative;padding:0 0 14px 18px}
+.zeit li::before{content:"";position:absolute;left:-8px;top:5px;width:13px;height:13px;border-radius:50%;background:var(--kk-papier);border:3px solid var(--kk-akzent)}
+.zeit time{display:block;font:700 15px/1.3 var(--kk-mono)}
+.zeit p{margin:2px 0 0}
+
+/* Lesarten Kriegsschuldfrage */
+.lesart{border-left:4px solid var(--kk-linie)}
+.lesart .wann{font:500 13px var(--kk-mono);color:var(--kk-grau)}
+.hinweis-box{background:var(--kk-akzent-hell);border-left:4px solid var(--kk-akzent);padding:12px 14px;margin-top:12px}
+.hinweis-box p{margin:0}
+
+/* Karte */
+.kartenrahmen{background:var(--kk-papier);border:1px solid var(--kk-linie);padding:12px}
+.kartenkopf{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px}
+.stichtag{font:700 26px/1.1 var(--kk-titel);letter-spacing:.02em}
+.ereignis{min-height:3em;margin:4px 0 8px;max-width:none}
+.umschalter{display:inline-flex;border:1px solid var(--kk-linie)}
+.umschalter button{font:600 14px var(--kk-text);padding:7px 12px;min-height:36px;border:0;background:transparent;color:var(--kk-tinte);cursor:pointer}
+.umschalter button[aria-pressed="true"]{background:var(--kk-tinte);color:var(--kk-papier)}
+.umschalter button:focus-visible,.regler button:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:2px}
+#wk-karte{display:block;width:100%;height:auto;background:var(--wk-meer)}
+#wk-karte path{fill:var(--wk-n);stroke:var(--wk-rand);stroke-width:.5px;vector-effect:non-scaling-stroke;transition:fill .35s ease}
+#wk-karte path.meer{fill:var(--wk-meer);stroke:none}
+#wk-karte path.st-M{fill:var(--wk-m)}
+#wk-karte path.st-A{fill:var(--wk-a)}
+#wk-karte path.st-X{fill:var(--wk-x)}
+#wk-karte path.st-B{fill:var(--wk-b)}
+#wk-karte path.kol.st-M,#wk-karte path.kol.st-A,#wk-karte path.kol.st-X{fill-opacity:.5}
+#wk-karte path.neu{stroke:var(--kk-tinte);stroke-width:1.6px}
+@media (prefers-reduced-motion:reduce){#wk-karte path{transition:none}}
+.regler{display:flex;align-items:center;gap:10px;margin-top:10px}
+.regler input{flex:1;accent-color:var(--kk-akzent);min-height:36px}
+.regler button{font:600 14px var(--kk-text);min-width:44px;min-height:40px;border:1px solid var(--kk-linie);background:var(--kk-papier);color:var(--kk-tinte);cursor:pointer}
+.regler-skala{display:flex;justify-content:space-between;font:500 12px var(--kk-mono);color:var(--kk-grau);padding:0 54px 0 54px}
+.legende{display:flex;flex-wrap:wrap;gap:6px 16px;margin:12px 0 0;padding:0;list-style:none;font-size:14px}
+.legende li{display:flex;align-items:center;gap:6px}
+.legende i{width:16px;height:16px;flex:none;border:1px solid var(--kk-linie)}
+.legende .kolf{opacity:.5}
+.zaehler{font:500 14px var(--kk-mono);color:var(--kk-grau);margin:8px 0 0}
+.kartennotiz{font-size:13.5px;color:var(--kk-grau);margin:10px 0 0;max-width:none}
+
+/* Tabelle */
+.tabelle-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--kk-linie);background:var(--kk-papier)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+caption{text-align:left;padding:10px 12px;font:600 14px var(--kk-text);color:var(--kk-grau);caption-side:top}
+th,td{text-align:left;padding:8px 12px;border-top:1px solid var(--kk-linie);vertical-align:top}
+thead th{font:700 13px var(--kk-titel);text-transform:uppercase;letter-spacing:.06em;background:var(--kk-grund);border-top:0}
+td.d{font-family:var(--kk-mono);font-size:13.5px;white-space:nowrap}
+.lager{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:0}
+.lager.M{background:var(--wk-m)}.lager.A{background:var(--wk-a)}.lager.B{background:var(--wk-b)}
+
+/* Personen */
+.personen{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.person{display:grid;grid-template-columns:84px 1fr;gap:12px;background:var(--kk-papier);border:1px solid var(--kk-linie);padding:12px}
+.person figure{margin:0}
+.person img,.person .ohnebild{display:block;width:84px;height:108px;object-fit:cover;object-position:50% 20%;background:var(--kk-grund);border:1px solid var(--kk-linie);filter:grayscale(1)}
+.person .ohnebild{display:flex;align-items:center;justify-content:center;font:700 26px var(--kk-titel);color:var(--kk-grau)}
+.person .staat{font:600 12.5px/1.2 var(--kk-titel);letter-spacing:.12em;text-transform:uppercase;color:var(--kk-akzent)}
+.person h3{margin:3px 0 0;font-size:18px}
+.person .leben{font:500 12.5px var(--kk-mono);color:var(--kk-grau);margin:2px 0 0}
+.person p{margin:6px 0 0;font-size:14.5px}
+.person a.mehr{font-weight:600}
+
+/* Weiterführend und Quellen */
+.weiter{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.weiter a{display:block;background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:3px solid var(--kk-akzent);padding:10px 12px;color:var(--kk-tinte);text-decoration:none}
+.weiter a b{display:block;font:700 18px/1.1 var(--kk-titel);text-transform:uppercase}
+.weiter a span{font-size:14px;color:var(--kk-grau)}
+.weiter a:hover b{text-decoration:underline;text-decoration-color:var(--kk-akzent)}
+ol.quellen{margin:0;padding-left:0;list-style:none;font-size:14.5px;display:grid;gap:8px}
+ol.quellen li{max-width:46em;scroll-margin-top:16px;overflow-wrap:anywhere}
+ol.quellen li b{font-family:var(--kk-mono);font-weight:600;margin-right:4px}
+ol.quellen li:target{background:var(--kk-akzent-hell);outline:6px solid var(--kk-akzent-hell)}
+.stand{font-size:13.5px;color:var(--kk-grau)}
+
+@media (max-width:520px){
+  .regler-skala{padding:0 54px}
+  .person{grid-template-columns:72px 1fr}
+  .person img,.person .ohnebild{width:72px;height:94px}
+  .stichtag{font-size:22px}
+}
