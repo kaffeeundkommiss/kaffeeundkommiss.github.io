@@ -29,6 +29,7 @@
 <link rel="stylesheet" href="../../basis.css">
 <link rel="stylesheet" href="../../style.css">
 <link rel="stylesheet" href="einigungskriege.css">
+<link rel="stylesheet" href="../reiter.css">
 </head>
 <body class="kk-b-gesch">
 <div class="kk-leiste"><div class="kk-in">
@@ -49,12 +50,19 @@
 
 <main>
   <p class="pfad"><a href="https://kaffeeundkommiss.github.io/geschichte/">Geschichte</a> › Einigungskriege 1864–1871</p>
-  <div class="kicker">Übersicht</div>
-  <h1>Die sogenannten Einigungskriege 1864–1871</h1>
+  <header class="seitenkopf">
+    <div class="kicker">Europa · Februar 1864 – Mai 1871</div>
+    <h1>Die sogenannten Einigungskriege</h1>
+    <nav class="pages" aria-label="Bereiche dieser Seite">
+      <a href="#ueberblick" data-reiter="ueberblick">Überblick</a>
+      <a href="#karte" data-reiter="karte">Karte</a>
+      <a href="#personen" data-reiter="personen">Personen</a>
+      <a href="#quellen" data-reiter="quellen">Quellen</a>
+    </nav>
+  </header>
+
+  <section class="reiter-teil" id="ueberblick" data-reiter="ueberblick">
   <p class="lead">Drei Kriege in sieben Jahren: Preußen und Österreich gegen Dänemark 1864, Preußen gegen Österreich und dessen Verbündete 1866, die deutschen Staaten unter preußischer Führung gegen Frankreich 1870/71. Am Ende stand das Deutsche Kaiserreich ohne Österreich.</p>
-  <nav class="inhalt" aria-label="Inhalt">
-    <a href="#begriff">Zum Begriff</a><a href="#kriege">Die drei Kriege</a><a href="#ursachen">Ursachen</a><a href="#anlaesse">Anlässe</a><a href="#karte">Karte</a><a href="#personen">Personen</a><a href="#weiter">Weiterlesen</a><a href="#quellen">Quellen</a>
-  </nav>
 
   <section class="kasten" id="begriff" aria-labelledby="h-begriff">
     <h3 id="h-begriff"><span class="marke deutung">Einordnung</span>Zum Begriff „Einigungskriege“</h3>
@@ -137,6 +145,9 @@
       </ol></li>
   </ul>
 
+  </section>
+
+  <section class="reiter-teil" data-reiter="karte">
   <h2 id="karte">Karte: Beteiligte Staaten 1863–1871</h2>
   <div class="karte">
     <div class="ek-steuer">
@@ -176,6 +187,9 @@
     <p class="ek-hinweis">Grenzen vereinfacht. Grundlage: historische Grenzen von 1815 aus <a href="#q32">historical-basemaps</a> (GPL-3.0), Belgien, Niederlande, Luxemburg sowie die Abtretungen an Frankreich 1860 (Savoyen) und an das Reich 1871 (Elsass-Lothringen) nachgebaut mit Verwaltungsgrenzen von <a href="#q33">Natural Earth</a>. Kleinere Staaten sind zusammengefasst, Frankfurt ist als Punkt dargestellt. Maßstab ohne Gewähr für Grenzverläufe im Einzelnen.</p>
   </div>
 
+  </section>
+
+  <section class="reiter-teil" data-reiter="personen">
   <h2 id="personen">Personen</h2>
   <p>Je beteiligtem Staat eine Person, die bis heute bekannt ist. Die Bildnisse stammen aus den 1850er bis 1870er Jahren. Für die deutschen Mittelstaaten stehen Bayern und Hannover, deren Könige 1866 auf Österreichs Seite standen.</p>
   <div class="personen">
@@ -258,12 +272,18 @@
     </article>
   </div>
 
+  </section>
+
+  <section class="reiter-teil" data-reiter="ueberblick">
   <h2 id="weiter">Weiterlesen</h2>
   <a class="weiter" href="https://kaffeeundkommiss.github.io/luchmann187071/">
     <img src="../../icons/luchmann.svg" alt="" width="48" height="48">
     <span><strong>Feldwebel Luchmann 1866 und 1870/71</strong>Zwei der drei Kriege aus der Sicht eines Soldaten: animierte Karte nach dem Kriegstagebuch eines Brandenburger Grenadiers, von Gitschin und Königgrätz bis Mars-la-Tour und Le Mans.</span>
   </a>
 
+  </section>
+
+  <section class="reiter-teil" data-reiter="quellen">
   <h2 id="quellen">Quellen</h2>
   <p>Abgerufen am 15.11.2026. Ziel sind zwei voneinander unabhängige Quellen je Aussage; Seiten derselben Institution (etwa mehrere LeMO-Seiten des Deutschen Historischen Museums) gelten dabei als eine Quelle. Aussagen mit nur einer Quelle sind mit <span class="eine">eine Quelle</span> markiert. Wikipedia dient nur dem Datenabgleich.</p>
   <ol class="quellen">
@@ -326,6 +346,7 @@
       <li>Garibaldi 1866 und 1870/71: Die Treccani-Enzyklopädie nennt Trentino-Feldzug und Dijon ausdrücklich, die Angaben aus dem Dizionario Biografico wurden nur in einer Zusammenfassung gelesen.</li>
     </ul>
   </details>
+  </section>
 </main>
 
 <footer class="kk-fuss"><div class="kk-in">
@@ -333,5 +354,6 @@
 </div></footer>
 <script src="karte-daten.js"></script>
 <script src="karte.js"></script>
+<script src="../reiter.js"></script>
 </body>
 </html>

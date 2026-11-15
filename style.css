@@ -19,6 +19,11 @@ h1{margin:6px 0 0;font:700 clamp(30px,5vw,42px)/1.02 var(--kk-titel);text-transf
 .projekt:hover .titel,.projekt:focus-visible .titel{text-decoration:underline;text-decoration-color:var(--kk-akzent);text-decoration-thickness:2px;text-underline-offset:3px}
 .projekt:hover{border-color:var(--kk-akzent)}
 .projekt:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:2px}
+/* Übersichtsseite eines Themas: breite Kachel über den Einzelseiten */
+.projekt.breit{grid-column:1/-1}
+.projekt.breit .band{height:76px}
+.projekt.breit .titel{font-size:clamp(26px,3.4vw,32px)}
+.projekt.breit .text{max-width:52em}
 .text{color:var(--kk-tinte)}
 .hinweis{margin-top:auto;padding-top:8px;font:400 13px var(--kk-mono);color:var(--kk-grau)}
 
