@@ -35,7 +35,7 @@ nicht automatisch ergeben: Wahltermine, letzte Wahl und bisherige Regierungen.
 4. **Neue Termine.** Wird ein Wahltermin offiziell festgelegt (oder eine Neuwahl angesetzt),
    `wahltermin` und `sortierung` (`JJJJ-MM-TT`) anpassen, mit zwei Quellen geprüft.
 
-5. **Prüfen:** `node --test werkzeuge/tests/` muss grün sein.
+5. **Prüfen:** `node --test werkzeuge/tests/*.test.js` muss grün sein.
 
 6. **Committen nur bei Änderungen:** `git status --porcelain politik/koalitionen/data.json`.
    Gibt es eine Zeile: `git add politik/koalitionen/data.json && git commit -m "Koalitionsrechner: Update KW <ww>" && git push`.
