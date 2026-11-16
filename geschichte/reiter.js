@@ -1,4 +1,4 @@
-/* Gemeinsame Reiter der Übersichtsseiten (geschichte/erster-weltkrieg/, geschichte/einigungskriege/), Aussehen wie auf der Richthofen-Seite.
+/* Gemeinsame Reiter der Übersichtsseiten (geschichte/erster-weltkrieg/, geschichte/einigungskriege/, sicherheitspolitik/bundeswehr/), Aussehen wie auf der Richthofen-Seite.
    Ohne JavaScript bleiben alle Abschnitte sichtbar und die Reiter springen per Anker. Ein Anker auf ein Element
    in einem anderen Bereich (etwa ein Quellenverweis #q-…) wechselt in diesen Bereich. */
 (function () {

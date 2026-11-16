@@ -1,0 +1,121 @@
+/* Übersicht Bundeswehr seit 1955. Grundsystem aus ../../basis.css, Bereichsfarben aus ../../style.css.
+   Allgemeine Bausteine übernommen aus geschichte/einigungskriege/einigungskriege.css. */
+body{margin:0;background:var(--kk-grund);color:var(--kk-tinte);font:400 16px/1.55 var(--kk-text)}
+a{color:var(--kk-tinte);text-decoration-color:var(--kk-akzent);text-underline-offset:2px}
+.wrap{max-width:var(--kk-max);margin:0 auto;padding:0 16px}
+.kk-kopf .wrap{padding-top:26px;padding-bottom:26px}
+.kk-schild .logo{flex:none;width:44px;height:44px}
+main{max-width:var(--kk-max);margin:0 auto;padding:22px 16px 40px}
+.pfad{font:400 13px var(--kk-text);color:var(--kk-grau);margin:0 0 14px}
+.pfad a{color:var(--kk-grau)}
+.kicker{font:600 13px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent)}
+h1{margin:6px 0 10px;font:700 clamp(30px,5vw,42px)/1.02 var(--kk-titel);text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
+h2{margin:40px 0 10px;font:700 26px/1.1 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em;padding-top:10px;border-top:3px solid var(--kk-akzent)}
+h3{margin:22px 0 6px;font:700 19px/1.15 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em}
+p{margin:0 0 12px}
+.lead{font-size:18px}
+.q{font:500 11px var(--kk-mono);vertical-align:super;line-height:0;white-space:nowrap}
+.q a{text-decoration:none;color:var(--kk-akzent)}
+.eine{font:500 11px var(--kk-mono);color:var(--kk-grau);background:var(--kk-akzent-hell);padding:0 4px;border-radius:3px;white-space:nowrap}
+
+/* Kästen */
+.kasten{background:var(--kk-papier);border:1px solid var(--kk-linie);border-left:4px solid var(--kk-akzent);padding:14px 16px;margin:16px 0}
+.kasten h3{margin-top:0}
+.kasten p:last-child{margin-bottom:0}
+.marke{display:inline-block;font:600 11px/1 var(--kk-mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;border:1px solid var(--kk-linie);border-radius:3px;color:var(--kk-grau);margin-right:6px;vertical-align:1px}
+.marke.deutung{border-color:var(--kk-akzent);color:var(--kk-akzent)}
+
+/* Inhaltsverzeichnis */
+.inhalt{display:flex;flex-wrap:wrap;gap:6px 14px;margin:18px 0 0;padding:10px 0;border-top:1px solid var(--kk-linie);border-bottom:1px solid var(--kk-linie);font-size:14px}
+.inhalt a{text-decoration:none}
+.inhalt a:hover{text-decoration:underline}
+
+
+/* Weiterlesen */
+.weiter{display:flex;gap:14px;align-items:center;background:var(--kk-papier);border:1px solid var(--kk-linie);border-left:4px solid var(--kk-akzent);padding:12px 14px;text-decoration:none;color:var(--kk-tinte)}
+.weiter img{flex:none;width:48px;height:48px}
+.weiter strong{display:block;font:700 19px/1.1 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em}
+.weiter:hover strong{text-decoration:underline;text-decoration-color:var(--kk-akzent)}
+
+/* Quellen */
+.quellen{padding-left:28px;font-size:14px}
+.quellen li{margin:0 0 8px;max-width:48em}
+.quellen li:target{background:var(--kk-akzent-hell)}
+.quellen .stand{color:var(--kk-grau)}
+details.belege{margin:10px 0;background:var(--kk-papier);border:1px solid var(--kk-linie);padding:8px 12px}
+details.belege summary{cursor:pointer;font-weight:600}
+.tab{overflow-x:auto}
+table{border-collapse:collapse;font-size:13px;width:100%;min-width:560px}
+th,td{border-bottom:1px solid var(--kk-linie);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}
+.tab table{min-width:600px}
+td .seite{font:600 13px var(--kk-titel);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+td.jahr{font:500 13px var(--kk-mono);white-space:nowrap}
+.hinweis{font-size:13px;color:var(--kk-grau)}
+
+/* Kennzahlen */
+.zahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:16px 0}
+.zahl{background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:4px solid var(--kk-akzent);padding:10px 12px}
+.zahl b{display:block;font:700 30px/1 var(--kk-titel)}
+.zahl span{font-size:14px}
+
+/* Phasen */
+.phasen{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:12px 0}
+.phase{background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:4px solid var(--kk-akzent);padding:12px 14px}
+.phase h3{margin:0 0 4px}
+.phase .zeit{font:500 13px var(--kk-mono);color:var(--kk-grau);margin:0 0 8px}
+.phase p{font-size:15px}
+
+/* Zeitleiste der Minister */
+.mz-band{margin:18px 0 6px;position:relative}
+.mz-spur{position:relative;height:34px;background:var(--kk-akzent-hell);border:1px solid var(--kk-linie)}
+.mz-seg{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;text-decoration:none;
+  font:600 12px var(--kk-titel);color:#fff;border-right:1px solid var(--kk-papier);overflow:hidden}
+.mz-seg:nth-child(odd){background:var(--kk-akzent)}
+.mz-seg:nth-child(even){background:var(--kk-markierung);color:var(--kk-tinte)}
+.mz-seg:hover,.mz-seg:focus-visible{outline:2px solid var(--kk-tinte);z-index:1}
+.mz-jahre{position:relative;height:20px;font:500 11px var(--kk-mono);color:var(--kk-grau)}
+.mz-jahre span{position:absolute;top:4px;transform:translateX(-50%)}
+.mz-jahre span::before{content:"";position:absolute;left:50%;top:-6px;height:5px;border-left:1px solid var(--kk-grau)}
+.mz-liste{list-style:none;padding:0;margin:14px 0 0;position:relative}
+.mz-liste::before{content:"";position:absolute;left:59px;top:0;bottom:0;border-left:3px solid var(--kk-akzent)}
+.mz-karte{display:grid;grid-template-columns:120px 1fr;gap:16px;margin:0 0 14px;position:relative}
+.mz-foto{width:120px;height:150px;background:var(--kk-akzent-hell);border:3px solid var(--kk-papier);outline:1px solid var(--kk-linie);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.mz-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.mz-foto .leer{font:700 34px var(--kk-titel);color:var(--kk-akzent)}
+.mz-txt{background:var(--kk-papier);border:1px solid var(--kk-linie);padding:10px 14px 12px}
+.mz-nr{font:600 12px/1 var(--kk-titel);letter-spacing:.12em;text-transform:uppercase;color:var(--kk-akzent)}
+.mz-txt h3{margin:6px 0 2px}
+.mz-zeit{font:500 13px var(--kk-mono);color:var(--kk-grau);margin:0 0 2px}
+.mz-kanzler{font-size:14px;color:var(--kk-grau);margin:0 0 6px}
+.mz-ereig{margin:0;padding-left:18px;font-size:15px}
+.mz-ereig li{margin:0 0 3px}
+.mz-ohne{font-size:14px;color:var(--kk-grau);margin:0}
+.mz-txt .bild{font-size:12px;color:var(--kk-grau);margin:6px 0 0}
+.mz-karte:target .mz-txt{outline:2px solid var(--kk-akzent)}
+@media (max-width:560px){
+  .mz-band{display:none}
+  .mz-liste::before{left:35px}
+  .mz-karte{grid-template-columns:72px 1fr;gap:10px}
+  .mz-foto{width:72px;height:90px}
+  .mz-foto .leer{font-size:24px}
+}
+
+/* Gedenken und Tapferkeit */
+.gedenk{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:12px 0}
+.gk{background:var(--kk-papier);border:1px solid var(--kk-linie);display:flex;flex-direction:column}
+.gk .foto{aspect-ratio:4/3;background:var(--kk-akzent-hell);display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--kk-linie)}
+.gk .foto img{width:100%;height:100%;object-fit:cover;display:block}
+.gk .foto.orden img{object-fit:contain;padding:10px}
+.gk .foto .leer{font:500 12px var(--kk-mono);color:var(--kk-grau);padding:12px;text-align:center}
+.gk .txt{padding:12px 14px 14px}
+.gk .art{font:600 12px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent)}
+.gk h3{margin:6px 0 6px}
+.gk dl{margin:0 0 8px;font-size:15px}
+.gk dt{font-weight:600;margin-top:6px}
+.gk dd{margin:0}
+.gk p{font-size:15px;margin:0 0 6px}
+.gk .bild{font-size:12px;color:var(--kk-grau);margin:auto 0 0;padding:0 14px 12px}
+.gk .bild a{color:var(--kk-grau)}
+.weiterliste{display:grid;gap:10px;margin:12px 0}
