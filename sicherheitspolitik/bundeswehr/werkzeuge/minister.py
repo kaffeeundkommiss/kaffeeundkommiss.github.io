@@ -73,7 +73,9 @@ MINISTER = [
     ("pistorius", "Boris Pistorius", "SPD", "2023-01-19", None, "Olaf Scholz, Friedrich Merz", [
         ("Dezember 2023: Ende des Mali-Einsatzes", "3"),
         ("25. April 2024: Bundestag beschließt den Nationalen Veteranentag", "28,29"),
-        ("15. Juni 2025: erster Nationaler Veteranentag", "29,30")]),
+        ("18./21. März 2025: Grundgesetzänderung, Verteidigungsausgaben über 1 Prozent des BIP von der Schuldenbremse ausgenommen", "38,39"),
+        ("15. Juni 2025: erster Nationaler Veteranentag", "29,30"),
+        ("5. Dezember 2025: Bundestag beschließt das Wehrdienst-Modernisierungsgesetz", "41,42")]),
 ]
 
 # Bildnachweise, nur befüllen, wenn die Lizenz auf der Commons-Dateiseite geprüft ist.
