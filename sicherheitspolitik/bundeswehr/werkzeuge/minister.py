@@ -3,10 +3,12 @@
 
 Daten stehen in MINISTER unten. Der Block zwischen <!-- minister:start --> und <!-- minister:end -->
 wird ersetzt. Liegt ein Porträt unter bilder/<schluessel>.jpg, wird es eingebunden, sonst erscheinen
-die Initialen. Bildnachweise stehen in BILDER (Schlüssel -> Text mit Urheber, Jahr, Lizenz, Commons-Datei).
+die Initialen. Bildnachweise stehen in werkzeuge/bilder.json (Schlüssel -> Commons-Datei, Urheber, Lizenz);
+daraus entsteht auch die Liste zwischen <!-- bilder:start --> und <!-- bilder:end -->.
 Aufruf im Ordner sicherheitspolitik/bundeswehr/:  python3 werkzeuge/minister.py
 """
 import html
+import json
 import re
 from datetime import date
 from pathlib import Path
@@ -78,8 +80,17 @@ MINISTER = [
         ("5. Dezember 2025: Bundestag beschließt das Wehrdienst-Modernisierungsgesetz", "41,42")]),
 ]
 
-# Bildnachweise, nur befüllen, wenn die Lizenz auf der Commons-Dateiseite geprüft ist.
-BILDER = {}
+# Bildnachweise, nur eintragen, wenn die Lizenz auf der Commons-Dateiseite geprüft ist.
+NACHWEISE = json.loads((ORDNER / "werkzeuge" / "bilder.json").read_text(encoding="utf-8"))
+BILDER = {k: f"Foto: {u}, {l}" for k, (_, u, l) in NACHWEISE.items() if (ORDNER / "bilder" / f"{k}.jpg").exists()}
+LIZENZEN = {"CC BY 2.0": "https://creativecommons.org/licenses/by/2.0/deed.de",
+            "CC BY 3.0": "https://creativecommons.org/licenses/by/3.0/deed.de",
+            "CC BY-SA 2.0": "https://creativecommons.org/licenses/by-sa/2.0/deed.de",
+            "CC BY-SA 3.0": "https://creativecommons.org/licenses/by-sa/3.0/deed.de",
+            "CC BY-SA 3.0 DE": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.de",
+            "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/deed.de"}
+BESCHRIFTUNG = {"ehrenmal": "Ehrenmal der Bundeswehr", "wald": "Wald der Erinnerung, Ehrenhain Kunduz",
+                "ehrenkreuz": "Ehrenkreuz der Bundeswehr für Tapferkeit", "gefecht": "Einsatzmedaille Gefecht"}
 
 e = html.escape
 
@@ -139,7 +150,21 @@ def bauen():
             '  <ol class="mz-liste">\n' + "\n".join(karten) + "\n  </ol>\n  <!-- minister:end -->")
 
 
+def nachweisliste():
+    namen = {k: n for k, n, *_ in MINISTER} | BESCHRIFTUNG
+    zeilen = []
+    for k, (datei, urheber, lizenz) in NACHWEISE.items():
+        if not (ORDNER / "bilder" / f"{k}.jpg").exists():
+            continue
+        url = "https://commons.wikimedia.org/wiki/File:" + datei
+        lz = f'<a href="{LIZENZEN[lizenz]}">{e(lizenz)}</a>' if lizenz in LIZENZEN else e(lizenz) + " (laut Commons)"
+        zeilen.append(f'    <li id="b-{k}">{e(namen[k])}: Foto {e(urheber)}, {lz}, '
+                      f'<a href="{e(url)}">Wikimedia Commons</a>, verkleinert, teils zugeschnitten.</li>')
+    return "<!-- bilder:start -->\n" + "\n".join(zeilen) + "\n    <!-- bilder:end -->"
+
+
 text = SEITE.read_text(encoding="utf-8")
 neu = re.sub(r"<!-- minister:start -->.*?<!-- minister:end -->", lambda m: bauen(), text, flags=re.S)
+neu = re.sub(r"<!-- bilder:start -->.*?<!-- bilder:end -->", lambda m: nachweisliste(), neu, flags=re.S)
 SEITE.write_text(neu, encoding="utf-8")
 print("Zeitleiste geschrieben:", len(MINISTER), "Minister")
