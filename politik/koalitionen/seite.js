@@ -29,6 +29,26 @@
     return '<span class="partei"><span class="punkt" style="background:' + farbe(p) + '"></span>' + esc(p) + '</span>';
   }
 
+  // Kuchendiagramm einer Koalition: Partner im Uhrzeigersinn ab 12 Uhr, Rest grau.
+  // Die gestrichelte Linie von der Mitte nach unten (6 Uhr) markiert die Hälfte der Sitze.
+  function kuchen(k, a) {
+    var R = 44, C = 50, start = 0, teile = '';
+    var punkt = function (anteil) {
+      var w = 2 * Math.PI * anteil / 100;
+      return (C + R * Math.sin(w)).toFixed(2) + ' ' + (C - R * Math.cos(w)).toFixed(2);
+    };
+    k.parteien.forEach(function (p) {
+      var x = a.anteil[p], ende = start + x;
+      teile += '<path d="M' + C + ' ' + C + ' L' + punkt(start) + ' A' + R + ' ' + R + ' 0 ' + (x > 50 ? 1 : 0) + ' 1 ' + punkt(Math.min(ende, 99.999)) +
+        ' Z" style="fill:' + farbe(p) + '"/>';
+      start = ende;
+    });
+    var titel = k.parteien.map(function (p) { return p + ' ' + zahl(a.anteil[p]) + ' %'; }).join(', ') + ', zusammen ' + zahl(k.sitzanteil) + ' % der Sitze';
+    return '<svg class="kuchen" viewBox="0 0 100 100" role="img" aria-label="' + esc(titel) + '">' +
+      '<circle cx="50" cy="50" r="' + R + '" class="rest"/>' + teile +
+      '<line x1="50" y1="50" x2="50" y2="100" class="haelfte-grund"/><line x1="50" y1="50" x2="50" y2="100" class="haelfte"/></svg>';
+  }
+
   function karte(parl, a, offen) {
     var h = '<details class="parl" id="' + esc(parl.id) + '"' + (offen ? ' open' : '') + '>' +
       '<summary><h3>' + esc(parl.name) + '</h3><span class="termin">Wahl: ' + esc(parl.wahltermin) + '</span></summary><div class="inhalt">';
@@ -66,12 +86,12 @@
 
     // Koalitionen
     h += '<p class="zwischen">Mehrheiten aus höchstens drei Parteien</p>';
+    if (a.koalitionen.length) h += '<p class="kuchen-legende">Jeder Kuchen zeigt die Sitzanteile der Partner, beginnend oben. Grau sind die übrigen Sitze. Die gestrichelte Linie nach unten markiert die Hälfte: Reichen die Farben über sie hinaus, steht die Mehrheit.</p>';
     if (!a.koalitionen.length) h += '<p class="keine">Keine Kombination aus höchstens drei Parteien käme auf mehr als die Hälfte der Sitze.</p>';
     else h += '<ul class="koal">' + a.koalitionen.map(function (k) {
-      return '<li><span class="wer">' + k.parteien.map(partei).join('<span class="plus">+</span>') + '</span>' +
-        '<span class="zahl">' + zahl(k.sitzanteil) + ' %</span>' +
-        '<span class="balken" aria-hidden="true">' + k.parteien.map(function (p) {
-          return '<i style="width:' + a.anteil[p] + '%;background:' + farbe(p) + '"></i>'; }).join('') + '<b></b></span>' +
+      return '<li>' + kuchen(k, a) +
+        '<span class="wer">' + k.parteien.map(partei).join('<span class="plus">+</span>') + '</span>' +
+        '<span class="zahl">' + zahl(k.sitzanteil) + ' % der Sitze</span>' +
         '<span class="marken">' + (k.gab_es ? '<span class="marke gab">gab es ' + (parl.ebene === 'Bund' ? 'im Bund' : 'im Land') + '</span>'
           : '<span class="marke rech">rein rechnerisch</span>') +
         (k.knapp ? '<span class="marke knapp">knapp</span>' : '') + '</span></li>';
@@ -111,7 +131,8 @@
     document.getElementById('inhalt').innerHTML =
       '<h2 class="gruppe-titel">Bundestag</h2>' + block(bund, true) +
       '<h2 class="gruppe-titel">Landtagswahlen bis Ende 2027</h2><p class="gruppe-sub">Nächster Termin zuerst.</p>' + block(bald, true) +
-      '<h2 class="gruppe-titel">Spätere Landtagswahlen</h2><p class="gruppe-sub">Termine noch nicht festgelegt. Zum Aufklappen antippen.</p>' + block(spaeter, false);
+      '<details class="gruppe"><summary><h2 class="gruppe-titel">Spätere Landtagswahlen</h2><span class="gruppe-sub">' + spaeter.length +
+      ' Länder, Termine noch nicht festgelegt. Zum Ein- und Ausklappen antippen.</span></summary>' + block(spaeter, false) + '</details>';
     document.getElementById('stand').innerHTML =
       '<span>Umfragen: ' + (live ? 'live von dawum.de, Stand ' : 'gespeicherter Stand ') + esc(datum(stand)) + '</span>' +
       '<span>Bisherige Regierungen: Stand ' + esc(datum(d.historie_stand)) + '</span>';
@@ -119,7 +140,7 @@
       '<li>Umfragen: <a href="https://dawum.de/">dawum.de</a> (Datenbank der veröffentlichten Sonntagsfragen, ODC-ODbL), abgerufen ' + esc(datum(stand)) + '.</li>' +
       d.quellen_termine.map(function (q) { return '<li>Wahltermine: <a href="' + esc(q.url) + '" rel="noopener">' + esc(q.name) + '</a></li>'; }).join('') +
       '<li>Bisherige Regierungen: je Parlament angegeben (Wikipedia-Listen der Landesregierungen und Bundesregierungen, abgerufen ' + esc(datum(d.historie_stand)) + ').</li>';
-    if (location.hash) { var z = document.getElementById(location.hash.slice(1)); if (z) { z.open = true; z.scrollIntoView(); } }
+    if (location.hash) { var z = document.getElementById(location.hash.slice(1)); if (z) { z.open = true; var g = z.closest('details.gruppe'); if (g) g.open = true; z.scrollIntoView(); } }
   }
 
   (async function () {
