@@ -52,21 +52,34 @@ main{gap:20px}
 .punkt{display:inline-block;width:12px;height:12px;flex:none;border:1px solid rgba(0,0,0,.15)}
 .draussen{margin:0;font-size:14px;color:var(--kk-grau);max-width:none}
 
-/* Koalitionen */
-.koal{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
-.koal li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center;padding:10px 12px;border:1px solid var(--kk-linie)}
-.koal .wer{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-weight:600}
+/* Koalitionen als Kuchendiagramme: drei nebeneinander, bei wenig Platz zwei (Startwert 540 px) */
+.koal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
+@media (max-width:540px){.koal{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
+.koal li{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid var(--kk-linie);text-align:center}
+.kuchen{width:100%;max-width:120px;height:auto;display:block}
+.kuchen .rest{fill:var(--kk-linie)}
+.kuchen path{stroke:var(--kk-papier);stroke-width:1}
+.kuchen .haelfte-grund{stroke:var(--kk-papier);stroke-width:4}
+.kuchen .haelfte{stroke:var(--kk-tinte);stroke-width:2;stroke-dasharray:4 3}
+.koal .wer{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2px 5px;font-weight:600;font-size:14px}
 .koal .plus{color:var(--kk-grau);font-weight:400}
 .partei{display:inline-flex;align-items:center;gap:5px}
-.koal .zahl{font:600 15px/1 var(--kk-mono);text-align:right;white-space:nowrap}
-.koal .balken{grid-column:1 / -1;position:relative;display:flex;height:10px;background:var(--kk-akzent-hell)}
-.koal .balken i{display:block;height:100%;border-right:1px solid var(--kk-papier)}
-.koal .balken b{position:absolute;left:50%;top:-3px;bottom:-3px;border-left:2px dashed var(--kk-tinte)}
-.koal .marken{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:6px}
+.koal .zahl{font:600 14px/1.2 var(--kk-mono)}
+.koal .marken{display:flex;flex-wrap:wrap;justify-content:center;gap:4px}
 .marke{display:inline-block;padding:2px 8px;font:600 12px/1.5 var(--kk-text);letter-spacing:.02em}
 .marke.gab{background:var(--k-gab-hell);color:var(--k-gab)}
 .marke.rech{background:var(--k-rech-hell);color:var(--k-rech)}
 .marke.knapp{border:1px solid var(--kk-linie);color:var(--kk-grau)}
+.kuchen-legende{margin:0;font-size:13px;color:var(--kk-grau);max-width:none}
+
+/* Spätere Landtagswahlen als ausklappbarer Bereich */
+.gruppe > summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:2px}
+.gruppe > summary::-webkit-details-marker{display:none}
+.gruppe > summary .gruppe-titel::before{content:"▸";display:inline-block;width:1em;color:var(--kk-akzent);transition:transform .15s ease}
+.gruppe[open] > summary .gruppe-titel::before{transform:rotate(90deg)}
+.gruppe > summary:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:2px}
+.gruppe > .parlamente{margin-top:14px}
+@media (prefers-reduced-motion:reduce){.gruppe > summary .gruppe-titel::before{transition:none}}
 .keine{margin:0;padding:10px 12px;border:1px solid var(--kk-linie);max-width:none}
 
 .umfr summary{cursor:pointer;font-size:14px;color:var(--kk-grau)}
