@@ -159,7 +159,7 @@ def nachweisliste():
         url = "https://commons.wikimedia.org/wiki/File:" + datei
         lz = f'<a href="{LIZENZEN[lizenz]}">{e(lizenz)}</a>' if lizenz in LIZENZEN else e(lizenz) + " (laut Commons)"
         zeilen.append(f'    <li id="b-{k}">{e(namen[k])}: Foto {e(urheber)}, {lz}, '
-                      f'<a href="{e(url)}">Wikimedia Commons</a>, verkleinert.</li>')
+                      f'<a href="{e(url)}">Wikimedia Commons</a>, verkleinert, teils zugeschnitten.</li>')
     return "<!-- bilder:start -->\n" + "\n".join(zeilen) + "\n    <!-- bilder:end -->"
 
 
