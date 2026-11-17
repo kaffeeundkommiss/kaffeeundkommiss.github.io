@@ -103,3 +103,27 @@ body.kk-breit{--kk-max:1200px}
   .rk{padding:18px}
   .rk-sym{width:56px;height:56px}
 }
+
+/* Geschichte-Übersicht breiter (17.11.2026): Überschrift mittig, Erster Weltkrieg als Viererreihe,
+   darunter die Einigungskriege-Übersicht als größere Kachel (drei Spalten) neben Luchmann. Breite 1200 px wie Politik (kk-breit).
+   Startwerte: Umbruch 1023 px (zwei Spalten) und 640 px (eine Spalte). */
+.einleitung.mittig{text-align:center}
+.einleitung.mittig p{margin-left:auto;margin-right:auto;max-width:44em}
+.themen{display:flex;flex-direction:column;gap:12px}
+.gruppe{display:flex;align-items:center;gap:12px;margin:0;font:600 15px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent)}
+.gruppe::after{content:"";flex:1;height:1px;background:var(--kk-linie)}
+.vierer{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vierer .projekt .titel{font-size:21px}
+.vierer .projekt.gross{grid-column:span 3}
+.vierer .projekt.gross .band{height:76px}
+.vierer .projekt.gross .titel{font-size:clamp(26px,3.4vw,32px)}
+.vierer .projekt.gross .text{max-width:44em;font-size:17px}
+@media (max-width:1023px){
+  .vierer{grid-template-columns:1fr 1fr}
+  .vierer .projekt.gross{grid-column:1/-1}
+  .vierer .projekt.gross + .projekt:last-child{grid-column:1/-1}
+}
+@media (max-width:640px){
+  .vierer{grid-template-columns:1fr;gap:12px}
+  .vierer .projekt.gross .titel{font-size:26px}
+}
