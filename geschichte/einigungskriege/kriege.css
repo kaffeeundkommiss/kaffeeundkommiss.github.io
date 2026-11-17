@@ -1,0 +1,109 @@
+/* Kriegsseiten 1864, 1866, 1870/71. Ergänzt einigungskriege.css; Seiten erzeugt mit werkzeuge/kriegsseiten.py. */
+:root{--kk-flaeche:.22;--kk-wasser:#6E95B5;--kk-relief-filter:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--kk-flaeche:.38;--kk-wasser:#7FA6C4;--kk-relief-filter:brightness(.58) contrast(1.1) saturate(.8)}}
+:root[data-theme="dark"]{--kk-flaeche:.38;--kk-wasser:#7FA6C4;--kk-relief-filter:brightness(.58) contrast(1.1) saturate(.8)}
+
+/* Navigation zwischen den drei Kriegen */
+.kriegsnav{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 14px}
+.kriegsnav a{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid var(--kk-linie);background:var(--kk-papier);font:600 15px/1 var(--kk-titel);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--kk-tinte)}
+.kriegsnav a span{font:500 12px/1 var(--kk-mono);color:var(--kk-grau)}
+.kriegsnav a[aria-current="page"]{background:var(--kk-akzent);border-color:var(--kk-akzent);color:#fff}
+.kriegsnav a[aria-current="page"] span{color:#fff}
+
+/* Steckbrief */
+.steckbrief{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px;margin:16px 0}
+.steckbrief div{background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:3px solid var(--kk-akzent);padding:10px 14px}
+.steckbrief dt{font:600 13px/1 var(--kk-titel);letter-spacing:.12em;text-transform:uppercase;color:var(--kk-akzent);margin-bottom:6px}
+.steckbrief dd{margin:0;font-size:15px}
+.verweis{font-size:14px;color:var(--kk-grau)}
+
+/* Karte und Verlauf */
+.kk-kartenblock{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:18px;align-items:start;margin-top:12px}
+.kk-kartenbild{background:var(--kk-papier);border:1px solid var(--kk-linie);padding:10px;position:sticky;top:10px}
+.kk-karte{display:block;width:100%;height:auto;background:#D2DFE6}
+.kk-relief{filter:var(--kk-relief-filter)}
+.kf{fill-opacity:var(--kk-flaeche);stroke:none}
+.kk-fluss{fill:none;stroke:var(--kk-wasser);stroke-width:1.3;stroke-linejoin:round;stroke-linecap:round;opacity:.9}
+.kk-grenzen path{fill:none;stroke:#3A352B;stroke-width:1;stroke-dasharray:5 3;opacity:.55}
+.kk-abgetreten{fill:none;stroke:var(--r-ge);stroke-width:2.2;stroke-dasharray:2 4;stroke-linecap:round}
+.kk-landschaft text{font:italic 500 14px var(--kk-text);text-anchor:middle;fill:#5A4E3A;paint-order:stroke;stroke:rgba(255,255,255,.7);stroke-width:3px;letter-spacing:.06em}
+.kk-landschaft text.fluss{fill:#2F5C80;font-size:13px}
+.kk-landschaft text.meer{fill:#3D6A8C;font-size:16px;letter-spacing:.2em;text-transform:uppercase;font-style:normal}
+.kk-landschaft text.gebirge{letter-spacing:.25em;text-transform:uppercase;font-size:13px;font-style:normal}
+.kk-pfeile path{fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.kk-pfeile .pf-pr{stroke:var(--r-pr)} .kk-pfeile .pf-ge{stroke:var(--r-ge)}
+.sp-pr{fill:var(--r-pr)} .sp-ge{fill:var(--r-ge)}
+.kk-pfeile text{font:600 12px var(--kk-titel);letter-spacing:.06em;text-transform:uppercase;text-anchor:middle;fill:var(--r-pr);paint-order:stroke;stroke:var(--ek-halo);stroke-width:3px}
+.kk-ereignisse line{stroke:var(--ek-schrift);stroke-width:1.2}
+.kk-marke circle{fill:var(--kk-papier);stroke:var(--ek-schrift);stroke-width:2}
+.kk-marke text{font:700 13px var(--kk-mono);text-anchor:middle;fill:var(--ek-schrift)}
+.kk-marke.entscheidung circle{fill:var(--kk-akzent);stroke:var(--kk-papier)}
+.kk-marke.entscheidung text{fill:#fff}
+.kk-marke.frieden circle{fill:var(--ek-schrift);stroke:var(--kk-papier)}
+.kk-marke.frieden text{fill:var(--kk-papier)}
+.kk-marke.gebiet circle{stroke-dasharray:3 2}
+.kk-ereignisse a:hover circle,.kk-ereignisse a:focus-visible circle{stroke:var(--kk-akzent);stroke-width:3.5}
+.kk-massstab path{fill:none;stroke:var(--ek-schrift);stroke-width:2}
+.kk-massstab text{font:500 12px var(--kk-mono);fill:var(--ek-schrift);paint-order:stroke;stroke:var(--ek-halo);stroke-width:3px}
+.kk-karte .ek-namen text{font-size:17px;fill-opacity:.85}
+.kk-karte .ek-namen text.gross{font-size:22px;letter-spacing:.14em}
+.kk-karte .ek-namen text.klein{font-size:14px}
+
+.kk-legende{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}
+.kk-legende li{display:flex;align-items:flex-start;gap:6px;max-width:100%}
+.kk-legende .feld{flex:none;width:16px;height:16px;margin-top:2px;border:1px solid var(--kk-linie);opacity:.8}
+.kk-legende .feld.fluss{background:var(--kk-wasser);height:4px;margin-top:8px;border:0}
+.kk-legende .feld.abg{border:2px dashed var(--r-ge);background:transparent}
+.kk-legende .sym{flex:none;width:20px;height:20px;border-radius:50%;border:2px solid var(--ek-schrift);background:var(--kk-papier);font:700 11px/16px var(--kk-mono);text-align:center}
+.kk-legende .sym.entscheidung{background:var(--kk-akzent);border-color:var(--kk-akzent);color:#fff}
+.kk-legende .sym.frieden{background:var(--ek-schrift);border-color:var(--ek-schrift);color:var(--kk-papier)}
+
+.kk-verlauf h3{margin-top:0}
+.kk-chronik{list-style:none;margin:0;padding:0}
+.kk-chronik li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--kk-linie);scroll-margin-top:12px}
+.kk-chronik li:target{background:var(--kk-akzent-hell);outline:2px solid var(--kk-akzent);outline-offset:2px}
+.kk-chronik .nr{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--kk-tinte);font:700 13px/24px var(--kk-mono);text-align:center;background:var(--kk-papier)}
+.kk-chronik li.entscheidung .nr{background:var(--kk-akzent);border-color:var(--kk-akzent);color:#fff}
+.kk-chronik li.frieden .nr{background:var(--kk-tinte);border-color:var(--kk-tinte);color:var(--kk-papier)}
+.kk-chronik li.ohne .nr{border-style:dotted;color:var(--kk-grau)}
+.kk-chronik .datum{display:block;color:var(--kk-grau)}
+.kk-chronik strong{display:block;font:700 18px/1.15 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em;margin:2px 0 4px}
+.kk-chronik p{margin:0;font-size:15px}
+
+/* Personen */
+.seite-titel{margin:24px 0 4px;color:var(--kk-akzent)}
+.person .foto.ohne-bild{background:linear-gradient(var(--kk-dimm),var(--kk-dimm)),var(--kk-muster),var(--kk-kopf);background-size:auto,220px auto,auto}
+.person .foto.ohne-bild span{display:flex;align-items:center;justify-content:center;width:96px;height:96px;border-radius:50%;background:var(--kk-papier);border:3px solid var(--kk-akzent);font:700 30px/1 var(--kk-titel);letter-spacing:.04em;color:var(--kk-tinte)}
+
+/* Weiter */
+.kriegsweiter{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
+.kriegsweiter a{display:block;background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:3px solid var(--kk-akzent);padding:12px 14px;text-decoration:none;color:var(--kk-tinte);font:700 19px/1.15 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em}
+.kriegsweiter a span{display:block;font:600 12px/1 var(--kk-titel);letter-spacing:.14em;color:var(--kk-akzent);margin-bottom:6px}
+.kriegsweiter .vor{text-align:right}
+.kriegsweiter a:hover{border-color:var(--kk-akzent)}
+
+/* Links auf die Kriegsseiten in der Übersicht */
+.krieg .zur-seite{display:inline-block;margin-top:10px;font:700 15px/1 var(--kk-titel);letter-spacing:.06em;text-transform:uppercase;color:var(--kk-akzent);text-decoration:none}
+.krieg .zur-seite:hover{text-decoration:underline}
+
+@media (max-width:1023px){
+  .kk-kartenblock{grid-template-columns:1fr}
+  .kk-kartenbild{position:static}
+}
+@media (max-width:600px){
+  .kk-kartenbild{padding:6px;margin:0 -8px}
+  .kk-karte .ek-namen text{font-size:32px;stroke-width:6px}
+  .kk-karte .ek-namen text.gross{font-size:40px}
+  .kk-karte .ek-namen text.klein,.kk-karte .ek-orte text.klein,.kk-landschaft text.klein,.kk-pfeile text{display:none}
+  .kk-karte .ek-orte text{font-size:28px;stroke-width:6px}
+  .kk-karte .ek-orte circle{r:6}
+  .kk-landschaft text{font-size:28px;stroke-width:6px}
+  .kk-landschaft text.meer{font-size:30px}
+  .kk-landschaft text.gebirge,.kk-landschaft text.fluss{font-size:26px}
+  .kk-marke circle{r:21}
+  .kk-marke text{font-size:24px;transform:translateY(4px)}
+  .kk-massstab text{font-size:24px}
+  .kk-pfeile path{stroke-width:7}
+  .kriegsweiter{grid-template-columns:1fr}
+  .kriegsweiter .vor{text-align:left}
+}

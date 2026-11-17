@@ -8,3 +8,14 @@
 - Nachgebaute Änderungen gegenüber 1815: Belgien/Niederlande/Luxemburg (heutige Grenzen), Savoyen an Frankreich (1860),
   Lombardei, Parma, Modena, Toskana, Kirchenstaat-Norden an Italien, Elsass-Lothringen (heutige Départements Bas-Rhin, Haut-Rhin, Moselle).
 - Vorschaubild: Eintrag in `werkzeuge/vorschau.json` im Repo-Wurzelordner.
+
+## Kriegsseiten 1864, 1866, 1870/71
+
+- Inhalte (Texte, Belege, Personen, Kartenangaben) stehen in `kriege_daten.py`, die Seiten erzeugt `kriegsseiten.py`
+  nach `../1864/`, `../1866/`, `../1870-71/` (je `index.html` und `relief.jpg`). Aussehen in `../kriege.css`.
+- Karten: `kriegskarten.py`. Relief aus Terrain Tiles (Terrarium-PNG, s3.amazonaws.com/elevation-tiles-prod; Namensnennung siehe
+  tilezen/joerd docs/attribution.md), Grenzen aus `w1815.json`, Land/Seen/Flüsse aus Natural Earth 10m
+  (`ne_10m_land`, `ne_10m_lakes`, `ne_10m_rivers_europe`, `ne_10m_rivers_lake_centerlines`, `ne_10m_admin_0_countries`,
+  `ne_10m_admin_1_states_provinces`, GeoJSON aus nvkelso/natural-earth-vector).
+- Aufruf: `pip install shapely numpy pillow && GEO=<geo-ordner> python3 kriegsseiten.py` (Kacheln werden in `<geo-ordner>/tiles` zwischengespeichert).
+- Porträts: fehlt `bild`, zeigt die Seite Initialen. Neue Bilder als `../bilder/<name>.jpg` ablegen und in `BILDER` sowie beim Eintrag eintragen.
