@@ -19,3 +19,7 @@
   `ne_10m_admin_1_states_provinces`, GeoJSON aus nvkelso/natural-earth-vector).
 - Aufruf: `pip install shapely numpy pillow && GEO=<geo-ordner> python3 kriegsseiten.py` (Kacheln werden in `<geo-ordner>/tiles` zwischengespeichert).
 - Porträts: fehlt `bild`, zeigt die Seite Initialen. Neue Bilder als `../bilder/<name>.jpg` ablegen und in `BILDER` sowie beim Eintrag eintragen.
+- Abspielbarer Ablauf: `schritte` je Karte in `kriege_daten.py` (Datum, Titel, Ereignisnummern, `ohne` = Einträge ohne Ort,
+  Pfeile als `(seite, [(lon, lat), …], beschriftung, stil, beschriftungsort)`). Die Seiten laden `../ablauf.js`;
+  Pfeile, Marken und Verlaufseinträge tragen `data-s` und werden je Schritt gezeigt. Ohne JavaScript bleibt alles sichtbar.
+  Muster: Bullecourt-Karte. Pfeile nur für Bewegungen, die in den belegten Ereignistexten stehen.

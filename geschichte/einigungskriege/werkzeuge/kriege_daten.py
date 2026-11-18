@@ -129,6 +129,19 @@ K1864 = {
         "orte": [("Kiel", 10.13, 54.32), ("Rendsburg", 9.67, 54.30, "l"), ("Schleswig", 9.57, 54.52, "r", "klein"), ("Flensburg", 9.44, 54.79, "l"),
                  ("Sonderburg", 9.79, 54.91, "r", "klein"), ("Kolding", 9.47, 55.49, "l"), ("Fredericia", 9.75, 55.57), ("Odense", 10.39, 55.40), ("Ribe", 8.76, 55.33, "l", "klein")],
         "pfeile": [],
+        "schritte": [
+            {"datum": "1.–6.2.1864", "titel": "Über die Eider", "ereignisse": [1, 2, 3], "pfeile": [
+                ("pr", [(9.80, 54.18), (9.64, 54.40), (9.50, 54.66)], "Preußen und Österreich"),
+                ("ge", [(9.55, 54.52), (9.60, 54.74), (9.71, 54.88)], ""),
+                ("ge", [(9.47, 54.56), (9.32, 54.95), (9.42, 55.32), (9.70, 55.55)], "Dänen")]},
+            {"datum": "Februar bis 18.4.1864", "titel": "Sturm auf Düppel", "ereignisse": [4], "pfeile": [
+                ("pr", [(9.44, 54.79), (9.60, 54.87), (9.70, 54.90)], "Preußen"),
+                ("ge", [(9.76, 54.92), (9.87, 54.96)], "")]},
+            {"datum": "April bis Juni 1864", "titel": "Seekrieg und Konferenz", "ereignisse": [5], "pfeile": []},
+            {"datum": "29.6.1864", "titel": "Alsen und Jütland", "ereignisse": [6, 7], "pfeile": [
+                ("pr", [(9.72, 54.89), (9.85, 54.95)], "")]},
+            {"datum": "Juli bis 30.10.1864", "titel": "Kriegsende", "ereignisse": [], "ohne": [0, 1], "pfeile": []},
+        ],
         "ereignisse": [
             {"lon": 9.67, "lat": 54.30, "versatz": (16, 10), "art": "beginn", "datum": "1.2.1864", "titel": "Übergang über die Eider",
              "text": "Preußische und österreichische Truppen überschreiten die Eider nach Schleswig. Der Krieg beginnt.{{L1864,LEX64}} Um sich als Verbündete zu erkennen, tragen sie weiße Armbinden.{{L1864}} {{eine}}"},
@@ -149,7 +162,7 @@ K1864 = {
             ("8.7.1864", "Regierungswechsel in Kopenhagen", "Die Regierung Monrad tritt zurück; das konservative Ministerium Bluhme verhandelt direkt mit Preußen und Österreich.{{LEX64}} {{eine:eine Quelle (Lex)}}"),
             ("30.10.1864", "Wiener Frieden", "Dänemark tritt Schleswig, Holstein und Lauenburg ab. Die königlichen Enklaven in Schleswig werden gegen Ærø, das Gebiet um Ribe und acht Kirchspiele südlich von Kolding getauscht.{{L1864,LEX64}}"),
         ],
-        "hinweis": "Grenzen von 1815 nach historical-basemaps, Küsten, Flüsse und Seen heutiger Stand nach Natural Earth. Relief aus heutigen Höhendaten, 6-fach überhöht. Lage der Ereignisse auf wenige Kilometer genau; das Seegefecht fand südöstlich von Helgoland statt.",
+        "hinweis": "Grenzen von 1815 nach historical-basemaps, Küsten, Flüsse und Seen heutiger Stand nach Natural Earth. Relief aus heutigen Höhendaten, 6-fach überhöht. Lage der Ereignisse auf wenige Kilometer genau, Bewegungspfeile schematisch nach den Ereignistexten; das Seegefecht fand südöstlich von Helgoland statt.",
     },
     "personen": [
         {"partei": "Preußen und Österreich", "seite": "Preußen", "name": "Wilhelm I.", "leben": "22.3.1797 – 9.3.1888", "bild": None, "initialen": "W I",
@@ -218,8 +231,19 @@ K1866 = {
         "landschaft": [("Alpen", 11.2, 47.0, "gebirge"), ("Erzgebirge", 13.0, 50.48, "gebirge klein"), ("Riesengebirge", 15.6, 50.82, "gebirge klein"), ("Böhmerwald", 13.2, 49.2, "gebirge klein"), ("Harz", 10.7, 51.82, "gebirge klein"), ("Elbe", 11.9, 52.15, "fluss"), ("Main", 9.1, 49.98, "fluss"), ("Donau", 13.6, 48.45, "fluss"), ("Ostsee", 13.9, 54.3, "meer"), ("Adria", 13.0, 45.0, "meer klein")],
         "orte": [("Berlin", 13.40, 52.52), ("Wien", 16.37, 48.21), ("Dresden", 13.74, 51.05, "l"), ("Hannover", 9.73, 52.37), ("Kassel", 9.50, 51.31, "l", "klein"), ("Frankfurt", 8.68, 50.11, "l"),
                  ("München", 11.58, 48.14), ("Olmütz", 17.25, 49.59), ("Verona", 10.99, 45.44, "r", "klein"), ("Kiel", 10.13, 54.32, "r", "klein")],
-        "pfeile": [("pr", [(13.9, 51.05), (14.4, 50.75), (15.1, 50.45)], "Elbarmee"), ("pr", [(15.0, 51.15), (15.25, 50.75), (15.45, 50.42)], "1. Armee"),
-                   ("pr", [(16.65, 50.45), (16.25, 50.42), (15.95, 50.33)], "2. Armee"), ("ge", [(15.8, 50.15), (16.6, 49.85), (17.15, 49.63)], "")],
+        "pfeile": [],
+        "schritte": [
+            {"datum": "Juni 1866", "titel": "Kriegsbeginn", "ereignisse": [1, 2], "pfeile": [
+                ("pr", [(9.55, 54.65), (9.85, 54.25)], ""),
+                ("ge", [(13.74, 51.0), (14.3, 50.55), (15.0, 50.3)], "Sachsen")]},
+            {"datum": "24.–29.6.1866", "titel": "Custoza und Langensalza", "ereignisse": [3, 4], "pfeile": []},
+            {"datum": "Ende Juni bis 3.7.1866", "titel": "Drei Armeen nach Königgrätz", "ereignisse": [5], "pfeile": [
+                ("pr", [(13.9, 51.05), (14.4, 50.75), (15.1, 50.45)], "Elbarmee", "", (13.55, 50.70)), ("pr", [(15.0, 51.15), (15.25, 50.75), (15.45, 50.42)], "1. Armee", "", (15.0, 51.32)),
+                ("pr", [(16.65, 50.45), (16.25, 50.42), (15.95, 50.33)], "2. Armee", "", (16.95, 50.60))]},
+            {"datum": "Juli 1866", "titel": "Rückzug und Mainfeldzug", "ereignisse": [6, 7], "pfeile": [
+                ("ge", [(15.8, 50.15), (16.6, 49.85), (17.15, 49.63)], "Benedek")]},
+            {"datum": "23.8. und 3.10.1866", "titel": "Friedensschlüsse", "ereignisse": [8], "ohne": [0], "pfeile": []},
+        ],
         "ereignisse": [
             {"lon": 10.0, "lat": 54.1, "versatz": (0, 0), "art": "beginn", "datum": "7.6.1866", "titel": "Einmarsch in Holstein",
              "text": "Preußische Truppen rücken in Holstein ein, das Österreich zuvor kampflos geräumt hat.{{L1866}} Den Streit um die Herzogtümer nennt Britannica den Vorwand des Kriegs.{{BSWW}}"},
@@ -241,7 +265,7 @@ K1866 = {
         "ohne_ort": [
             ("3.10.1866", "Wiener Frieden mit Italien", "Österreich tritt Venetien zur Weitergabe an Italien ab.{{BSWW}} Dass Venetien an Italien fiel, bestätigt auch LeMO.{{L1866}}"),
         ],
-        "hinweis": "Grenzen von 1815 nach historical-basemaps; Belgien, Niederlande und Luxemburg nicht gesondert dargestellt. Thüringen als Ganzes den Verbündeten Preußens zugeordnet, obwohl Sachsen-Meiningen auf Österreichs Seite stand (vereinfacht). Pfeile schematisch. Relief aus heutigen Höhendaten, leicht überhöht.",
+        "hinweis": "Grenzen von 1815 nach historical-basemaps; Belgien, Niederlande und Luxemburg nicht gesondert dargestellt. Thüringen als Ganzes den Verbündeten Preußens zugeordnet, obwohl Sachsen-Meiningen auf Österreichs Seite stand (vereinfacht). Bewegungspfeile schematisch nach den Ereignistexten, Wege nicht genau. Relief aus heutigen Höhendaten, leicht überhöht.",
     },
     "personen": [
         {"partei": "Preußen und Verbündete", "seite": "Preußen", "name": "Otto von Bismarck", "leben": "1.4.1815 – 30.7.1898", "bild": "bismarck",
@@ -309,6 +333,23 @@ K1870 = {
         "landschaft": [("Vogesen", 7.05, 48.05, "gebirge"), ("Ardennen", 5.2, 49.95, "gebirge klein"), ("Schwarzwald", 8.25, 47.95, "gebirge klein"), ("Seine", 3.2, 48.45, "fluss"), ("Loire", 1.4, 47.62, "fluss"), ("Mosel", 6.25, 49.45, "fluss klein"), ("Maas", 5.35, 49.25, "fluss klein"), ("Rhein", 7.92, 48.5, "fluss klein"), ("Ärmelkanal", 0.4, 50.1, "meer klein")],
         "orte": [("Paris", 2.35, 48.86), ("Versailles", 2.13, 48.80, "l", "klein"), ("Straßburg", 7.75, 48.58), ("Saarbrücken", 6.99, 49.23, "r", "klein"), ("Châlons", 4.36, 48.96), ("Frankfurt", 8.68, 50.11, "l")],
         "pfeile": [],
+        "schritte": [
+            {"datum": "4.–6.8.1870", "titel": "Grenzschlachten", "ereignisse": [1, 2, 3], "pfeile": [
+                ("pr", [(8.12, 49.16), (7.95, 49.02), (7.80, 48.95)], "Deutsche", "", (8.45, 49.30)),
+                ("pr", [(7.10, 49.36), (6.98, 49.22)], ""),
+                ("ge", [(6.92, 49.17), (6.55, 49.14), (6.24, 49.12)], "nach Metz"),
+                ("ge", [(7.62, 48.88), (7.20, 48.66), (6.30, 48.62), (4.55, 48.92)], "MacMahon")]},
+            {"datum": "16.–18.8.1870", "titel": "Metz eingeschlossen", "ereignisse": [4, 5], "pfeile": [
+                ("pr", [(6.55, 48.80), (6.05, 48.93), (5.82, 49.07)], "II. Armee"),
+                ("ge", [(5.95, 49.11), (6.13, 49.12)], "")]},
+            {"datum": "Ende August bis 2.9.1870", "titel": "Marsch auf Sedan", "ereignisse": [6], "pfeile": [
+                ("ge", [(4.36, 48.99), (4.55, 49.35), (4.88, 49.63)], "MacMahon"),
+                ("pr", [(5.55, 49.05), (5.25, 49.40), (5.00, 49.64)], "")]},
+            {"datum": "September 1870 bis Januar 1871", "titel": "Paris, Metz, Loire", "ereignisse": [7, 8, 9, 10], "pfeile": [
+                ("pr", [(4.80, 49.62), (3.80, 49.25), (2.62, 48.95)], "Deutsche"),
+                ("ge", [(2.30, 48.80), (1.50, 47.90), (0.78, 47.45)], "Gambetta", "luft")]},
+            {"datum": "18.1.–10.5.1871", "titel": "Kaiserreich und Frieden", "ereignisse": [11, 12], "pfeile": []},
+        ],
         "ereignisse": [
             {"lon": 7.94, "lat": 49.04, "versatz": (16, -6), "datum": "4.8.1870", "titel": "Weißenburg",
              "text": "Deutsche Truppen überschreiten die Lauter und überraschen bei Weißenburg (Wissembourg) die Vorhut MacMahons.{{LAR}} Den Erfolg bei Weißenburg nennt auch LeMO.{{L1870}}"},
@@ -336,7 +377,7 @@ K1870 = {
              "text": "Der Friede bestätigt den Vorfrieden vom 26. Februar: Abtretung des Elsass und eines Teils Lothringens, fünf Milliarden Franc.{{L1870,BFG,LAR}}"},
         ],
         "ohne_ort": [],
-        "hinweis": "Grenzen von 1815 nach historical-basemaps, Belgien und Luxemburg nach Natural Earth. Das 1871 abgetretene Gebiet ist mit den heutigen Départements Bas-Rhin, Haut-Rhin und Moselle angenähert. Relief aus heutigen Höhendaten, 3-fach überhöht.",
+        "hinweis": "Grenzen von 1815 nach historical-basemaps, Belgien und Luxemburg nach Natural Earth. Das 1871 abgetretene Gebiet ist mit den heutigen Départements Bas-Rhin, Haut-Rhin und Moselle angenähert. Bewegungspfeile schematisch nach den Ereignistexten, Wege nicht genau; Gambettas Weg von Paris nach Tours ist gestrichelt und vereinfacht als Linie gezeichnet. Relief aus heutigen Höhendaten, 3-fach überhöht.",
     },
     "personen": [
         {"partei": "Deutsche Staaten", "seite": "Preußen", "name": "Wilhelm I.", "leben": "22.3.1797 – 9.3.1888", "bild": None, "initialen": "W I",

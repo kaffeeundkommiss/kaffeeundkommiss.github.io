@@ -100,3 +100,36 @@
   .kriegsweiter{grid-template-columns:1fr}
   .kriegsweiter .vor{text-align:left}
 }
+
+/* Abspielbarer Ablauf (ablauf.js), Muster wie die Bullecourt-Karte */
+.kk-ablauf{margin:14px 0 4px}
+.kk-ablauf[hidden]{display:none}
+.kk-ablauf-titel{margin:0 0 8px;font:700 20px/1.1 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em}
+.kk-schritte{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:6px}
+.kk-schritte button{display:block;text-align:left;padding:8px 11px;border:1px solid var(--kk-linie);border-radius:3px;background:var(--kk-papier);color:var(--kk-tinte);cursor:pointer;font:600 15px/1.2 var(--kk-mono)}
+.kk-schritte button .d{display:block;font:500 12.5px/1.2 var(--kk-mono);color:var(--kk-grau);margin-bottom:3px}
+.kk-schritte button .t{display:block}
+.kk-schritte button[aria-pressed="true"]{background:var(--kk-tinte);border-color:var(--kk-tinte);color:var(--kk-papier)}
+.kk-schritte button[aria-pressed="true"] .d{color:var(--kk-papier)}
+.kk-schritte button:hover{border-color:var(--kk-akzent)}
+.kk-abspiel{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;margin:8px 0 0;font-size:14px;color:var(--kk-grau)}
+.kk-play{font:700 14px/1 var(--kk-titel);letter-spacing:.08em;text-transform:uppercase;padding:9px 14px 9px 30px;border:1px solid var(--kk-akzent);border-radius:3px;background:var(--kk-akzent);color:#fff;cursor:pointer;position:relative}
+.kk-play::before{content:"";position:absolute;left:12px;top:50%;margin-top:-6px;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent #fff}
+.kk-play[aria-pressed="true"]::before{width:3px;height:12px;border-width:0 3px;border-color:#fff;margin-top:-6px}
+.mit-ablauf .kk-pfeile [data-s]:not(.an){display:none}
+.mit-ablauf .kk-ereignisse [data-s]:not(.an){opacity:.28}
+.mit-ablauf .kk-pfeile .an path{stroke-dasharray:1;stroke-dashoffset:1;animation:kk-zeichnen 1.6s ease-out forwards}
+.mit-ablauf .kk-pfeile .an text{opacity:0;animation:kk-ein .4s 1s ease-out forwards}
+.mit-ablauf .kk-ereignisse .an .kk-marke{animation:kk-ein .5s ease-out}
+@keyframes kk-zeichnen{to{stroke-dashoffset:0}}
+@keyframes kk-ein{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion: reduce){.mit-ablauf .kk-pfeile .an path,.mit-ablauf .kk-pfeile .an text,.mit-ablauf .kk-ereignisse .an .kk-marke{animation:none;stroke-dashoffset:0;opacity:1}}
+.kk-pfeile path.luft{stroke-dasharray:.02 .015;stroke-width:2.5}
+.mit-ablauf .kk-pfeile .an path.luft{stroke-dasharray:.02 .015;stroke-dashoffset:0;animation:kk-ein .8s ease-out}
+.kk-pfeile text.tx-ge{fill:var(--r-ge)}
+.kk-legende .feld.pfeil{height:4px;margin-top:8px;border:0;background:linear-gradient(90deg,var(--r-pr) 50%,var(--r-ge) 50%)}
+@media (max-width:600px){.kk-schritte{grid-template-columns:1fr 1fr}.kk-schritte button{font-size:14px}}
+.kk-chronik li[hidden]{display:none}
+.kk-pfeile path{stroke-width:5}
+.kk-pfeile text{font-size:16px;stroke-width:4px}
+@media (max-width:600px){.kk-pfeile path{stroke-width:9}}

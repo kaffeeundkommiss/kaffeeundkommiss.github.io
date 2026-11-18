@@ -207,17 +207,23 @@ def karte(k, ordner, relief_name):
     for klasse, g in k.get("umrisse", []):
         d = pfad(p, g, B)
         if d: o.append(f'<path class="{klasse}" d="{d}"/>')
-    # Bewegungen (schematisch)
-    if k.get("pfeile"):
-        o.append('<defs>' + ''.join(f'<marker id="kk-spitze-{r}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path class="sp-{r}" d="M0,0L10,5L0,10z"/></marker>' for r in sorted({x[0] for x in k["pfeile"]})) + '</defs>')
+    # Bewegungen (schematisch); Pfeile aus "schritte" tragen data-s für den abspielbaren Ablauf
+    pfeile = [(r, pts, b, "", None, None) for r, pts, b in k.get("pfeile", [])]
+    for n, st in enumerate(k.get("schritte", []), 1):
+        for pf in st.get("pfeile", []):
+            pfeile.append((pf[0], pf[1], pf[2], pf[3] if len(pf) > 3 else "", n, pf[4] if len(pf) > 4 else None))
+    if pfeile:
+        o.append('<defs>' + ''.join(f'<marker id="kk-spitze-{r}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path class="sp-{r}" d="M0,0L10,5L0,10z"/></marker>' for r in sorted({x[0] for x in pfeile})) + '</defs>')
         o.append('<g class="kk-pfeile">')
-        for rolle, pts, beschr in k["pfeile"]:
+        for rolle, pts, beschr, stil, n, lpos in pfeile:
             xy = [p.xy(*c) for c in pts]
             d = "M" + "L".join(f"{x:.1f},{y:.1f}" for x, y in xy)
-            o.append(f'<path class="pf-{rolle}" d="{d}" marker-end="url(#kk-spitze-{rolle})"/>')
+            ds = f' data-s="{n}"' if n else ""
+            o.append(f'<g{ds}><path class="pf-{rolle} {stil}" d="{d}" pathLength="1" marker-end="url(#kk-spitze-{rolle})"/>')
             if beschr:
-                x, y = xy[0]
-                o.append(f'<text x="{x:.0f}" y="{y-8:.0f}">{esc(beschr)}</text>')
+                x, y = (p.xy(*lpos)[0], p.xy(*lpos)[1] + 8) if lpos else xy[len(xy) // 2] if len(xy) > 2 else ((xy[0][0] + xy[-1][0]) / 2, (xy[0][1] + xy[-1][1]) / 2)
+                o.append(f'<text class="tx-{rolle}" x="{x:.0f}" y="{y-8:.0f}">{esc(beschr)}</text>')
+            o.append('</g>')
         o.append('</g>')
     # Landschafts- und Flussnamen
     o.append('<g class="kk-landschaft">')
@@ -239,13 +245,15 @@ def karte(k, ordner, relief_name):
         o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.2"/><text class="{cls}" x="{x+dx:.0f}" y="{y+4:.0f}" text-anchor="{ta}">{esc(t)}</text>')
     o.append('</g>')
     # Ereignisse (nummeriert, Liste daneben)
+    schritt_von = {i: n for n, st in enumerate(k.get("schritte", []), 1) for i in st.get("ereignisse", [])}
     o.append('<g class="kk-ereignisse">')
     for i, e in enumerate(k["ereignisse"], 1):
+        ds = f' data-s="{schritt_von[i]}"' if i in schritt_von else ""
         x, y = p.xy(e["lon"], e["lat"])
         dx, dy = e.get("versatz", (0, 0))
         if dx or dy:
-            o.append(f'<line x1="{x:.1f}" y1="{y:.1f}" x2="{x+dx:.1f}" y2="{y+dy:.1f}"/>')
-        o.append(f'<a href="#e{i}"><g class="kk-marke {e.get("art","schlacht")}" transform="translate({x+dx:.1f},{y+dy:.1f})">'
+            o.append(f'<line{ds} x1="{x:.1f}" y1="{y:.1f}" x2="{x+dx:.1f}" y2="{y+dy:.1f}"/>')
+        o.append(f'<a href="#e{i}"{ds}><g class="kk-marke {e.get("art","schlacht")}" transform="translate({x+dx:.1f},{y+dy:.1f})">'
                  f'<circle r="11"/><text y="4.5">{i}</text></g></a>')
     o.append('</g>')
     # Maßstab

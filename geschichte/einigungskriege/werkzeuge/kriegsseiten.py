@@ -157,12 +157,23 @@ def seite(k):
     # Karte und Verlauf
     o.append('<section class="reiter-teil" data-reiter="karte">')
     o.append(f'<h2 id="karte">{html.escape(kd["titel"])}</h2>')
+    schritte = kd.get("schritte", [])
+    s_ereignis = {i: n for n, st in enumerate(schritte, 1) for i in st.get("ereignisse", [])}
+    s_ohne = {j: n for n, st in enumerate(schritte, 1) for j in st.get("ohne", [])}
+    if schritte:
+        o.append('<div class="kk-ablauf" hidden><p class="kk-ablauf-titel">Ablauf auf der Karte</p>')
+        o.append('<div class="kk-schritte" role="group" aria-label="Zeitpunkt wählen">')
+        for n, st in enumerate(schritte, 1):
+            o.append(f'<button type="button" data-step="{n}" aria-pressed="false"><span class="d">{html.escape(st["datum"])}</span><span class="t">{html.escape(st["titel"])}</span></button>')
+        o.append('</div><p class="kk-abspiel"><button type="button" class="kk-play" aria-pressed="false">Abspielen</button><span>Die Karte zeigt je Schritt die Bewegungen und Ereignisse dieses Abschnitts.</span></p></div>')
     o.append('<div class="kk-kartenblock"><div class="kk-kartenbild">')
     o.append(svg)
     o.append('<ul class="kk-legende" aria-label="Legende">')
     for rolle, text in kd["legende"]:
         o.append(f'<li><span class="feld {"abg" if rolle=="abg" else "r-"+rolle}"></span>{html.escape(text)}</li>')
     o.append('<li><span class="feld fluss"></span>Flüsse und Seen</li>')
+    if kd.get("schritte"):
+        o.append('<li><span class="feld pfeil"></span>Bewegung, schematisch, Farbe nach Seite</li>')
     o.append('<li><span class="sym">1</span>Gefecht oder Ereignis, Nummer wie im Verlauf</li>')
     o.append('<li><span class="sym entscheidung">1</span>Entscheidende Schlacht</li>')
     o.append('<li><span class="sym frieden">1</span>Friedensschluss oder Proklamation</li>')
@@ -171,9 +182,11 @@ def seite(k):
     o.append('</div><div class="kk-verlauf"><h3>Verlauf</h3><ol class="kk-chronik">')
     for i, e in enumerate(kd["ereignisse"], 1):
         art = e.get("art", "schlacht")
-        o.append(f'<li id="e{i}" class="{art}"><span class="nr">{i}</span><div><span class="datum">{html.escape(e["datum"])}</span><strong>{html.escape(e["titel"])}</strong><p>{q(e["text"])}</p></div></li>')
-    for datum, titel, text in kd.get("ohne_ort", []):
-        o.append(f'<li class="ohne"><span class="nr">·</span><div><span class="datum">{html.escape(datum)}</span><strong>{html.escape(titel)}</strong><p>{q(text)}</p></div></li>')
+        ds = f' data-s="{s_ereignis[i]}"' if i in s_ereignis else ""
+        o.append(f'<li id="e{i}" class="{art}"{ds}><span class="nr">{i}</span><div><span class="datum">{html.escape(e["datum"])}</span><strong>{html.escape(e["titel"])}</strong><p>{q(e["text"])}</p></div></li>')
+    for j, (datum, titel, text) in enumerate(kd.get("ohne_ort", [])):
+        ds = f' data-s="{s_ohne[j]}"' if j in s_ohne else ""
+        o.append(f'<li class="ohne"{ds}><span class="nr">·</span><div><span class="datum">{html.escape(datum)}</span><strong>{html.escape(titel)}</strong><p>{q(text)}</p></div></li>')
     o.append("</ol></div></div>")
     o.append("</section>")
 
@@ -234,6 +247,7 @@ def seite(k):
     o.append('''<footer class="kk-fuss"><div class="kk-in">
   <p><a href="https://kaffeeundkommiss.github.io/">Kaffee und Kommiss</a>: Politik, Geschichte und Sicherheitspolitik mit Quellen. Private, nichtkommerzielle Zusammenstellung. Fehler gefunden? Bitte mit Quelle melden.</p>
 </div></footer>
+<script src="../ablauf.js"></script>
 <script src="../../reiter.js"></script>
 </body>
 </html>
