@@ -3,13 +3,6 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--kk-flaeche:.38;--kk-wasser:#7FA6C4;--kk-relief-filter:brightness(.58) contrast(1.1) saturate(.8)}}
 :root[data-theme="dark"]{--kk-flaeche:.38;--kk-wasser:#7FA6C4;--kk-relief-filter:brightness(.58) contrast(1.1) saturate(.8)}
 
-/* Navigation zwischen den drei Kriegen */
-.kriegsnav{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 14px}
-.kriegsnav a{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid var(--kk-linie);background:var(--kk-papier);font:600 15px/1 var(--kk-titel);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--kk-tinte)}
-.kriegsnav a span{font:500 12px/1 var(--kk-mono);color:var(--kk-grau)}
-.kriegsnav a[aria-current="page"]{background:var(--kk-akzent);border-color:var(--kk-akzent);color:#fff}
-.kriegsnav a[aria-current="page"] span{color:#fff}
-
 /* Steckbrief */
 .steckbrief{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px;margin:16px 0}
 .steckbrief div{background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:3px solid var(--kk-akzent);padding:10px 14px}
