@@ -5,7 +5,7 @@ from shapely.geometry import box, shape
 from shapely.ops import unary_union
 from shapely.validation import make_valid
 import kriegskarten as KK
-from kriege_daten import KRIEGE, Q, BILDER, ABRUF
+from kriege_daten import KRIEGE, Q, BILDER, ABRUF, KOK_BELEG
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 EK = os.path.dirname(HIER)
@@ -174,11 +174,21 @@ def seite(k):
     o.append('<li><span class="feld fluss"></span>Flüsse und Seen</li>')
     if kd.get("schritte"):
         o.append('<li><span class="feld pfeil"></span>Bewegung, schematisch, Farbe nach Seite</li>')
-    o.append('<li><span class="sym">1</span>Gefecht oder Ereignis, Nummer wie im Verlauf</li>')
-    o.append('<li><span class="sym entscheidung">1</span>Entscheidende Schlacht</li>')
+    o.append('<li><span class="sym saebel-sym"><svg class="saebel" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path class="kl" d="M6.6 17.4C10 12.4 14.6 7.4 21.2 2.8M17.4 17.4C14 12.4 9.4 7.4 2.8 2.8"/><path class="gr" d="M4 14.6L9.4 20M20 14.6L14.6 20"/><path class="gf" d="M6.4 17.6L3 21M17.6 17.6L21 21"/><circle class="kn" cx="2.6" cy="21.4" r="1.5"/><circle class="kn" cx="21.4" cy="21.4" r="1.5"/></svg></span>Schlacht oder Gefecht, Nummer wie im Verlauf</li>')
+    o.append('<li><span class="sym saebel-sym entscheidung"><svg class="saebel" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path class="kl" d="M6.6 17.4C10 12.4 14.6 7.4 21.2 2.8M17.4 17.4C14 12.4 9.4 7.4 2.8 2.8"/><path class="gr" d="M4 14.6L9.4 20M20 14.6L14.6 20"/><path class="gf" d="M6.4 17.6L3 21M17.6 17.6L21 21"/><circle class="kn" cx="2.6" cy="21.4" r="1.5"/><circle class="kn" cx="21.4" cy="21.4" r="1.5"/></svg></span>Entscheidende Schlacht</li>')
+    o.append('<li><span class="sym">1</span>Sonstiges Ereignis</li>')
     o.append('<li><span class="sym frieden">1</span>Friedensschluss oder Proklamation</li>')
+    if kd.get("kokarden"):
+        for key, (name, ringe) in kd["kokarden"].items():
+            rs = [10, 6.8, 3.6]
+            c = "".join(f'<circle r="{r}" fill="{f}"/>' for r, f in zip(rs, ringe))
+            o.append(f'<li><svg class="kok" viewBox="-11 -11 22 22" aria-hidden="true"><circle r="10.8" fill="#3A352B"/>{c}</svg>{html.escape(name)}</li>')
     o.append("</ul>")
     o.append(f'<p class="ek-hinweis">{html.escape(kd["hinweis"])} Kartengrundlagen: {q("{{KTERR,KHB,KNE}}")}</p>')
+    if kd.get("kokarden"):
+        teile = [KOK_BELEG[x] for x in ("oesterreich", "sachsen", "frankreich", "preussen", "daenemark") if x in kd["kokarden"]]
+        o.append(f'<p class="ek-hinweis">Kokarden vereinfacht als Ringe in den Landesfarben, am Anfang der Bewegungspfeile. {q("; ".join(teile))}. '
+                 'Die Kokarde Preußens steht auch für Truppen der mit Preußen verbündeten Staaten.</p>')
     o.append('</div><div class="kk-verlauf"><h3>Verlauf</h3><ol class="kk-chronik">')
     for i, e in enumerate(kd["ereignisse"], 1):
         art = e.get("art", "schlacht")

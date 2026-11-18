@@ -172,6 +172,12 @@ def esc(t):
     return t.replace("&", "&amp;").replace("<", "&lt;")
 
 
+# Gekreuzte Säbel für Schlachten und Gefechte (eigenes Symbol, 20 x 20)
+SAEBEL_INHALT = (
+          '<path class="kl" d="M6.6 17.4C10 12.4 14.6 7.4 21.2 2.8M17.4 17.4C14 12.4 9.4 7.4 2.8 2.8"/><path class="gr" d="M4 14.6L9.4 20M20 14.6L14.6 20"/><path class="gf" d="M6.4 17.6L3 21M17.6 17.6L21 21"/><circle class="kn" cx="2.6" cy="21.4" r="1.5"/><circle class="kn" cx="21.4" cy="21.4" r="1.5"/>')
+SAEBEL = ''
+
+
 def karte(k, ordner, relief_name):
     """k: Kartendefinition aus kriege_daten.py. Gibt SVG-Text zurück und schreibt das Reliefbild."""
     bb = k["bb"]; p = Proj(bb, k.get("W", 1000)); B = box(*bb)
@@ -207,22 +213,42 @@ def karte(k, ordner, relief_name):
     for klasse, g in k.get("umrisse", []):
         d = pfad(p, g, B)
         if d: o.append(f'<path class="{klasse}" d="{d}"/>')
-    # Bewegungen (schematisch); Pfeile aus "schritte" tragen data-s für den abspielbaren Ablauf
-    pfeile = [(r, pts, b, "", None, None) for r, pts, b in k.get("pfeile", [])]
+    # Bewegungen (schematisch); Pfeile aus "schritte" tragen data-s für den abspielbaren Ablauf.
+    # Ein Pfeil ist ein Tupel (seite, punkte, text[, stil[, textort]]) oder ein dict mit seite, punkte, text,
+    # stil, textort, staat (Kokarde am Pfeilanfang, Farben aus KOKARDEN).
+    def norm(pf, n):
+        if isinstance(pf, dict):
+            return dict(dict(text="", stil="", textort=None, staat=None), **pf, n=n)
+        return dict(seite=pf[0], punkte=pf[1], text=pf[2], stil=pf[3] if len(pf) > 3 else "",
+                    textort=pf[4] if len(pf) > 4 else None, staat=None, n=n)
+    pfeile = [norm(pf, None) for pf in k.get("pfeile", [])]
     for n, st in enumerate(k.get("schritte", []), 1):
-        for pf in st.get("pfeile", []):
-            pfeile.append((pf[0], pf[1], pf[2], pf[3] if len(pf) > 3 else "", n, pf[4] if len(pf) > 4 else None))
+        pfeile += [norm(pf, n) for pf in st.get("pfeile", [])]
+    kok = k.get("kokarden", {})
+    defs = [SAEBEL]
+    for r in sorted({x["seite"] for x in pfeile}):
+        defs.append(f'<marker id="kk-spitze-{r}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path class="sp-{r}" d="M0,0L10,5L0,10z"/></marker>')
+    for key in sorted({x["staat"] for x in pfeile if x["staat"]}):
+        ringe = kok[key][1]
+        rs = [10, 6.8, 3.6][:len(ringe)] if len(ringe) < 4 else [10, 7.6, 5.2, 2.8]
+        c = "".join(f'<circle r="{r}" fill="{f}"/>' for r, f in zip(rs, ringe))
+        defs.append(f'<symbol id="kok-{key}" viewBox="-11 -11 22 22" overflow="visible"><circle class="kok-rand" r="10.8"/>{c}</symbol>')
+    o.append('<defs>' + "".join(defs) + '</defs>')
     if pfeile:
-        o.append('<defs>' + ''.join(f'<marker id="kk-spitze-{r}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path class="sp-{r}" d="M0,0L10,5L0,10z"/></marker>' for r in sorted({x[0] for x in pfeile})) + '</defs>')
         o.append('<g class="kk-pfeile">')
-        for rolle, pts, beschr, stil, n, lpos in pfeile:
-            xy = [p.xy(*c) for c in pts]
+        for pf in pfeile:
+            rolle = pf["seite"]
+            xy = [p.xy(*c) for c in pf["punkte"]]
             d = "M" + "L".join(f"{x:.1f},{y:.1f}" for x, y in xy)
-            ds = f' data-s="{n}"' if n else ""
-            o.append(f'<g{ds}><path class="pf-{rolle} {stil}" d="{d}" pathLength="1" marker-end="url(#kk-spitze-{rolle})"/>')
-            if beschr:
+            ds = f' data-s="{pf["n"]}"' if pf["n"] else ""
+            o.append(f'<g{ds}><path class="pf-{rolle} {pf["stil"]}" d="{d}" pathLength="1" marker-end="url(#kk-spitze-{rolle})"/>')
+            if pf["staat"]:
+                x, y = xy[0]
+                o.append(f'<g transform="translate({x:.1f},{y:.1f})"><g class="kk-inhalt"><use class="kk-kokarde" href="#kok-{pf["staat"]}" x="-11" y="-11" width="22" height="22"><title>{esc(kok[pf["staat"]][0])}</title></use></g></g>')
+            if pf["text"]:
+                lpos = pf["textort"]
                 x, y = (p.xy(*lpos)[0], p.xy(*lpos)[1] + 8) if lpos else xy[len(xy) // 2] if len(xy) > 2 else ((xy[0][0] + xy[-1][0]) / 2, (xy[0][1] + xy[-1][1]) / 2)
-                o.append(f'<text class="tx-{rolle}" x="{x:.0f}" y="{y-8:.0f}">{esc(beschr)}</text>')
+                o.append(f'<text class="tx-{rolle}" x="{x:.0f}" y="{y-8:.0f}">{esc(pf["text"])}</text>')
             o.append('</g>')
         o.append('</g>')
     # Landschafts- und Flussnamen
@@ -253,8 +279,13 @@ def karte(k, ordner, relief_name):
         dx, dy = e.get("versatz", (0, 0))
         if dx or dy:
             o.append(f'<line{ds} x1="{x:.1f}" y1="{y:.1f}" x2="{x+dx:.1f}" y2="{y+dy:.1f}"/>')
-        o.append(f'<a href="#e{i}"{ds}><g class="kk-marke {e.get("art","schlacht")}" transform="translate({x+dx:.1f},{y+dy:.1f})">'
-                 f'<circle r="11"/><text y="4.5">{i}</text></g></a>')
+        art = e.get("art", "schlacht")
+        if art in ("schlacht", "entscheidung"):
+            inhalt = (f'<circle r="15"/><g class="saebel" transform="translate(-13,-13) scale(1.0833)">' + SAEBEL_INHALT + '</g>'
+                      f'<g class="kk-nr" transform="translate(13,-12)"><circle r="7.5"/><text y="3.6">{i}</text></g>')
+        else:
+            inhalt = f'<circle r="11"/><text y="4.5">{i}</text>'
+        o.append(f'<a href="#e{i}"{ds}><g class="kk-marke {art}" transform="translate({x+dx:.1f},{y+dy:.1f})"><g class="kk-inhalt">{inhalt}</g></g></a>')
     o.append('</g>')
     # Maßstab
     km = k.get("massstab", 50); L = km * p.km_px(); x0, y0 = 16, p.H - 18

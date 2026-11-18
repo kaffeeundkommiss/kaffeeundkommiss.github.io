@@ -93,8 +93,6 @@
   .kk-landschaft text{font-size:28px;stroke-width:6px}
   .kk-landschaft text.meer{font-size:30px}
   .kk-landschaft text.gebirge,.kk-landschaft text.fluss{font-size:26px}
-  .kk-marke circle{r:21}
-  .kk-marke text{font-size:24px;transform:translateY(4px)}
   .kk-massstab text{font-size:24px}
   .kk-pfeile path{stroke-width:7}
   .kriegsweiter{grid-template-columns:1fr}
@@ -133,3 +131,26 @@
 .kk-pfeile path{stroke-width:5}
 .kk-pfeile text{font-size:16px;stroke-width:4px}
 @media (max-width:600px){.kk-pfeile path{stroke-width:9}}
+
+/* Schlachtmarken mit gekreuzten Säbeln, Kokarden an den Bewegungspfeilen */
+.kk-marke .saebel .kl,.kk-legende .saebel .kl{fill:none;stroke:var(--ek-schrift);stroke-width:2.1;stroke-linecap:round}
+.kk-marke .saebel .gr,.kk-legende .saebel .gr{fill:none;stroke:var(--ek-schrift);stroke-width:2.6;stroke-linecap:round}
+.kk-marke.entscheidung .saebel .kl,.kk-marke.entscheidung .saebel .gr{stroke:#fff}
+.kk-marke .kk-nr circle{fill:var(--ek-schrift);stroke:var(--kk-papier);stroke-width:1.5}
+.kk-marke .kk-nr text{fill:var(--kk-papier);font-size:10px}
+.kk-kokarde{pointer-events:auto}
+.kok-rand{fill:#3A352B}
+.kk-legende .sym.saebel-sym{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-width:2px;background:var(--kk-papier)}
+.kk-legende .sym.saebel-sym.entscheidung{background:var(--kk-akzent)}
+.kk-legende .sym.saebel-sym.entscheidung .kl,.kk-legende .sym.saebel-sym.entscheidung .gr{stroke:#fff}
+.kk-legende svg.kok{flex:none;width:18px;height:18px;margin-top:1px}
+@media (max-width:600px){
+}
+.kk-marke .saebel .kl,.kk-legende .saebel .kl{stroke-width:2.3}
+.kk-marke .saebel .gr,.kk-legende .saebel .gr{stroke-width:2.2}
+.kk-marke .saebel .gf,.kk-legende .saebel .gf{fill:none;stroke:var(--ek-schrift);stroke-width:3;stroke-linecap:round}
+.kk-marke .saebel .kn,.kk-legende .saebel .kn{fill:var(--ek-schrift)}
+.kk-marke.entscheidung .saebel .gf,.kk-legende .saebel-sym.entscheidung .gf{stroke:#fff}
+.kk-marke.entscheidung .saebel .kn,.kk-legende .saebel-sym.entscheidung .kn{fill:#fff}
+.kk-legende .sym.saebel-sym svg{width:17px;height:17px}
+@media (max-width:600px){.kk-karte .kk-inhalt{transform:scale(1.8)}}

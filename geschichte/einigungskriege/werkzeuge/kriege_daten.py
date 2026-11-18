@@ -48,6 +48,8 @@ Q = {
     "HDBGL": ("Ludwig II., König von Bayern. Haus der Bayerischen Geschichte, Portal Königreich Bayern. Ohne Datumsangabe. Abgerufen am 15.11.2026.", "https://portale.hdbg.de/koenigreich-bayern/personen/person/155"),
     "BPBNONN": ("Christoph Nonn: Von Helden, Schurken und Sonderwegen. Aus Politik und Zeitgeschichte 1–2/2021, bpb. 04.01.2021. Abgerufen am 15.11.2026.", "https://www.bpb.de/shop/zeitschriften/apuz/reichsgruendung-2021/325043/von-helden-schurken-und-sonderwegen/"),
     # Wikipedia nur zum Datenabgleich
+    "FLK": ("Kokarden. Flaggenlexikon (flaggenlexikon.de), Quellenangabe der Seite: Jürgen Kaltschmitt, Volker Preuß, Wikipedia (DE). Ohne Datumsangabe.", "https://flaggenlexikon.de/kokarden_me.htm"),
+    "WKOK": ("Cockade. Wikipedia (englisch), nur Datenabgleich. Abgerufen 18.11.2026.", "https://en.wikipedia.org/wiki/Cockade"),
     "WDD": ("Deutsch-Dänischer Krieg. Wikipedia, nur Datenabgleich. Version vom 08.11.2026.", "https://de.wikipedia.org/wiki/Deutsch-D%C3%A4nischer_Krieg"),
     "WDK": ("Deutscher Krieg. Wikipedia, nur Datenabgleich. Abgerufen am 15.11.2026.", "https://de.wikipedia.org/wiki/Deutscher_Krieg"),
     "WGEORG": ("Georg V. (Hannover). Wikipedia, nur Datenabgleich. Abgerufen am 15.11.2026.", "https://de.wikipedia.org/wiki/Georg_V._(Hannover)"),
@@ -86,6 +88,26 @@ BILDER = {
 ROLLEN_TEXT = {"pr": "Preußen", "pv": "Verbündete Preußens", "ge": "Kriegsgegner", "gv": "Verbündete des Gegners", "db": "Deutscher Bund", "neu": "Nicht beteiligt"}
 
 # ---------------------------------------------------------------- 1864
+# Kokarden, vereinfacht als Ringe in den Landesfarben (außen nach innen). Belege siehe KOK_BELEG.
+KOK = {
+    "preussen": ("Kokarde Preußens: schwarz-weiß-schwarz", ["#1E1E1E", "#F2EFE6", "#1E1E1E"]),
+    "oesterreich": ("Kokarde Österreichs: schwarz-gold", ["#D4A82A", "#1E1E1E"]),
+    "daenemark": ("Kokarde Dänemarks: rot-weiß-rot", ["#C8102E", "#F2EFE6", "#C8102E"]),
+    "sachsen": ("Kokarde Sachsens: weiß mit grünem Rand", ["#1F7A3A", "#F2EFE6"]),
+    "frankreich": ("Kokarde Frankreichs: blau-weiß-rot (blau innen)", ["#C8102E", "#F2EFE6", "#1F3A8A"]),
+}
+KOK_64 = {x: KOK[x] for x in ("preussen", "oesterreich", "daenemark")}
+KOK_66 = {x: KOK[x] for x in ("preussen", "oesterreich", "sachsen")}
+KOK_70 = {x: KOK[x] for x in ("preussen", "frankreich")}
+KOK_BELEG = {  # je Kokarde: Beleg mit Markierung
+    "oesterreich": "Schwarz-Gold für Österreich nach dem Flaggenlexikon, abgeglichen mit Wikipedia{{FLK,WKOK}} {{eine:eine Quelle, Wikipedia-Abgleich}}",
+    "sachsen": "Weiß mit grünem Rand für Sachsen nach dem Flaggenlexikon (Wikipedia nennt Weiß-Grün-Weiß){{FLK,WKOK}} {{eine:eine Quelle, Wikipedia abweichend}}",
+    "frankreich": "Blau-Weiß-Rot für Frankreich nach dem Flaggenlexikon, abgeglichen mit Wikipedia{{FLK,WKOK}} {{eine:eine Quelle, Wikipedia-Abgleich}}",
+    "preussen": "Schwarz-Weiß-Schwarz für Preußen nur nach Wikipedia{{WKOK}} {{eine:nicht ausreichend belegt}}",
+    "daenemark": "Rot-Weiß-Rot für Dänemark nur nach Wikipedia{{WKOK}} {{eine:nicht ausreichend belegt}}",
+}
+
+
 K1864 = {
     "ordner": "1864", "kurz": "1864", "nr": 1,
     "titel": "Deutsch-Dänischer Krieg 1864",
@@ -129,17 +151,21 @@ K1864 = {
         "orte": [("Kiel", 10.13, 54.32), ("Rendsburg", 9.67, 54.30, "l"), ("Schleswig", 9.57, 54.52, "r", "klein"), ("Flensburg", 9.44, 54.79, "l"),
                  ("Sonderburg", 9.79, 54.91, "r", "klein"), ("Kolding", 9.47, 55.49, "l"), ("Fredericia", 9.75, 55.57), ("Odense", 10.39, 55.40), ("Ribe", 8.76, 55.33, "l", "klein")],
         "pfeile": [],
+        "kokarden": KOK_64,
         "schritte": [
             {"datum": "1.–6.2.1864", "titel": "Über die Eider", "ereignisse": [1, 2, 3], "pfeile": [
-                ("pr", [(9.80, 54.18), (9.64, 54.40), (9.50, 54.66)], "Preußen und Österreich"),
-                ("ge", [(9.55, 54.52), (9.60, 54.74), (9.71, 54.88)], ""),
-                ("ge", [(9.47, 54.56), (9.32, 54.95), (9.42, 55.32), (9.70, 55.55)], "Dänen")]},
+                {'seite': 'pr', 'punkte': [(9.98, 54.16), (9.84, 54.4)], 'text': 'Preußen', 'staat': 'preussen', 'stil': '', 'textort': (10.15, 54.25)},
+                {'seite': 'pr', 'punkte': [(9.7, 54.16), (9.58, 54.4)], 'text': 'Österreicher', 'staat': 'oesterreich', 'stil': '', 'textort': (9.25, 54.25)},
+                {'seite': 'pr', 'punkte': [(9.55, 54.47), (9.48, 54.6), (9.44, 54.7)], 'text': '', 'staat': 'oesterreich', 'stil': '', 'textort': None},
+                {'seite': 'ge', 'punkte': [(9.62, 54.52), (9.64, 54.74), (9.71, 54.88)], 'text': '', 'staat': 'daenemark', 'stil': '', 'textort': None},
+                {'seite': 'ge', 'punkte': [(9.47, 54.56), (9.32, 54.95), (9.42, 55.32), (9.7, 55.55)], 'text': 'Dänen', 'staat': 'daenemark', 'stil': '', 'textort': None}]},
             {"datum": "Februar bis 18.4.1864", "titel": "Sturm auf Düppel", "ereignisse": [4], "pfeile": [
-                ("pr", [(9.44, 54.79), (9.60, 54.87), (9.70, 54.90)], "Preußen"),
-                ("ge", [(9.76, 54.92), (9.87, 54.96)], "")]},
+                {'seite': 'pr', 'punkte': [(9.44, 54.79), (9.6, 54.87), (9.7, 54.9)], 'text': 'Preußen', 'staat': 'preussen', 'stil': '', 'textort': (9.55, 54.98)},
+                {'seite': 'pr', 'punkte': [(9.4, 54.86), (9.3, 55.12), (9.42, 55.42)], 'text': 'Österreicher', 'staat': 'oesterreich', 'stil': '', 'textort': (9.05, 55.15)},
+                {'seite': 'ge', 'punkte': [(9.76, 54.92), (9.87, 54.96)], 'text': '', 'staat': 'daenemark', 'stil': '', 'textort': None}]},
             {"datum": "April bis Juni 1864", "titel": "Seekrieg und Konferenz", "ereignisse": [5], "pfeile": []},
             {"datum": "29.6.1864", "titel": "Alsen und Jütland", "ereignisse": [6, 7], "pfeile": [
-                ("pr", [(9.72, 54.89), (9.85, 54.95)], "")]},
+                {'seite': 'pr', 'punkte': [(9.7, 54.88), (9.85, 54.95)], 'text': '', 'staat': 'preussen', 'stil': '', 'textort': None}]},
             {"datum": "Juli bis 30.10.1864", "titel": "Kriegsende", "ereignisse": [], "ohne": [0, 1], "pfeile": []},
         ],
         "ereignisse": [
@@ -150,7 +176,7 @@ K1864 = {
             {"lon": 9.42, "lat": 54.72, "versatz": (-20, 0), "datum": "6.2.1864", "titel": "Gefecht bei Sankelmark (Oeversee)",
              "text": "Eine dänische Nachhut hält die verfolgenden Österreicher auf; die Hauptmacht erreicht Düppel.{{LEX64,WDD}} {{eine:eine Quelle, Wikipedia-Abgleich}}"},
             {"lon": 9.73, "lat": 54.91, "versatz": (-18, -10), "art": "entscheidung", "datum": "18.4.1864", "titel": "Sturm auf die Düppeler Schanzen",
-             "text": "Nach wochenlanger Belagerung durch bis zu 40.000 preußische Soldaten beginnt der Sturm nach sechsstündigem Artilleriefeuer um 10 Uhr; gegen Mittag sind alle Schanzen in preußischer Hand. Den Oberbefehl hat Prinz Friedrich Karl.{{LDUE}} Lex nennt über 35.000 Angreifer gegen gut 10.000 Verteidiger und das wichtigste Gefecht des Kriegs.{{LEX64}} Die dänische Armee zieht sich nach Alsen zurück.{{LEX64}}"},
+             "text": "Nach wochenlanger Belagerung durch bis zu 40.000 preußische Soldaten beginnt der Sturm nach sechsstündigem Artilleriefeuer um 10 Uhr; gegen Mittag sind alle Schanzen in preußischer Hand. Den Oberbefehl hat Prinz Friedrich Karl.{{LDUE}} Lex nennt über 35.000 Angreifer gegen gut 10.000 Verteidiger und das wichtigste Gefecht des Kriegs.{{LEX64}} Die dänische Armee zieht sich nach Alsen zurück.{{LEX64}} Während die Preußen Düppel belagern, rücken die Österreicher weiter nach Jütland vor.{{LEX64}} {{eine}}"},
             {"lon": 8.05, "lat": 54.08, "versatz": (0, 0), "art": "see", "datum": "9.5.1864", "titel": "Seegefecht bei Helgoland",
              "text": "Die dänische Flotte, die die preußischen Ostseehäfen blockiert, setzt sich gegen ein österreichisches Geschwader durch.{{LEX64,WDD}} {{eine:eine Quelle, Wikipedia-Abgleich}}"},
             {"lon": 9.83, "lat": 54.95, "versatz": (20, -6), "datum": "29.6.1864", "titel": "Übergang nach Alsen",
@@ -230,18 +256,21 @@ K1866 = {
         "staaten": [("Preußen", 12.4, 52.95, "gross"), ("Österreich", 15.2, 47.75, "gross"), ("Bayern", 11.6, 48.85), ("Sachsen", 13.0, 50.85, "klein"), ("Hannover", 9.3, 52.75), ("Württ.", 9.4, 48.55, "klein"), ("Baden", 8.15, 48.3, "klein"), ("Böhmen", 14.3, 49.55), ("Italien", 9.4, 45.25), ("Venetien", 12.0, 45.75, "klein"), ("Schweiz", 8.0, 46.75, "klein"), ("Frankreich", 6.3, 47.7, "klein")],
         "landschaft": [("Alpen", 11.2, 47.0, "gebirge"), ("Erzgebirge", 13.0, 50.48, "gebirge klein"), ("Riesengebirge", 15.6, 50.82, "gebirge klein"), ("Böhmerwald", 13.2, 49.2, "gebirge klein"), ("Harz", 10.7, 51.82, "gebirge klein"), ("Elbe", 11.9, 52.15, "fluss"), ("Main", 9.1, 49.98, "fluss"), ("Donau", 13.6, 48.45, "fluss"), ("Ostsee", 13.9, 54.3, "meer"), ("Adria", 13.0, 45.0, "meer klein")],
         "orte": [("Berlin", 13.40, 52.52), ("Wien", 16.37, 48.21), ("Dresden", 13.74, 51.05, "l"), ("Hannover", 9.73, 52.37), ("Kassel", 9.50, 51.31, "l", "klein"), ("Frankfurt", 8.68, 50.11, "l"),
-                 ("München", 11.58, 48.14), ("Olmütz", 17.25, 49.59), ("Verona", 10.99, 45.44, "r", "klein"), ("Kiel", 10.13, 54.32, "r", "klein")],
+                 ("München", 11.58, 48.14), ("Olmütz", 17.25, 49.59), ("Verona", 10.99, 45.44, "r", "klein"), ("Kiel", 10.13, 54.32, "r", "klein"), ("Pressburg", 17.11, 48.15, "l", "klein")],
         "pfeile": [],
+        "kokarden": KOK_66,
         "schritte": [
             {"datum": "Juni 1866", "titel": "Kriegsbeginn", "ereignisse": [1, 2], "pfeile": [
-                ("pr", [(9.55, 54.65), (9.85, 54.25)], ""),
-                ("ge", [(13.74, 51.0), (14.3, 50.55), (15.0, 50.3)], "Sachsen")]},
+                {'seite': 'pr', 'punkte': [(9.55, 54.65), (9.85, 54.25)], 'text': '', 'staat': 'preussen', 'stil': '', 'textort': None},
+                {'seite': 'ge', 'punkte': [(13.74, 51.0), (14.3, 50.55), (15.0, 50.3)], 'text': 'Sachsen', 'staat': 'sachsen', 'stil': '', 'textort': None}]},
             {"datum": "24.–29.6.1866", "titel": "Custoza und Langensalza", "ereignisse": [3, 4], "pfeile": []},
             {"datum": "Ende Juni bis 3.7.1866", "titel": "Drei Armeen nach Königgrätz", "ereignisse": [5], "pfeile": [
-                ("pr", [(13.9, 51.05), (14.4, 50.75), (15.1, 50.45)], "Elbarmee", "", (13.55, 50.70)), ("pr", [(15.0, 51.15), (15.25, 50.75), (15.45, 50.42)], "1. Armee", "", (15.0, 51.32)),
-                ("pr", [(16.65, 50.45), (16.25, 50.42), (15.95, 50.33)], "2. Armee", "", (16.95, 50.60))]},
+                {'seite': 'pr', 'punkte': [(13.9, 51.05), (14.4, 50.75), (15.1, 50.45)], 'text': 'Elbarmee', 'staat': 'preussen', 'stil': '', 'textort': (13.55, 50.7)},
+                {'seite': 'pr', 'punkte': [(15.0, 51.15), (15.25, 50.75), (15.45, 50.42)], 'text': '1. Armee', 'staat': 'preussen', 'stil': '', 'textort': (15.0, 51.32)},
+                {'seite': 'pr', 'punkte': [(16.65, 50.45), (16.25, 50.42), (15.95, 50.33)], 'text': '2. Armee', 'staat': 'preussen', 'stil': '', 'textort': (16.95, 50.6)}]},
             {"datum": "Juli 1866", "titel": "Rückzug und Mainfeldzug", "ereignisse": [6, 7], "pfeile": [
-                ("ge", [(15.8, 50.15), (16.6, 49.85), (17.15, 49.63)], "Benedek")]},
+                {'seite': 'ge', 'punkte': [(15.8, 50.15), (16.6, 49.85), (17.15, 49.63)], 'text': 'Benedek', 'staat': 'oesterreich', 'stil': '', 'textort': None},
+                {'seite': 'pr', 'punkte': [(15.9, 49.95), (16.45, 49.2), (17.0, 48.3)], 'text': 'Richtung Pressburg', 'staat': 'preussen', 'stil': '', 'textort': (15.75, 48.75)}]},
             {"datum": "23.8. und 3.10.1866", "titel": "Friedensschlüsse", "ereignisse": [8], "ohne": [0], "pfeile": []},
         ],
         "ereignisse": [
@@ -331,38 +360,43 @@ K1870 = {
         "legende": [("pr", "Preußen"), ("pv", "Verbündete deutsche Staaten"), ("ge", "Frankreich"), ("abg", "1871 abgetreten (Elsass-Lothringen, Umriss nach heutigen Départements)")],
         "staaten": [("Frankreich", 2.4, 47.85, "gross"), ("Belgien", 4.6, 50.3, "klein"), ("Lux.", 6.1, 49.78, "klein"), ("Preußen", 7.2, 50.1), ("Pfalz", 7.75, 49.38, "klein"), ("Baden", 8.3, 48.35, "klein"), ("Schweiz", 7.4, 47.12, "klein"), ("Elsass", 7.38, 48.3), ("Lothringen", 6.55, 48.75, "klein")],
         "landschaft": [("Vogesen", 7.05, 48.05, "gebirge"), ("Ardennen", 5.2, 49.95, "gebirge klein"), ("Schwarzwald", 8.25, 47.95, "gebirge klein"), ("Seine", 3.2, 48.45, "fluss"), ("Loire", 1.4, 47.62, "fluss"), ("Mosel", 6.25, 49.45, "fluss klein"), ("Maas", 5.35, 49.25, "fluss klein"), ("Rhein", 7.92, 48.5, "fluss klein"), ("Ärmelkanal", 0.4, 50.1, "meer klein")],
-        "orte": [("Paris", 2.35, 48.86), ("Versailles", 2.13, 48.80, "l", "klein"), ("Straßburg", 7.75, 48.58), ("Saarbrücken", 6.99, 49.23, "r", "klein"), ("Châlons", 4.36, 48.96), ("Frankfurt", 8.68, 50.11, "l")],
+        "orte": [("Paris", 2.35, 48.86), ("Versailles", 2.13, 48.80, "l", "klein"), ("Straßburg", 7.75, 48.58), ("Saarbrücken", 6.99, 49.23, "r", "klein"), ("Châlons", 4.36, 48.96), ("Frankfurt", 8.68, 50.11, "l"), ("Belfort", 6.86, 47.64, "r", "klein")],
         "pfeile": [],
+        "kokarden": KOK_70,
         "schritte": [
             {"datum": "4.–6.8.1870", "titel": "Grenzschlachten", "ereignisse": [1, 2, 3], "pfeile": [
-                ("pr", [(8.12, 49.16), (7.95, 49.02), (7.80, 48.95)], "Deutsche", "", (8.45, 49.30)),
-                ("pr", [(7.10, 49.36), (6.98, 49.22)], ""),
-                ("ge", [(6.92, 49.17), (6.55, 49.14), (6.24, 49.12)], "nach Metz"),
-                ("ge", [(7.62, 48.88), (7.20, 48.66), (6.30, 48.62), (4.55, 48.92)], "MacMahon")]},
+                {'seite': 'pr', 'punkte': [(8.15, 49.16), (7.95, 49.02), (7.8, 48.95)], 'text': 'III. Armee', 'staat': 'preussen', 'stil': '', 'textort': (8.45, 49.3)},
+                {'seite': 'pr', 'punkte': [(7.12, 49.38), (6.98, 49.22)], 'text': 'I. Armee', 'staat': 'preussen', 'stil': '', 'textort': (7.35, 49.48)},
+                {'seite': 'ge', 'punkte': [(6.92, 49.17), (6.55, 49.14), (6.24, 49.12)], 'text': 'Frossard', 'staat': 'frankreich', 'stil': '', 'textort': None},
+                {'seite': 'ge', 'punkte': [(7.62, 48.88), (7.2, 48.66), (6.3, 48.62), (4.55, 48.92)], 'text': 'MacMahon', 'staat': 'frankreich', 'stil': '', 'textort': None}]},
             {"datum": "16.–18.8.1870", "titel": "Metz eingeschlossen", "ereignisse": [4, 5], "pfeile": [
-                ("pr", [(6.55, 48.80), (6.05, 48.93), (5.82, 49.07)], "II. Armee"),
-                ("ge", [(5.95, 49.11), (6.13, 49.12)], "")]},
+                {'seite': 'pr', 'punkte': [(6.55, 48.8), (6.05, 48.93), (5.82, 49.07)], 'text': 'II. Armee', 'staat': 'preussen', 'stil': '', 'textort': None},
+                {'seite': 'ge', 'punkte': [(5.95, 49.11), (6.13, 49.12)], 'text': '', 'staat': 'frankreich', 'stil': '', 'textort': None}]},
             {"datum": "Ende August bis 2.9.1870", "titel": "Marsch auf Sedan", "ereignisse": [6], "pfeile": [
-                ("ge", [(4.36, 48.99), (4.55, 49.35), (4.88, 49.63)], "MacMahon"),
-                ("pr", [(5.55, 49.05), (5.25, 49.40), (5.00, 49.64)], "")]},
+                {'seite': 'ge', 'punkte': [(4.36, 48.99), (4.55, 49.35), (4.88, 49.63)], 'text': 'MacMahon', 'staat': 'frankreich', 'stil': '', 'textort': None},
+                {'seite': 'pr', 'punkte': [(4.75, 48.7), (5.05, 49.2), (4.98, 49.6)], 'text': 'III. Armee', 'staat': 'preussen', 'stil': '', 'textort': (5.35, 48.95)},
+                {'seite': 'pr', 'punkte': [(5.9, 49.25), (5.4, 49.5), (5.06, 49.68)], 'text': 'IV. Armee', 'staat': 'preussen', 'stil': '', 'textort': (5.75, 49.62)}]},
             {"datum": "September 1870 bis Januar 1871", "titel": "Paris, Metz, Loire", "ereignisse": [7, 8, 9, 10], "pfeile": [
-                ("pr", [(4.80, 49.62), (3.80, 49.25), (2.62, 48.95)], "Deutsche"),
-                ("ge", [(2.30, 48.80), (1.50, 47.90), (0.78, 47.45)], "Gambetta", "luft")]},
+                {'seite': 'pr', 'punkte': [(4.8, 49.62), (3.8, 49.25), (2.62, 48.95)], 'text': 'Deutsche', 'staat': 'preussen', 'stil': '', 'textort': None},
+                {'seite': 'ge', 'punkte': [(2.3, 48.8), (1.5, 47.9), (0.78, 47.45)], 'text': 'Gambetta', 'staat': 'frankreich', 'stil': 'luft', 'textort': None},
+                {'seite': 'ge', 'punkte': [(0.25, 48.02), (-0.32, 48.1)], 'text': 'Chanzy', 'staat': 'frankreich', 'stil': '', 'textort': (-0.05, 48.25)},
+                {'seite': 'ge', 'punkte': [(5.95, 47.3), (6.7, 47.55)], 'text': 'Bourbaki', 'staat': 'frankreich', 'stil': '', 'textort': (6.0, 47.15)},
+                {'seite': 'ge', 'punkte': [(6.62, 47.45), (6.4, 46.97)], 'text': '', 'staat': 'frankreich', 'stil': '', 'textort': None}]},
             {"datum": "18.1.–10.5.1871", "titel": "Kaiserreich und Frieden", "ereignisse": [11, 12], "pfeile": []},
         ],
         "ereignisse": [
             {"lon": 7.94, "lat": 49.04, "versatz": (16, -6), "datum": "4.8.1870", "titel": "Weißenburg",
-             "text": "Deutsche Truppen überschreiten die Lauter und überraschen bei Weißenburg (Wissembourg) die Vorhut MacMahons.{{LAR}} Den Erfolg bei Weißenburg nennt auch LeMO.{{L1870}}"},
+             "text": "Deutsche Truppen überschreiten die Lauter und überraschen bei Weißenburg (Wissembourg) die Vorhut MacMahons.{{LAR}} Den Erfolg bei Weißenburg nennt auch LeMO.{{L1870}} Angreifer ist die III. Armee unter dem preußischen Kronprinzen.{{LAR}} {{eine}}"},
             {"lon": 7.73, "lat": 48.94, "versatz": (18, 10), "datum": "6.8.1870", "titel": "Wörth (Fröschweiler)",
-             "text": "Nach der Niederlage bei Wörth muss MacMahon zurückweichen; das Elsass ist verloren.{{LAR,BFG,L1870}}"},
+             "text": "Nach der Niederlage bei Wörth muss MacMahon zurückweichen; das Elsass ist verloren.{{LAR,BFG,L1870}} Britannica nennt den Rückzug nach Westen, Larousse MacMahons Ankunft in Châlons am 14. August.{{BFG,LAR}}"},
             {"lon": 6.97, "lat": 49.20, "versatz": (2, -18), "datum": "6.8.1870", "titel": "Spichern",
-             "text": "Am selben Tag erstürmen deutsche Truppen die Spicherer Höhen bei Saarbrücken; die Franzosen ziehen sich auf Metz zurück.{{L1870,LAR,BFG}}"},
+             "text": "Am selben Tag erstürmen deutsche Truppen die Spicherer Höhen bei Saarbrücken; die Franzosen ziehen sich auf Metz zurück.{{L1870,LAR,BFG}} Nach Larousse greift die I. Armee unter Steinmetz von Saarbrücken aus an und schlägt das Korps Frossard.{{LAR}} {{eine}}"},
             {"lon": 5.89, "lat": 49.10, "versatz": (-16, 12), "datum": "16.8.1870", "titel": "Vionville–Mars-la-Tour",
              "text": "Die II. Armee unter Prinz Friedrich Karl siegt in der ersten großen Entscheidungsschlacht und sperrt Bazaines Rückzug nach Westen.{{L1870,BFG,LAR}}"},
             {"lon": 6.03, "lat": 49.12, "versatz": (2, -18), "datum": "18.8.1870", "titel": "Gravelotte–St. Privat",
              "text": "Nach LeMO die größte Schlacht des Kriegs.{{L1870}} Danach zieht sich die französische Rheinarmee unter Bazaine in die Festung Metz zurück.{{L1870,BFG,LAR}}"},
             {"lon": 4.94, "lat": 49.70, "versatz": (0, -18), "art": "entscheidung", "datum": "1./2.9.1870", "titel": "Sedan",
-             "text": "Die bei Châlons neu gebildete Armee MacMahons, begleitet von Napoleon III., soll Metz entsetzen und wird bei Sedan an der belgischen Grenze eingeschlossen. Am 2. September kapituliert sie.{{BFG,LAR,L1870}} Britannica nennt rund 104.000 Gefangene, darunter Napoleon und MacMahon.{{BFG}} Napoleon III. wird nach Wilhelmshöhe bei Kassel gebracht.{{L1870}}"},
+             "text": "Die bei Châlons neu gebildete Armee MacMahons, begleitet von Napoleon III., soll Metz entsetzen und wird bei Sedan an der belgischen Grenze eingeschlossen. Am 2. September kapituliert sie.{{BFG,LAR,L1870}} Larousse nennt als Zange die nachsetzende III. Armee und eine von den Belagerern vor Metz abgezweigte IV. Armee.{{LAR}} {{eine}} Britannica nennt rund 104.000 Gefangene, darunter Napoleon und MacMahon.{{BFG}} Napoleon III. wird nach Wilhelmshöhe bei Kassel gebracht.{{L1870}}"},
             {"lon": 2.35, "lat": 48.86, "versatz": (14, 14), "art": "gebiet", "datum": "4.9.1870–28.1.1871", "titel": "Republik und Belagerung von Paris",
              "text": "In Paris wird am 4. September die Republik ausgerufen; eine Regierung der nationalen Verteidigung setzt den Krieg fort.{{BFG,LAR}} Ab dem 19. September ist Paris eingeschlossen.{{BFG}} Am 28. Januar 1871 kapituliert die Stadt nach schwerem Beschuss, der Waffenstillstand wird unterzeichnet.{{L1870,BFG,LAR}}"},
             {"lon": 0.69, "lat": 47.39, "versatz": (14, -10), "datum": "Oktober 1870", "titel": "Gambetta in Tours",
