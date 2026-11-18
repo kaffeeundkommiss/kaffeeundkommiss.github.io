@@ -28,7 +28,7 @@
       "datei": "sicherheitspolitik/index.html",
       "bild": "sicherheitspolitik",
       "kicker": "Kaffee und Kommiss · Sicherheitspolitik",
-      "titel": "Auslandseinsätze der Bundeswehr",
+      "titel": "Die Bundeswehr: Einsätze und Stationierung",
       "unter": "Somalia 1993/94, Kosovo seit 1999, Afghanistan 2001–2021, Mali 2013–2023 und die Stationierung in Litauen seit 2025: Kennzahlen, Karten und Zeitleisten, jede Angabe mit Quelle."
     },
     {
@@ -61,6 +61,30 @@
       "unter": "Ursachen, Julikrise, Kriegsschuldfrage, Karte der beteiligten Staaten im Zeitverlauf und je Staat eine bekannte Person.",
       "karte": "#wk-karte",
       "vorbereitung": "(() => { const r = document.getElementById('wk-regler'); r.value = 17; r.dispatchEvent(new Event('input')); document.querySelector('[data-ausschnitt=\"europa\"]').click(); document.querySelectorAll('#wk-karte path.neu').forEach((p) => p.classList.remove('neu')); })()"
+    },
+    {
+      "datei": "geschichte/einigungskriege/1864/index.html",
+      "bild": "krieg-1864",
+      "kicker": "Kaffee und Kommiss · Einigungskriege",
+      "titel": "Deutsch-Dänischer Krieg 1864",
+      "unter": "Vom Danewerk über Düppel bis Alsen: Reliefkarte mit abspielbarem Verlauf, Personen beider Seiten und der Wiener Frieden.",
+      "karte": "svg.kk-karte"
+    },
+    {
+      "datei": "geschichte/einigungskriege/1866/index.html",
+      "bild": "krieg-1866",
+      "kicker": "Kaffee und Kommiss · Einigungskriege",
+      "titel": "Deutscher Krieg 1866",
+      "unter": "Preußen gegen Österreich und den Deutschen Bund: Reliefkarte mit abspielbarem Verlauf bis Königgrätz, Personen beider Seiten und der Prager Frieden.",
+      "karte": "svg.kk-karte"
+    },
+    {
+      "datei": "geschichte/einigungskriege/1870-71/index.html",
+      "bild": "krieg-1870-71",
+      "kicker": "Kaffee und Kommiss · Einigungskriege",
+      "titel": "Deutsch-Französischer Krieg 1870/71",
+      "unter": "Von der Emser Depesche über Sedan bis zur Kaiserproklamation: Reliefkarte mit abspielbarem Verlauf und Personen beider Seiten.",
+      "karte": "svg.kk-karte"
     }
   ]
 }

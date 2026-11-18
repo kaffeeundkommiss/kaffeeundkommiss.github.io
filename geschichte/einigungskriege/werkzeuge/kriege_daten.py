@@ -385,7 +385,7 @@ K1870 = {
     ],
     "einordnung": [
         "<strong>Wer wollte den Krieg?</strong> LeMO und Britannica beschreiben beide Seiten als kriegsbereit: Bismarck sah im Krieg das Mittel, die süddeutschen Staaten an den Norddeutschen Bund zu binden, und provozierte Frankreich mit der Emser Depesche; Napoleon III. erklärte den Krieg auch unter innenpolitischem Druck und im Vertrauen auf die eigene Armee.{{L1870,BFG}}",
-        "<strong>Langfristige Folgen.</strong> Britannica sieht in der Annexion Elsass-Lothringens den Ursprung eines französischen Revanchewunsches, der das Verhältnis beider Länder bis 1914 belastete; das ist eine Deutung.{{BFG}} Mehr zur Kriegsschuldfrage 1914 auf der <a href=\"../../erster-weltkrieg/\">Übersicht zum Ersten Weltkrieg</a>.",
+        "<strong>Langfristige Folgen.</strong> Britannica sieht in der Annexion Elsass-Lothringens den Ursprung eines französischen Revanchewunsches, der das Verhältnis beider Länder bis 1914 belastete; das ist eine Deutung.{{BFG}}",
     ],
     "karte": {
         "titel": "Deutsch-Französischer Krieg 1870/71: Schauplätze in Nordfrankreich",
