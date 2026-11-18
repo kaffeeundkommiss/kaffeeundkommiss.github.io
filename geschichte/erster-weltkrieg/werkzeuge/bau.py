@@ -2,7 +2,7 @@
 """Baut geschichte/erster-weltkrieg/index.html und daten.js aus den Daten in dieser Datei.
 Inhalte nur hier ändern, dann: python3 werkzeuge/bau.py
 Die Karte (karte.svg) erzeugt werkzeuge/karte.py; sie wird hier eingebettet.
-Alle Quellen abgerufen am 15.11.2026."""
+Quellen abgerufen am 15.11.2026, sofern beim Eintrag nicht anders angegeben."""
 import json, pathlib, html
 
 HIER = pathlib.Path(__file__).resolve().parent.parent
@@ -37,6 +37,16 @@ Q = {
  'S14': ('U.S. Department of State, Office of the Historian: Wilson’s Fourteen Points, 1918', 'https://history.state.gov/milestones/1914-1920/fourteen-points', 'Seite laut Hinweis nicht mehr gepflegt.'),
  'PCL': ('Perlentaucher: Christopher Clark, „Die Schlafwandler“ (DVA 2013), mit Rezensionsnotizen zu FAZ, SZ, ZEIT, NZZ, taz', 'https://www.perlentaucher.de/buch/christopher-clark/die-schlafwandler.html', ''),
  'HGB': ('aourednik: historical-basemaps, world_1914.geojson (GPL-3.0)', 'https://github.com/aourednik/historical-basemaps', 'Grundlage der Kartengrenzen; laut Projekt teils Näherungen.'),
+ 'BTA': ('Encyclopaedia Britannica: Battle of Tannenberg (1914)', 'https://www.britannica.com/event/Battle-of-Tannenberg-World-War-I-1914', '', '18.11.2026'),
+ 'BVD': ('Encyclopaedia Britannica: Battle of Verdun, The second phase of the battle', 'https://www.britannica.com/event/Battle-of-Verdun/The-second-phase-of-the-battle', 'Nennt den Beginn der Brussilow-Offensive.', '18.11.2026'),
+ 'BCA': ('Encyclopaedia Britannica: Battle of Caporetto', 'https://www.britannica.com/event/Battle-of-Caporetto', '', '18.11.2026'),
+ 'BAS': ('Encyclopaedia Britannica: Armistice of Salonika', 'https://www.britannica.com/topic/Armistice-of-Salonika', '', '18.11.2026'),
+ 'BMU': ('Encyclopaedia Britannica: Armistice of Mudros', 'https://www.britannica.com/event/Armistice-of-Mudros', '', '18.11.2026'),
+ 'BVG': ('Encyclopaedia Britannica: Armistice of Villa Giusti', 'https://www.britannica.com/topic/Armistice-of-Villa-Giusti', 'Nennt den 3. November als Unterzeichnung, an anderer Stelle den 4. November.', '18.11.2026'),
+ 'BAI': ('Encyclopaedia Britannica: Battle of Amiens', 'https://www.britannica.com/event/Battle-of-Amiens', '', '18.11.2026'),
+ 'BBL': ('Encyclopaedia Britannica: World War I, Other developments in 1918', 'https://www.britannica.com/event/World-War-I/Other-developments-in-1918', '', '18.11.2026'),
+ 'BAL': ('Encyclopaedia Britannica: Edmund Allenby, 1st Viscount Allenby', 'https://www.britannica.com/biography/Edmund-Henry-Hynman-Allenby-1st-Viscount-Allenby', '', '18.11.2026'),
+ 'BSE': ('Encyclopaedia Britannica: History of Serbia, Modern Serbia', 'https://www.britannica.com/topic/history-of-Serbia/Modern-Serbia', '', '18.11.2026'),
 }
 # Personen: je Person Wikipedia und, wo erreichbar, Britannica oder LeMO
 PQ = {
@@ -226,6 +236,122 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
+# ---------------------------------------------------------------- Fronten-Zeitband (Einleitung)
+# Je Front: Name, Beginn, Ende (Datum JJJJ-MM-TT, nur für die Lage im Band), Hinweis zu Beginn/Ende,
+# Ereignisse: (Schlüssel, Titel, Datum wie angezeigt, Lage JJJJ-MM-TT, Text, Quellen-IDs, einfach belegt?)
+FRONT_START = '1914-07-01'
+FRONT_ENDE = '1918-12-01'
+FRONT_VORAUSWAHL = 'w2'
+FRONTEN = [
+ ('Westfront', '1914-08-03', '1918-11-11', 'August 1914 bis Waffenstillstand von Compiègne', [
+   ('w1', 'Marne', 'September 1914', '1914-09-08',
+    'Der deutsche Vormarsch durch Belgien nach Frankreich kommt an der Marne zum Stehen. Danach erstarrt die Front im Westen zum Stellungskrieg. LeMO datiert die Schlacht auf den 5. bzw. 6. bis 12. September.',
+    ['LKV', 'WEW', 'BWW'], False),
+   ('w2', 'Verdun', '1916', '1916-02-21',
+    'Materialschlacht um die Festung Verdun. Beginn laut LeMO am 21. bzw. 22. Februar 1916; das Ende wird in den Quellen unterschiedlich angegeben.',
+    ['L16', 'LKV', 'BWW'], False),
+   ('w3', 'Somme', '1916', '1916-07-01',
+    'Schlacht an der Somme. LeMO rechnet sie vom 24. Juni bis 26. November 1916.',
+    ['L16', 'LKV', 'BWW'], False),
+   ('w4', 'Frühjahrsoffensive', '21.03.1918', '1918-03-21',
+    'Deutsche Großoffensive in der Picardie. Der Waffenstillstand mit Russland im Dezember 1917 hatte Truppen für die Westfront frei gemacht. Das Tagesdatum nennt nur LeMO.',
+    ['L18', 'WEW', 'BWW'], True),
+   ('w5', 'Amiens', '08.08.1918', '1918-08-08',
+    'Schlacht bei Amiens vom 8. bis 11. August 1918, Auftakt der alliierten Offensiven bis zum Kriegsende.',
+    ['L18', 'BAI'], False),
+ ]),
+ ('Ostfront', '1914-08-01', '1918-03-03', 'August 1914 bis Friede von Brest-Litowsk', [
+   ('o1', 'Tannenberg', '26.–30.08.1914', '1914-08-28',
+    'Deutsche Truppen unter Hindenburg und Ludendorff schlagen eine russische Armee in Ostpreußen.',
+    ['L14', 'BTA'], False),
+   ('o2', 'Gorlice-Tarnów', 'Mai 1915', '1915-05-02',
+    'Durchbruch deutscher und österreichisch-ungarischer Truppen unter Mackensen in Galizien (1. bis 3. Mai 1915).',
+    ['L15'], True),
+   ('o3', 'Brussilow-Offensive', 'Juni 1916', '1916-06-04',
+    'Russische Offensive unter General Brussilow. Beginn laut LeMO am 1. Juni, laut Britannica am 4. Juni 1916.',
+    ['L16', 'BVD'], False),
+   ('o4', 'Waffenstillstand', 'Dezember 1917', '1917-12-15',
+    'Waffenstillstand zwischen dem Deutschen Reich und Russland in Brest-Litowsk. Am 3. März 1918 folgt dort der Friedensvertrag.',
+    ['L17', 'BWW', 'L18', 'BBL'], False),
+ ]),
+ ('Italien', '1915-05-23', '1918-11-04', 'Kriegserklärung Italiens bis Waffenstillstand mit Österreich-Ungarn', [
+   ('i1', 'Kriegseintritt', '23.05.1915', '1915-05-23',
+    'Italien erklärt Österreich-Ungarn den Krieg.',
+    ['L15', 'WEW'], False),
+   ('i2', 'Durchbruch am Isonzo', 'Oktober 1917', '1917-10-24',
+    'Offensive der Mittelmächte am oberen Isonzo bei Karfreit (Caporetto); die italienische Front bricht zusammen.',
+    ['L17', 'BCA'], False),
+   ('i3', 'Waffenstillstand', '03.11.1918', '1918-11-03',
+    'Waffenstillstand zwischen Österreich-Ungarn und den Alliierten (Villa Giusti).',
+    ['L18', 'BVG'], False),
+ ]),
+ ('Balkan', '1914-07-28', '1918-09-29', 'Kriegserklärung an Serbien bis Waffenstillstand mit Bulgarien', [
+   ('b1', 'Serbien', 'Oktober 1915', '1915-10-06',
+    'Deutsche, österreichisch-ungarische und bulgarische Truppen beginnen im Oktober 1915 eine Offensive gegen Serbien; die serbische Armee muss das Land räumen.',
+    ['L15', 'BSE'], False),
+   ('b2', 'Rumänien', 'August 1916', '1916-08-27',
+    'Rumänien erklärt Österreich-Ungarn den Krieg.',
+    ['L16', 'WEW'], False),
+   ('b3', 'Waffenstillstand', 'September 1918', '1918-09-29',
+    'Waffenstillstand zwischen Bulgarien und den Alliierten (Saloniki).',
+    ['L18', 'BAS'], False),
+ ]),
+ ('Osman. Reich', '1914-11-02', '1918-10-30', 'Kriegserklärungen November 1914 bis Waffenstillstand von Mudros', [
+   ('n1', 'Gallipoli', 'April 1915', '1915-04-25',
+    'Britische und französische Truppen landen auf der Halbinsel Gallipoli; der Feldzug gegen das Osmanische Reich scheitert. Das Landungsdatum 25. April nennt nur LeMO.',
+    ['L15', 'BWW'], True),
+   ('n2', 'Jerusalem', 'Dezember 1917', '1917-12-09',
+    'Britische Truppen unter Allenby nehmen Jerusalem ein.',
+    ['L17', 'BAL'], False),
+   ('n3', 'Waffenstillstand', '30.10.1918', '1918-10-30',
+    'Waffenstillstand zwischen dem Osmanischen Reich und den Alliierten (Mudros).',
+    ['L18', 'BMU'], False),
+ ]),
+]
+
+
+def fronten_html():
+    import datetime as dt
+    tag = lambda s: dt.date.fromisoformat(s)
+    t0, t1 = tag(FRONT_START), tag(FRONT_ENDE)
+    W, X0, X1, Y0, LH = 380, 92, 374, 30, 36
+    px = lambda s: X0 + (X1 - X0) * (tag(s) - t0).days / (t1 - t0).days
+    H = Y0 + LH * len(FRONTEN) + 10
+    o = [f'<svg class="fb" viewBox="0 0 {W} {H}" aria-hidden="true" focusable="false">']
+    for j in range(1915, 1919):
+        x = px(f'{j}-01-01')
+        o.append(f'<line class="fb-jl" x1="{x:.1f}" y1="18" x2="{x:.1f}" y2="{H-10}"/>')
+    for j in range(1914, 1919):
+        a = px(FRONT_START if j == 1914 else f'{j}-01-01'); b = px(FRONT_ENDE if j == 1918 else f'{j+1}-01-01')
+        o.append(f'<text class="fb-j" x="{(a+b)/2:.1f}" y="13" text-anchor="middle">{j}</text>')
+    for i, (name, von, bis, hinweis, ev) in enumerate(FRONTEN):
+        y = Y0 + i * LH + LH / 2
+        o.append(f'<text class="fb-n" x="0" y="{y+4.5:.1f}">{esc(name)}</text>')
+        o.append(f'<rect class="fb-bar" x="{px(von):.1f}" y="{y-5:.1f}" width="{px(bis)-px(von):.1f}" height="10" rx="2"><title>{esc(name)}: {esc(hinweis)}</title></rect>')
+    xe = px('1918-11-11')
+    o.append(f'<line class="fb-ende" x1="{xe:.1f}" y1="20" x2="{xe:.1f}" y2="{H-10}"/>')
+    o.append('</svg>')
+    # Marken als echte Knöpfe über dem SVG (Prozentlage), damit Tastatur und Vorleser sie erreichen
+    knoepfe, liste = [], []
+    for i, (name, von, bis, hinweis, ev) in enumerate(FRONTEN):
+        y = (Y0 + i * LH + LH / 2) / H * 100
+        for k, titel, datum, lage, text, qs, einfach in ev:
+            x = px(lage) / W * 100
+            an = ' aria-pressed="true"' if k == FRONT_VORAUSWAHL else ' aria-pressed="false"'
+            knoepfe.append(f'<button type="button" class="fb-mk" data-k="{k}" style="left:{x:.2f}%;top:{y:.2f}%"{an}>'
+                           f'<span class="vh">{esc(name)}: {esc(titel)}, {esc(datum)}</span></button>')
+            liste.append(f'<li id="fb-{k}" data-k="{k}"><b>{esc(titel)}</b> <span class="fb-d">{esc(datum)} · {esc(name)}</span><br>'
+                         f'{esc(text)} {q(*qs, einfach=einfach)}</li>')
+    vor = next(l for l in liste if f'data-k="{FRONT_VORAUSWAHL}"' in l)
+    return (f'<figure class="fronten">\n'
+            f'  <figcaption><span class="fb-kopf">Kriegsverlauf</span><span class="fb-titel">Fünf Fronten, vier Jahre</span></figcaption>\n'
+            f'  <div class="fb-flaeche">{"".join(o)}{"".join(knoepfe)}<span class="fb-et" style="left:{xe/W*100:.2f}%">11.11.1918</span></div>\n'
+            f'  <div class="fb-info" aria-live="polite">{vor[vor.index(">")+1:-5]}</div>\n'
+            f'  <details class="fb-alle"><summary>Alle Ereignisse als Liste</summary><ol>{"".join(liste)}</ol></details>\n'
+            f'  <p class="fb-fuss">Balken: Zeitraum der Kämpfe je Front, bis zu Waffenstillstand oder Frieden; Lage im Band monatsgenau. Marke antippen zeigt das Ereignis.</p>\n'
+            f'</figure>')
+
+
 def personen_html():
     out = []
     bilder = HIER / 'bilder'
@@ -274,6 +400,7 @@ def main():
     def rep(m):
         art, ids = m.group(1), m.group(2).split(',')
         return q(*[i.strip() for i in ids], einfach=(art == 'q1'))
+    T = T.replace('{{FRONTEN}}', fronten_html())
     T = re.sub(r'\{\{(q1?):([^}]+)\}\}', rep, T)
     T = T.replace('{{TABELLE}}', tabelle_html())
     T = T.replace('{{PERSONEN}}', personen_html())
@@ -286,9 +413,9 @@ def main():
     q('HGB')
     ql = []
     for i in ORDER:
-        t, u, z = Q[i]
+        t, u, z, *ab = Q[i]
         zz = f' {esc(z)}' if z else ''
-        ql.append(f'<li id="q-{i}"><b>[{ORDER.index(i)+1}]</b> {esc(t)}. <a href="{u}">{esc(u)}</a>. Abgerufen am {ABRUF}.{zz}</li>')
+        ql.append(f'<li id="q-{i}"><b>[{ORDER.index(i)+1}]</b> {esc(t)}. <a href="{u}">{esc(u)}</a>. Abgerufen am {ab[0] if ab else ABRUF}.{zz}</li>')
     T = T.replace('{{QUELLEN}}', '\n'.join(ql))
     (HIER / 'index.html').write_text(T)
     daten = {

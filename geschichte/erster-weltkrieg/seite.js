@@ -68,3 +68,19 @@
   regler.value = start; zeige(start);
 })();
 
+
+/* Fronten-Zeitband in der Einleitung: Marke wählt das Ereignis, der Text kommt aus der Liste „Alle Ereignisse“. */
+(function () {
+  var box = document.querySelector('.fronten');
+  if (!box) return;
+  var info = box.querySelector('.fb-info');
+  var knoepfe = Array.prototype.slice.call(box.querySelectorAll('.fb-mk'));
+  knoepfe.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var li = document.getElementById('fb-' + b.getAttribute('data-k'));
+      if (!li) return;
+      info.innerHTML = li.innerHTML;
+      knoepfe.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    });
+  });
+})();
