@@ -91,16 +91,6 @@ def kopf(k, pfad_bild):
 '''
 
 
-def kriegsnav(k):
-    o = ['<nav class="kriegsnav" aria-label="Die drei Kriege">']
-    o.append('<a href="../">Übersicht</a>')
-    for x in KRIEGE:
-        cur = ' aria-current="page"' if x is k else ""
-        o.append(f'<a href="../{x["ordner"]}/"{cur}><span>{x["nr"]}</span>{html.escape(x["kurz"])}</a>')
-    o.append("</nav>")
-    return "".join(o)
-
-
 def flaechen(kd, bb):
     B = box(*bb)
     out = []
@@ -143,7 +133,6 @@ def seite(k):
     o.append('<header class="seitenkopf">')
     o.append(f'<div class="kicker">{html.escape(k["kicker"])}</div>')
     o.append(f'<h1>{html.escape(k["seitentitel"])}</h1>')
-    o.append(kriegsnav(k))
     o.append('<nav class="pages" aria-label="Bereiche dieser Seite"><a href="#ueberblick" data-reiter="ueberblick">Überblick</a><a href="#karte" data-reiter="karte">Karte und Verlauf</a><a href="#personen" data-reiter="personen">Personen</a><a href="#quellen" data-reiter="quellen">Quellen</a></nav>')
     o.append("</header>")
 
@@ -238,12 +227,8 @@ def seite(k):
         o.append("</ol>")
     o.append("</section>")
     # Weiter
-    i = KRIEGE.index(k)
     o.append('<nav class="kriegsweiter" aria-label="Weiter">')
-    if i > 0: o.append(f'<a class="zurueck" href="../{KRIEGE[i-1]["ordner"]}/"><span>Vorheriger Krieg</span>{html.escape(KRIEGE[i-1]["titel"])}</a>')
-    else: o.append('<a class="zurueck" href="../"><span>Zurück</span>Übersicht Einigungskriege</a>')
-    if i < len(KRIEGE) - 1: o.append(f'<a class="vor" href="../{KRIEGE[i+1]["ordner"]}/"><span>Nächster Krieg</span>{html.escape(KRIEGE[i+1]["titel"])}</a>')
-    else: o.append('<a class="vor" href="../"><span>Zurück</span>Übersicht Einigungskriege</a>')
+    o.append('<a class="zurueck" href="../"><span>Zurück</span>Übersicht Einigungskriege</a>')
     o.append("</nav>")
     o.append("</main>")
     o.append('''<footer class="kk-fuss"><div class="kk-in">
