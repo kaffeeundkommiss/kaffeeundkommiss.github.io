@@ -22,7 +22,7 @@
    "url": "https://www.wahlrecht.de/termine.htm"
   }
  ],
- "historie_stand": "2026-11-15",
+ "historie_stand": "2026-11-19",
  "parlamente": [
   {
    "id": "bund",
@@ -1393,7 +1393,12 @@
     [
      "SPD",
      "Linke"
-    ]
+    ],
+   [
+    "SPD",
+    "Linke",
+    "Grüne"
+   ]
    ],
    "historie_quelle": {
     "name": "Wikipedia: Landesregierung von Mecklenburg-Vorpommern (abgerufen 15.11.2026)",
@@ -1416,7 +1421,7 @@
     }
    ],
    "ebene": "Land",
-   "historie_abgleich": "15.11.2026: Tabelle der Wikipedia-Seite (Stand 26.11.2025) eingesehen, alle Kombinationen stimmen. SPD+Linke+Grüne erst nach Vereidigung (MP-Wahl 16.11.2026) ergänzen."
+   "historie_abgleich": "15.11.2026: Tabelle der Wikipedia-Seite (Stand 26.11.2025) eingesehen, alle Kombinationen stimmen. SPD+Linke+Grüne am 19.11.2026 ergänzt: Wiederwahl Schwesig und Amtseid am 16.11.2026 (tagesschau.de, Stand 16.11.2026 14:23; NDR-Liveblog „Schwesig bleibt Landeschefin in MV - Kabinett vereidigt“, abgerufen 19.11.2026)."
   },
   {
    "id": "sachsen-anhalt",

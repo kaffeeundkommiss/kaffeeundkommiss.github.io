@@ -22,9 +22,9 @@ nicht automatisch ergeben: Wahltermine, letzte Wahl und bisherige Regierungen.
    (dawum-Kürzel, z. B. `["SPD", "Linke", "Grüne"]`) an `historie` des Parlaments anhängen, wenn sie
    dort noch nicht steht. Laufende Koalitionsverhandlungen zählen nicht, erst die vereidigte
    Regierung. Danach `historie_stand` auf das heutige Datum setzen.
-   Offene Fälle Stand 15.11.2026: Mecklenburg-Vorpommern (SPD, Linke, Grüne; Wahl der
-   Ministerpräsidentin für 16.11.2026 angesetzt), Berlin (Linke, Grüne, SPD verhandeln),
-   Sachsen-Anhalt (Regierung offen, Wahl des Ministerpräsidenten im Dezember angekündigt).
+   Offene Fälle Stand 19.11.2026: Berlin (Linke, Grüne, SPD verhandeln seit November),
+   Sachsen-Anhalt (Regierung offen, Wahl des Ministerpräsidenten für Mitte Dezember geplant).
+   Mecklenburg-Vorpommern (SPD, Linke, Grüne) ist seit 19.11.2026 eingetragen.
 
 3. **Gelaufene Wahl.** Liegt der Termin eines Parlaments in der Vergangenheit und steht das
    amtliche Ergebnis fest: `letzte_wahl` auf den Wahltag setzen (alte Umfragen fallen damit
