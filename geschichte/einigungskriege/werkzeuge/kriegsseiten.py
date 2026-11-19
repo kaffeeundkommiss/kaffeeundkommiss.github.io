@@ -38,6 +38,10 @@ def kopf(k, pfad_bild):
     t = f'{k["seitentitel"]} · Kaffee und Kommiss'
     url = BASIS + k["ordner"] + "/"
     b = html.escape(k["beschreibung"])
+    # Vorschaubild-Block (werkzeuge/vorschau.js im Repo-Wurzelordner) aus der vorhandenen Seite übernehmen
+    alt = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", k["ordner"], "index.html")
+    m = re.search(r"<!-- Vorschau für Linkvorschauen, erzeugt mit werkzeuge/vorschau\.js -->\n(?:<meta [^>]*>\n)*", open(alt).read()) if os.path.exists(alt) else None
+    vorschau = m.group(0) if m else ""
     return f'''<!doctype html>
 <html lang="de">
 <head>
@@ -52,13 +56,7 @@ def kopf(k, pfad_bild):
 <meta property="og:title" content="{t}">
 <meta property="og:description" content="{b}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="https://kaffeeundkommiss.github.io/vorschau/einigungskriege.jpg?v=0e8a6dc7">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Einigungskriege 1864–1871: Kaffee und Kommiss">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://kaffeeundkommiss.github.io/vorschau/einigungskriege.jpg?v=0e8a6dc7">
-<link rel="icon" href="../../../icons/einigungskriege.svg" type="image/svg+xml">
+{vorschau}<link rel="icon" href="../../../icons/einigungskriege.svg" type="image/svg+xml">
 <link rel="icon" href="../../../favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png?v=2">
 <meta name="theme-color" content="#23211C">
