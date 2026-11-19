@@ -42,6 +42,8 @@ def kopf(k, pfad_bild):
     alt = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", k["ordner"], "index.html")
     m = re.search(r"<!-- Vorschau für Linkvorschauen, erzeugt mit werkzeuge/vorschau\.js -->\n(?:<meta [^>]*>\n)*", open(alt).read()) if os.path.exists(alt) else None
     vorschau = m.group(0) if m else ""
+    pfad = ('<nav class="kk-pfad" aria-label="Pfad"><div class="kk-in"><a href="https://kaffeeundkommiss.github.io/geschichte/">Geschichte</a> › '
+            f'<a href="../">Einigungskriege 1864–1871</a> › <span aria-current="page">{html.escape(k["titel"])}</span></div></nav>\n')
     return f'''<!doctype html>
 <html lang="de">
 <head>
@@ -75,7 +77,7 @@ def kopf(k, pfad_bild):
   <a class="kk-haus" href="https://kaffeeundkommiss.github.io/"><img src="../../../kk-tasse.svg" alt="" width="22" height="22"><span>Kaffee und Kommiss</span></a>
   <nav class="kk-bereiche" aria-label="Bereiche"><a href="https://kaffeeundkommiss.github.io/geschichte/" aria-current="true">Geschichte</a><a href="https://kaffeeundkommiss.github.io/sicherheitspolitik/"><span class="kk-lang">Sicherheitspolitik</span><span class="kk-kurz">Sicherheit</span></a><a href="https://kaffeeundkommiss.github.io/politik/">Politik</a></nav>
 </div></div>
-<header class="kk-kopf">
+{pfad}<header class="kk-kopf">
   <div class="wrap">
     <a class="kk-schild" href="../">
       <img class="logo" src="../../../icons/einigungskriege.svg" alt="" width="44" height="44">
@@ -127,7 +129,6 @@ def seite(k):
     svg = KK.karte(kd, ordner, "relief.jpg")
 
     o = [kopf(k, ordner), "<main>"]
-    o.append(f'<p class="pfad"><a href="https://kaffeeundkommiss.github.io/geschichte/">Geschichte</a> › <a href="../">Einigungskriege 1864–1871</a> › {html.escape(k["titel"])}</p>')
     o.append('<header class="seitenkopf">')
     o.append(f'<div class="kicker">{html.escape(k["kicker"])}</div>')
     o.append(f'<h1>{html.escape(k["seitentitel"])}</h1>')
