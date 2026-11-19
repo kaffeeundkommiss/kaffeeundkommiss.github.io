@@ -42,6 +42,8 @@ Q = {
  'BTA': ('Encyclopaedia Britannica: Battle of Tannenberg (1914)', 'https://www.britannica.com/event/Battle-of-Tannenberg-World-War-I-1914', '', '18.11.2026'),
  'BVD': ('Encyclopaedia Britannica: Battle of Verdun, The second phase of the battle', 'https://www.britannica.com/event/Battle-of-Verdun/The-second-phase-of-the-battle', 'Nennt den Beginn der Brussilow-Offensive.', '18.11.2026'),
  'BCA': ('Encyclopaedia Britannica: Battle of Caporetto', 'https://www.britannica.com/event/Battle-of-Caporetto', '', '18.11.2026'),
+ 'BSB': ('Bayerische Staatsbibliothek: Durch Niederlagen zum Sieg? Rumäniens Eintritt in den Ersten Weltkrieg 1916 (Ausstellungstext)', 'https://www.bsb-muenchen.de/veranstaltungen-und-ausstellungen/article/durch-niederlagen-zum-sieg-rumaeniens-eintritt-in-den-ersten-weltkrieg-1916-1651', '', '19.11.2026'),
+ 'O18': ('1914-1918-online. International Encyclopedia of the First World War: Romania (Handbook)', 'https://encyclopedia.1914-1918-online.net/article/romania-1-1', '', '19.11.2026'),
  'BAS': ('Encyclopaedia Britannica: Armistice of Salonika', 'https://www.britannica.com/topic/Armistice-of-Salonika', '', '18.11.2026'),
  'BMU': ('Encyclopaedia Britannica: Armistice of Mudros', 'https://www.britannica.com/event/Armistice-of-Mudros', '', '18.11.2026'),
  'BVG': ('Encyclopaedia Britannica: Armistice of Villa Giusti', 'https://www.britannica.com/topic/Armistice-of-Villa-Giusti', 'Nennt den 3. November als Unterzeichnung, an anderer Stelle den 4. November.', '18.11.2026'),
@@ -121,7 +123,7 @@ STAATEN = [
  ('IT', 'Italien', 'A', '23./24.05.1915', 'Kriegserklärung an Österreich-Ungarn', ('L15', 'WDK'), '03.11.1918', 'Waffenstillstand mit Österreich-Ungarn; mit dem Deutschen Reich 11.11.', ('L18',), [['1915-05-23', 'A'], ['1918-11-11', 'X']], 'LeMO 23.5., Wikipedia 24.5.; an das Deutsche Reich erst im August 1916'),
  ('BG', 'Bulgarien', 'M', '14.10.1915', 'Kriegserklärung an Serbien', ('L15', 'WDK'), '29.09.1918', 'Waffenstillstand mit den Alliierten', ('L18', 'BAS'), [['1915-10-14', 'M'], ['1918-09-29', 'X']], ''),
  ('PT', 'Portugal', 'A', '09.03.1916', 'Kriegserklärung des Deutschen Reichs', ('L16', 'WDK'), '11.11.1918', 'Waffenstillstand von Compiègne', ('L18',), [['1916-03-09', 'A'], ['1918-11-11', 'X']], ''),
- ('RO', 'Rumänien', 'A', '27./28.08.1916', 'Kriegserklärung an Österreich-Ungarn', ('L16', 'WDK'), '12.1917', 'Waffenstillstand; Frieden von Bukarest 07.05.1918', ('L17', 'L18'), [['1916-08-27', 'A'], ['1917-12-09', 'X']], 'LeMO 27.8., Wikipedia 28.8.; Tag des Waffenstillstands nicht eindeutig belegt'),
+ ('RO', 'Rumänien', 'A', '27./28.08.1916', 'Kriegserklärung an Österreich-Ungarn', ('L16', 'WDK'), '12.1917', 'Waffenstillstand; Frieden von Bukarest 07.05.1918; erneute Kriegserklärung an die Mittelmächte 10.11.1918', ('L17', 'L18', 'BSB', 'O18'), [['1916-08-27', 'A'], ['1917-12-09', 'X'], ['1918-11-10', 'A'], ['1918-11-11', 'X']], 'LeMO 27.8., Wikipedia 28.8.; Tag des Waffenstillstands nicht eindeutig belegt; Wiedereintritt am 10.11.1918 nach BSB und 1914-1918-online'),
  ('US', 'Vereinigte Staaten', 'A', '06.04.1917', 'Kriegserklärung an das Deutsche Reich', ('L17', 'WDK', 'SWW'), '11.11.1918', 'Waffenstillstand von Compiègne', ('L18',), [['1917-04-06', 'A'], ['1918-11-11', 'X']], 'an Österreich-Ungarn am 07.12.1917'),
  ('CU', 'Kuba', 'A', '07.04.1917', 'Kriegserklärung', ('WDK',), '11.11.1918', 'Waffenstillstand', (), [['1917-04-07', 'A'], ['1918-11-11', 'X']], ''),
  ('PA', 'Panama', 'A', '07.04.1917', 'Kriegserklärung', ('WDK',), '11.11.1918', 'Waffenstillstand', (), [['1917-04-07', 'A'], ['1918-11-11', 'X']], ''),
@@ -163,7 +165,8 @@ SCHRITTE = [
  ('1918-09-29', 'Bulgarien schließt einen Waffenstillstand mit den Alliierten.', ['BG']),
  ('1918-10-30', 'Waffenstillstand zwischen den Alliierten und dem Osmanischen Reich.', ['OS']),
  ('1918-11-03', 'Waffenstillstand zwischen Österreich-Ungarn und den Alliierten.', ['AH']),
- ('1918-11-11', 'Waffenstillstand von Compiègne: Ende der Kämpfe. Die Friedensverträge folgen 1919 bis 1923.', ['DE']),
+ ('1918-11-10', 'Rumänien erklärt den Mittelmächten erneut den Krieg, einen Tag vor dem Waffenstillstand von Compiègne.', ['RO']),
+ ('1918-11-11', 'Waffenstillstand von Compiègne: Ende der Kämpfe. Die Friedensverträge folgen 1919 bis 1923.', ['DE', 'RO']),
 ]
 
 # ---------------------------------------------------------------- Personen
