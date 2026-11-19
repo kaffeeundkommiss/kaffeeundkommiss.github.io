@@ -27,7 +27,8 @@ main{max-width:var(--kk-max);margin:0 auto;padding:22px 16px 40px}
 .kicker{font:600 13px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent)}
 h1{margin:6px 0 10px;font:700 clamp(30px,5vw,42px)/1.02 var(--kk-titel);text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
 h2{margin:40px 0 10px;font:700 26px/1.1 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em;padding-top:10px;border-top:3px solid var(--kk-akzent)}
-h3{margin:22px 0 6px;font:700 19px/1.15 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em}
+h3,h2.h3{margin:22px 0 6px;font:700 19px/1.15 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em}
+h2.h3{padding-top:0;border-top:0}
 p{margin:0 0 12px}
 .lead{font-size:18px}
 .q{font:500 11px var(--kk-mono);vertical-align:super;line-height:0;white-space:nowrap}
@@ -36,7 +37,7 @@ p{margin:0 0 12px}
 
 /* Kästen */
 .kasten{background:var(--kk-papier);border:1px solid var(--kk-linie);border-left:4px solid var(--kk-akzent);padding:14px 16px;margin:16px 0}
-.kasten h3{margin-top:0}
+.kasten h3,.kasten h2.h3{margin-top:0}
 .kasten p:last-child{margin-bottom:0}
 .marke{display:inline-block;font:600 11px/1 var(--kk-mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;border:1px solid var(--kk-linie);border-radius:3px;color:var(--kk-grau);margin-right:6px;vertical-align:1px}
 .marke.deutung{border-color:var(--kk-akzent);color:var(--kk-akzent)}
