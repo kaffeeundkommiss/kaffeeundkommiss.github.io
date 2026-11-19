@@ -51,6 +51,8 @@ h1{margin:6px 0 0;font:700 clamp(30px,5vw,42px)/1.02 var(--kk-titel);text-transf
 
 /* Bereich Geschichte: Stacheldraht und Explosionen statt Kartenraster, wie auf den Weltkriegsseiten (stacheldraht.svg aus erster-Weltkrieg). */
 .kk-b-gesch{--kk-muster:url("stacheldraht.svg")}
+/* Einigungskriege 1864–1871 (Übersicht, Kriegsseiten, Kacheln): stilisierter preußischer Adler (adler.svg, eigene Zeichnung). */
+.kk-b-gesch.kk-einigung{--kk-muster:url("adler.svg")}
 
 /* Bereichsübersichten im hellen Modus (10.11.2026): Politik weiß wie die Startseite, Geschichte dezentes Grau. */
 @media (prefers-color-scheme: light){

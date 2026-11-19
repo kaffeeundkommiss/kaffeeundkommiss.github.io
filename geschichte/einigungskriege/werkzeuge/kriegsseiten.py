@@ -71,7 +71,7 @@ def kopf(k, pfad_bild):
 <link rel="stylesheet" href="../kriege.css">
 <link rel="stylesheet" href="../../reiter.css">
 </head>
-<body class="kk-b-gesch kk-breit">
+<body class="kk-b-gesch kk-einigung kk-breit">
 <!-- Erzeugt mit werkzeuge/kriegsseiten.py aus werkzeuge/kriege_daten.py, nicht von Hand ändern. -->
 <div class="kk-leiste"><div class="kk-in">
   <a class="kk-haus" href="https://kaffeeundkommiss.github.io/"><img src="../../../kk-tasse.svg" alt="" width="22" height="22"><span>Kaffee und Kommiss</span></a>
