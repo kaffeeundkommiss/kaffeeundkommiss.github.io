@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Technik im Modell · Erster Weltkrieg · Kaffee und Kommiss</title>
-<meta name="description" content="Drei drehbare 3D-Modelle zum Ersten Weltkrieg an einem Ort: der Dreidecker Fokker Dr.I, der britische Panzer Mark II und das Gewehr 98, jeweils mit Belegstand und Link zur Ereignisseite.">
+<meta name="description" content="Vier 3D-Modelle zum Ersten Weltkrieg an einem Ort: ein deutscher Schützengraben von 1916, der Dreidecker Fokker Dr.I, der britische Panzer Mark II und das Gewehr 98, jeweils mit Belegstand.">
 <link rel="canonical" href="https://kaffeeundkommiss.github.io/geschichte/erster-weltkrieg/technik/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="Kaffee und Kommiss">
 <meta property="og:title" content="Technik im Modell · Erster Weltkrieg · Kaffee und Kommiss">
-<meta property="og:description" content="Drei drehbare 3D-Modelle zum Ersten Weltkrieg an einem Ort: der Dreidecker Fokker Dr.I, der britische Panzer Mark II und das Gewehr 98, jeweils mit Belegstand und Link zur Ereignisseite.">
+<meta property="og:description" content="Vier 3D-Modelle zum Ersten Weltkrieg an einem Ort: ein deutscher Schützengraben von 1916, der Dreidecker Fokker Dr.I, der britische Panzer Mark II und das Gewehr 98, jeweils mit Belegstand.">
 <meta property="og:url" content="https://kaffeeundkommiss.github.io/geschichte/erster-weltkrieg/technik/">
 <link rel="icon" href="../../../icons/erster-weltkrieg.svg" type="image/svg+xml">
 <link rel="icon" href="../../../favicon-32.png" type="image/png" sizes="32x32">
@@ -45,11 +45,34 @@
   <section class="einleitung">
     <div class="kicker">Erster Weltkrieg · 3D-Modelle</div>
     <h1>Technik im Modell</h1>
-    <p>Drei Modelle aus den Einzelseiten an einem Ort: ein Flugzeug, ein Panzer und ein Gewehr. Jedes Modell lässt sich drehen und aus festen Blickwinkeln ansehen. Zu jedem stehen der Belegstand der technischen Daten und der Weg zur Seite, auf der es eingeordnet ist.</p>
-    <p class="m-laden-info">Die Modelle laden erst, wenn du auf „3D-Modell laden“ tippst. Beim ersten Modell kommt die 3D-Bibliothek three.js dazu. Alle Modelle sind vereinfachte Nachbildungen, keine maßstabsgetreuen Rekonstruktionen.</p>
+    <p>Am Anfang steht der Schützengraben: die Stellung, in der der Krieg an der Westfront ab Herbst 1914 erstarrte. Darauf folgen ein Flugzeug, ein Panzer und ein Gewehr. Jedes Modell lässt sich drehen und aus festen Blickwinkeln ansehen. Zu jedem stehen der Belegstand und der Weg zur Seite, auf der es eingeordnet ist.</p>
+    <p class="m-laden-info">Die Modelle laden erst, wenn du auf „3D-Modell laden“ oder „3D-Modell öffnen“ tippst. Beim ersten Modell kommt die 3D-Bibliothek three.js dazu. Alle Modelle sind vereinfachte Nachbildungen, keine maßstabsgetreuen Rekonstruktionen.</p>
   </section>
 
   <div class="modelle">
+
+    <article class="modell m-gross" id="m-graben" aria-labelledby="m-graben-t">
+      <div class="m-kopf">
+        <span class="rubrik">Stellungskrieg · Graben</span>
+        <h2 id="m-graben-t">Deutscher Schützengraben 1916</h2>
+      </div>
+      <div class="m-buehne">
+        <img src="bilder/graben.jpg" width="1280" height="640" alt="Vorschau des 3D-Modells: Schützengraben mit Flechtwerkwänden, Schulterwehren und Erdaufwurf, davor Drahthindernisse, schräg von oben bei Abendlicht" decoding="async">
+        <a class="m-laden" href="schuetzengraben.html">3D-Modell öffnen</a>
+      </div>
+      <div class="m-spalten">
+        <div>
+          <p class="m-text">Schematische Rekonstruktion eines ausgebauten deutschen Schützengrabens an der Westfront, gebaut nach dem Handbuch „Stellungsbau“ vom Juni 1916: Wände aus Flechtwerk, Schulterwehren, Schützenauftritt mit Schartenblenden, Unterstand, Beobachtungs- und MG-Stand, Verbindungsgraben und Drahthindernis. Infopunkte erklären jedes Bauteil; dazu ein Querschnitt und eine Skizze eines Frontabschnitts.</p>
+          <p class="m-text">Das Modell öffnet sich als eigene Ansicht über den ganzen Bildschirm. Keine Nachbildung einer bestimmten Stellung; alle Maße sind Richtwerte.</p>
+        </div>
+        <div class="m-beleg">
+          <div class="meta"><span class="b one">eine Quelle</span>Bauweise und Maße: Handbuch „Stellungsbau“, Juni 1916 (<a href="#q-graben">Quellen</a>)</div>
+          <p class="why">Für die Angaben aus dem Handbuch fehlt eine zweite, unabhängige Quelle; sie gelten deshalb als nicht ausreichend belegt. Das Handbuch nennt seine Zeichnungen selbst nur einen allgemeinen Anhalt.</p>
+          <div class="meta"><span class="b ok">belegt</span>Abstand der Linien als Richtwert: <a href="#q-graben">Quellen</a></div>
+          <div class="meta"><span class="b ok">belegt</span>Stahlhelm ab 1916: <a href="#q-graben">Quellen</a></div>
+        </div>
+      </div>
+    </article>
 
     <article class="modell" id="m-dr1" aria-labelledby="m-dr1-t" data-modell="dr1" data-skript="modell/dr1.js">
       <div class="m-kopf">
@@ -231,6 +254,16 @@
     </article>
 
   </div>
+
+  <section class="m-hinweis" id="q-graben">
+    <h2>Quellen zum Schützengraben</h2>
+    <ul class="m-quellen">
+      <li>Chef des Generalstabes des Feldheeres: Vorschriften für den Stellungskrieg für alle Waffen, Teil 1: Stellungsbau, Juni 1916. Digitalisat bei Scribd, hochgeladen von morthomme.com: <a href="https://de.scribd.com/document/369576505/Teil-1-Stellungsbau-Juni-1916">scribd.com</a>. Grundlage für Bauweise und Maße im Modell; eine Quelle. Zur Einordnung der Vorschriftenreihe: Tony Cowan, „Doctrinal manuals: ‚Regulations for Trench Warfare for All Arms‘ series“ (2023), nennt die Ausgabe vom 20.06.1916 (Bundesarchiv PH 3/1902): <a href="http://www.tonycowan.com/wp-content/uploads/2023/04/219-%E2%80%93-Doctrinal-manuals.pdf">tonycowan.com</a>.</li>
+      <li>Abstand zwischen den Linien: Spartacus Educational, „No Man’s Land“ (durchschnittlich etwa 250 yd bzw. 230 m, bei Guillemont nur 50 yd): <a href="https://spartacus-educational.com/FWWnoman.htm">spartacus-educational.com</a>; WW1 Trench Experience, „History of the Trenches“ (meist 50 bis 250 yd): <a href="https://ww1trenchexperience.co.uk/history-of-the-trenches">ww1trenchexperience.co.uk</a>. Beides Sekundärdarstellungen.</li>
+      <li>Stahlhelm: International Encyclopedia of the First World War (1914-1918-online), „Steel Helmet“ (zuerst in kleiner Zahl bei Verdun im Februar 1916, bis Ende 1916 allgemein an der Westfront): <a href="https://encyclopedia.1914-1918-online.net/article/steel-helmet">1914-1918-online.net</a>; Wikipedia (englisch), „Stahlhelm“: <a href="https://en.wikipedia.org/wiki/Stahlhelm">en.wikipedia.org</a>.</li>
+    </ul>
+    <p>Abgerufen am 21.11.2026. Darstellung des Grabens mit three.js r128 (MIT-Lizenz).</p>
+  </section>
 
   <section class="m-hinweis">
     <h2>Zu den Modellen</h2>
