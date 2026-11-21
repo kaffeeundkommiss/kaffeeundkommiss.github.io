@@ -77,3 +77,13 @@
 .m-hinweis{max-width:52em}
 .m-hinweis h2{margin:0 0 6px;font:700 20px/1.1 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em}
 .m-hinweis p{margin:0;font-size:14px;color:var(--kk-grau)}
+
+/* Breite Karte (Schützengraben, 21.11.2026): öffnet als eigene Vollbildseite */
+.modell.m-gross{grid-column:1/-1}
+.m-gross .m-buehne img{aspect-ratio:2/1}
+a.m-laden{text-decoration:none;display:inline-block}
+.m-spalten{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:20px;align-items:start}
+@media (max-width:759px){ .m-spalten{grid-template-columns:minmax(0,1fr);gap:8px} }
+.modelle .b.one{color:var(--kk-grau);border-color:var(--kk-linie);border-style:dashed}
+.m-quellen{margin:8px 0 0;padding-left:20px;font-size:14px;line-height:1.5}
+.m-quellen li{margin:4px 0;overflow-wrap:anywhere}
