@@ -1,0 +1,79 @@
+/* Technik im Modell (geschichte/erster-weltkrieg/technik/). Grundsystem aus basis.css und style.css.
+   Die Modellbausteine (.dr1, .mk2, .g98) entsprechen den Einzelseiten; deren Farbnamen (--ink, --panel …)
+   werden hier auf die kk-Farben abgebildet. Startwerte: drei Spalten ab 1024 px, eine unter 760 px. */
+.modelle{
+  --ink:var(--kk-tinte); --paper:var(--kk-papier); --panel:var(--kk-papier); --muted:var(--kk-grau);
+  --rule:var(--kk-linie); --border:var(--kk-linie); --red:var(--kk-akzent);
+  --f-display:var(--kk-titel); --f-mono:var(--kk-mono);
+  --ok:#2E6B3A; --teil:#8a6100;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .modelle{--ok:#7DBB86;--teil:#D9A93A} }
+:root[data-theme="dark"] .modelle{--ok:#7DBB86;--teil:#D9A93A}
+@media (max-width:1023px){ .modelle{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:759px){ .modelle{grid-template-columns:minmax(0,1fr);gap:12px} }
+
+.m-laden-info{font-size:14px}
+.modell{display:flex;flex-direction:column;gap:10px;padding:0 16px 16px;background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:4px solid var(--kk-akzent);min-width:0}
+.m-kopf{display:flex;flex-direction:column;gap:6px;padding-top:14px}
+.m-kopf .rubrik{font:600 13px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent)}
+.m-kopf h2{margin:0;font:700 26px/1.05 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em}
+
+.m-buehne{position:relative;display:grid}
+.m-buehne picture,.m-buehne > img{display:block}
+.m-buehne img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--kk-linie);border-radius:2px;background:#e4e7e0}
+.m-laden{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font:700 15px/1 var(--kk-titel);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--kk-papier);background:var(--kk-tinte);border:0;border-radius:2px;min-height:42px;padding:12px 18px 11px;cursor:pointer;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.m-laden:hover{background:var(--kk-akzent)}
+.m-laden:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:3px}
+.m-laden:disabled{cursor:progress;opacity:.85}
+.m-fehler{margin:8px 0 0;font-size:14px;color:var(--kk-akzent)}
+
+.m-text{margin:0;font-size:15px;line-height:1.5}
+.m-beleg{display:grid;gap:6px}
+.m-weg{margin:auto 0 0;padding-top:8px;border-top:1px solid var(--kk-linie);font-size:14px;color:var(--kk-grau)}
+.m-weg a{color:var(--kk-tinte);font-weight:600;text-decoration-color:var(--kk-akzent);text-underline-offset:3px}
+
+/* Belegstand wie auf den Einzelseiten */
+.modelle .meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:13.5px;color:var(--kk-grau)}
+.modelle .meta a{color:var(--kk-tinte);font:500 12.5px var(--kk-mono)}
+.modelle .b{display:inline-block;font:600 11.5px/1 var(--kk-titel);letter-spacing:.1em;text-transform:uppercase;padding:4px 7px 3px;border-radius:2px;border:1px solid;white-space:nowrap}
+.modelle .b.ok{color:var(--ok);border-color:var(--ok)}
+.modelle .b.part{color:var(--teil);border-color:var(--teil)}
+.modelle .why{margin:0;font-size:13.5px;color:var(--kk-grau);font-style:italic}
+
+/* Modellbausteine (aus den Einzelseiten übernommen) */
+.dr1,.mk2,.g98{margin:0;display:grid;gap:8px;min-width:0;--m-bg:#e4e7e0;--m-ground:#d3d8cf;--m-ring:#b9c0b6;--m-dark:0}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) :is(.dr1,.mk2,.g98){--m-bg:#141815;--m-ground:#1f2521;--m-ring:#343d37;--m-dark:1} }
+:root[data-theme="dark"] :is(.dr1,.mk2,.g98){--m-bg:#141815;--m-ground:#1f2521;--m-ring:#343d37;--m-dark:1}
+.dr1{--dr1-bg:var(--m-bg);--dr1-ground:var(--m-ground);--dr1-ring:var(--m-ring);--dr1-dark:var(--m-dark)}
+.mk2{--mk2-bg:var(--m-bg);--mk2-ground:var(--m-ground);--mk2-ring:var(--m-ring);--mk2-dark:var(--m-dark)}
+.g98{--g98-bg:var(--m-bg);--g98-ground:var(--m-ground);--g98-ring:var(--m-ring);--g98-dark:var(--m-dark)}
+:is(.dr1-stage,.mk2-stage,.g98-stage){position:relative;border:1px solid var(--rule);border-radius:2px;overflow:hidden;background:var(--m-bg)}
+:is(.dr1,.mk2,.g98) canvas{display:block;width:100%;aspect-ratio:16/10;height:auto;touch-action:pan-y;cursor:grab}
+:is(.dr1,.mk2,.g98) canvas.grab{cursor:grabbing}
+:is(.dr1-zoom,.mk2-zoom,.g98-zoom){position:absolute;right:6px;top:6px;display:grid;gap:4px}
+:is(.dr1-msg,.mk2-msg,.g98-msg){position:absolute;inset:0;display:grid;place-items:center;padding:16px;margin:0;text-align:center;font-size:14px;color:var(--muted)}
+:is(.dr1-msg,.mk2-msg,.g98-msg)[hidden]{display:none}
+.g98-lbl{position:absolute;left:0;top:0;opacity:0;pointer-events:none;padding:3px 7px;border-radius:2px;background:var(--panel);border:1px solid var(--rule);font:600 12px/1.2 var(--f-display);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
+.g98-grp{display:grid;gap:4px}
+.g98-grp > span{font:600 12px/1 var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+:is(.dr1-btns,.mk2-btns,.g98-btns){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+:is(.dr1-tg,.mk2-zwei){grid-template-columns:repeat(2,minmax(0,1fr))}
+:is(.dr1-btns,.mk2-btns,.g98-btns) button,:is(.dr1-zoom,.mk2-zoom,.g98-zoom) button{font:600 13px/1.1 var(--f-display);letter-spacing:.04em;hyphens:manual;text-transform:uppercase;color:var(--ink);background:var(--paper);
+  border:1px solid var(--border);border-radius:2px;min-height:34px;padding:6px 6px 5px;cursor:pointer}
+:is(.dr1-btns,.mk2-btns,.g98-btns) button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+:is(.dr1-btns,.mk2-btns,.g98-btns) button:focus-visible,:is(.dr1-zoom,.mk2-zoom,.g98-zoom) button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+:is(.dr1-zoom,.mk2-zoom,.g98-zoom) button{width:34px;min-height:34px;padding:0;font-size:18px;background:var(--panel)}
+:is(.dr1,.mk2,.g98) figcaption{font-size:14px;line-height:1.45;display:grid;gap:6px}
+:is(.dr1,.mk2,.g98) figcaption p{margin:0}
+:is(.dr1,.mk2,.g98) [data-nur][hidden]{display:none}
+:is(.dr1,.mk2,.g98) dl{margin:0 0 6px;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:13px}
+:is(.dr1,.mk2,.g98) dt{color:var(--muted)} :is(.dr1,.mk2,.g98) dd{margin:0}
+:is(.dr1,.mk2,.g98) .hint{font-size:12px;color:var(--muted)}
+:is(.dr1-daten,.mk2-daten,.g98-daten) > summary{cursor:pointer;font:600 13px/1.2 var(--f-display);letter-spacing:.08em;text-transform:uppercase;padding:4px 0}
+:is(.dr1-daten,.mk2-daten,.g98-daten)[open] > summary{margin-bottom:4px}
+
+.m-hinweis{max-width:52em}
+.m-hinweis h2{margin:0 0 6px;font:700 20px/1.1 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em}
+.m-hinweis p{margin:0;font-size:14px;color:var(--kk-grau)}
