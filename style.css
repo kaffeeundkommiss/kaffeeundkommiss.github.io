@@ -136,3 +136,8 @@ body.kk-breit{--kk-max:1200px}
   .vierer{grid-template-columns:1fr;gap:12px}
   .vierer .projekt.gross .titel{font-size:26px}
 }
+
+/* Sicherheitspolitik-Übersicht (22.11.2026): Einleitung nennt zuerst die Inhalte, das Belegsystem steht darunter
+   als zurückhaltender Hinweis (klein, grau, dünne Linie links). Startwerte: 13 px, Linie 2 px. */
+.einleitung p.beleg-hinweis{margin-top:14px;padding:2px 0 2px 12px;border-left:2px solid var(--kk-linie);font:400 13px/1.5 var(--kk-text);color:var(--kk-grau);max-width:44em}
+.beleg-hinweis .marke{display:block;margin-bottom:2px;font:500 11px/1.3 var(--kk-mono);letter-spacing:.06em;text-transform:uppercase}
