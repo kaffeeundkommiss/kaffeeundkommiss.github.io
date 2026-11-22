@@ -131,3 +131,10 @@ details.belege summary{cursor:pointer;font-weight:600}
 table{border-collapse:collapse;font-size:13px;width:100%;min-width:560px}
 th,td{border-bottom:1px solid var(--kk-linie);padding:6px 8px;text-align:left;vertical-align:top}
 th{font-weight:600}
+
+/* Handy: gekürzter Kasten „Zum Begriff“ (Skript in index.html), Rest per „Weiterlesen“ */
+.kasten.kurz > .mehr ~ * { display: none }
+.kasten .mehr { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 4px 0; border: 0; background: none; color: var(--kk-tinte); font: inherit; font-weight: 600; text-transform: none; letter-spacing: normal; text-decoration: underline; text-underline-offset: 3px; cursor: pointer }
+.kasten .mehr::after { content: "▾"; text-decoration: none; font-size: .85em }
+.kasten .mehr:focus-visible { outline: 2px solid currentColor; outline-offset: 2px }
+.kasten > p[tabindex="-1"]:focus { outline: none }

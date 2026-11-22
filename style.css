@@ -99,6 +99,14 @@ body.kk-breit{--kk-max:1200px}
   .dreier{grid-template-columns:1fr 1fr;grid-template-areas:"mitte mitte" "links rechts"}
   .pk{flex-direction:row;gap:14px}
 }
+/* Politik, nur Handy: Kurzleiste zu den sechs Monitoren über dem Koalitionsrechner (Arbeitspaket 3) */
+.sprung{display:none}
+@media (max-width:640px){
+  .sprung{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 16px}
+  .sprung-k{grid-column:1/-1;font:600 13px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-grau)}
+  .sprung a{display:flex;align-items:center;min-height:44px;padding:0 10px;background:var(--kk-papier);border:1px solid var(--kk-linie);border-left:5px solid var(--linie);color:var(--kk-tinte);font:700 17px/1 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em;text-decoration:none}
+  .sprung a:focus-visible{outline:3px solid var(--linie);outline-offset:2px}
+}
 @media (max-width:640px){
   .dreier{grid-template-columns:1fr;grid-template-areas:"mitte" "links" "rechts";gap:12px}
   .sp{gap:12px}
