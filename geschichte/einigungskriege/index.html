@@ -365,5 +365,21 @@
 <script src="karte-daten.js"></script>
 <script src="karte.js"></script>
 <script src="../reiter.js"></script>
+<script>
+// Handy: Kasten „Zum Begriff“ auf den ersten Absatz kürzen, Rest per „Weiterlesen“; die drei Kriege rücken nach oben
+(function () {
+  var k = document.getElementById('begriff');
+  if (!k || !window.matchMedia || !matchMedia('(max-width: 640px)').matches) return;
+  var ps = [].filter.call(k.children, function (e) { return e.tagName === 'P'; });
+  if (ps.length < 2) return;
+  var b = document.createElement('button');
+  b.type = 'button'; b.className = 'mehr'; b.textContent = 'Weiterlesen';
+  ps[0].after(b); k.classList.add('kurz');
+  b.addEventListener('click', function () {
+    k.classList.remove('kurz'); b.remove();
+    ps[1].setAttribute('tabindex', '-1'); ps[1].focus({ preventScroll: true });
+  });
+})();
+</script>
 </body>
 </html>
