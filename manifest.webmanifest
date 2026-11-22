@@ -1,7 +1,7 @@
 {
   "name": "Kaffee und Kommiss",
   "short_name": "Kaffee & Kommiss",
-  "description": "Selbst erstellte Übersichten zu Politik, Geschichte und Sicherheitspolitik, jede Angabe mit Quelle.",
+  "description": "Selbst erstellte Übersichten zu Geschichte, Sicherheitspolitik und Politik, jede Angabe mit Quelle.",
   "lang": "de",
   "start_url": "./",
   "scope": "./",
