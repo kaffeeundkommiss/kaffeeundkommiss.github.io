@@ -32,7 +32,7 @@ main{gap:30px}
 .karte-text p{margin:8px 0 0}
 
 /* Quellenverweise im Text */
-.q{font:500 11.5px var(--kk-mono);white-space:nowrap;vertical-align:1px}
+.q{font:500 11px var(--kk-mono);white-space:nowrap;vertical-align:super;line-height:0;margin-left:1px}
 .q a{color:var(--kk-grau);text-decoration:none;border-bottom:1px dotted currentColor}
 .q a:hover{color:var(--kk-akzent)}
 .einfach{display:inline-block;font:600 11px/1 var(--kk-mono);color:var(--kk-akzent);border:1px solid currentColor;padding:2px 4px;border-radius:3px;vertical-align:1px}

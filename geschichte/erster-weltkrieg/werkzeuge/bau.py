@@ -18,6 +18,8 @@ Q = {
  'L18': ('DHM, LeMO: Jahreschronik 1918', 'https://www.dhm.de/lemo/jahreschronik/1918', ''),
  'LJK': ('DHM, LeMO: Die Juli-Krise 1914', 'https://www.dhm.de/lemo/kapitel/erster-weltkrieg/kriegsverlauf/juli-krise-1914', ''),
  'LKV': ('DHM, LeMO: Erster Weltkrieg, Kriegsverlauf', 'https://www.dhm.de/lemo/kapitel/erster-weltkrieg/kriegsverlauf', ''),
+ 'LSTK': ('DHM, LeMO: Erster Weltkrieg, Kriegsverlauf, Stellungskrieg', 'https://www.dhm.de/lemo/kapitel/erster-weltkrieg/kriegsverlauf/stellungskrieg', '', '22.11.2026'),
+ 'LPBW': ('Landeszentrale für politische Bildung Baden-Württemberg: Der Erste Weltkrieg – Überblick. 1914–1918', 'https://www.lpb-bw.de/erster-weltkrieg-zusammenfassung', '', '22.11.2026'),
  'LEW': ('DHM, LeMO: Der Erste Weltkrieg (Kapitelseite)', 'https://www.dhm.de/lemo/kapitel/erster-weltkrieg', ''),
  'LAP': ('DHM, LeMO: Kaiserreich, Außenpolitik', 'https://www.dhm.de/lemo/kapitel/kaiserreich/aussenpolitik', ''),
  'LBB': ('DHM, LeMO: Bismarcks Bündnissystem', 'https://www.dhm.de/lemo/kapitel/kaiserreich/aussenpolitik/bismarcks-buendnissystem', ''),
@@ -99,8 +101,8 @@ def q(*ids, einfach=False):
         if i not in ORDER:
             ORDER.append(i)
         nums.append(ORDER.index(i) + 1)
-    links = ', '.join(f'<a href="#q-{i}">{n}</a>' for i, n in zip(ids, nums))
-    s = f'<span class="q">[{links}]</span>'
+    links = ','.join(f'<a href="#q-{i}" aria-label="Quelle {n}">{n}</a>' for i, n in zip(ids, nums))
+    s = f'<span class="q">{links}</span>'
     if einfach:
         s += ' <span class="einfach" title="Nur eine Quelle oder keine zwei voneinander unabhängigen Quellen">einfach belegt</span>'
     return s
@@ -257,8 +259,8 @@ FRONT_VORAUSWAHL = 'w2'
 FRONTEN = [
  ('Westfront', '1914-08-03', '1918-11-11', 'August 1914 bis Waffenstillstand von Compiègne', [
    ('w1', 'Marne', 'September 1914', '1914-09-08',
-    'Der deutsche Vormarsch durch Belgien nach Frankreich kommt an der Marne zum Stehen. Danach erstarrt die Front im Westen zum Stellungskrieg. LeMO datiert die Schlacht auf den 5. bzw. 6. bis 12. September.',
-    ['LKV', 'WEW', 'BWW'], False),
+    'Der deutsche Vormarsch durch Belgien nach Frankreich kommt an der Marne zum Stehen. Danach erstarrt die Front im Westen zum Stellungskrieg: Beide Seiten liegen sich in ausgebauten Grabensystemen gegenüber, die Front bewegt sich kaum noch. LeMO datiert die Schlacht auf den 5. bzw. 6. bis 12. September.',
+    ['LKV', 'WEW', 'BWW', 'LSTK', 'LPBW'], False),
    ('w2', 'Verdun', '1916', '1916-02-21',
     'Materialschlacht um die Festung Verdun. Sie begann am 21. Februar 1916 mit deutschem Artilleriefeuer, die ersten Sturmangriffe folgten am Abend. Das Ende geben die Quellen unterschiedlich an: Mémorial de Verdun 18. Dezember, LeMO Dezember 1916.',
     ['MVD', 'VBV', 'LKV'], False),
@@ -353,7 +355,7 @@ def fronten_html():
             knoepfe.append(f'<button type="button" class="fb-mk" data-k="{k}" style="left:{x:.2f}%;top:{y:.2f}%"{an}>'
                            f'<span class="vh">{esc(name)}: {esc(titel)}, {esc(datum)}</span></button>')
             liste.append(f'<li id="fb-{k}" data-k="{k}"><b>{esc(titel)}</b> <span class="fb-d">{esc(datum)} · {esc(name)}</span><br>'
-                         f'{esc(text)} {q(*qs, einfach=einfach)}</li>')
+                         f'{esc(text)}{q(*qs, einfach=einfach)}</li>')
     vor = next(l for l in liste if f'data-k="{FRONT_VORAUSWAHL}"' in l)
     return (f'<figure class="fronten">\n'
             f'  <figcaption><span class="fb-kopf">Kriegsverlauf</span><span class="fb-titel">Fünf Fronten, vier Jahre</span></figcaption>\n'
@@ -386,7 +388,7 @@ def personen_html():
   <div class="staat">{esc(staat)}</div>
   <h3>{esc(name)}</h3>
   <p class="leben">{esc(leben)}</p>
-  <p>{text} {q(*ids, einfach=einfach)}</p>{mehr}
+  <p>{text}{q(*ids, einfach=einfach)}</p>{mehr}
 </div></article>''')
     return '\n'.join(out)
 
@@ -396,11 +398,11 @@ def tabelle_html():
     lager_txt = {'M': 'Mittelmächte', 'A': 'Alliierte'}
     for k, name, lager, ein, eintxt, qe, aus, austxt, qa, per, hinweis in STAATEN:
         e1 = len(set(qe)) < 2
-        a_q = q(*qa, einfach=len(set(qa)) < 2) if qa else '<span class="einfach">ohne eigenen Beleg</span>'
+        a_q = q(*qa, einfach=len(set(qa)) < 2) if qa else ' <span class="einfach">ohne eigenen Beleg</span>'
         h = f'<br><span class="stand">{esc(hinweis)}</span>' if hinweis else ''
         rows.append(f'<tr><td><span class="lager {lager}" aria-hidden="true"></span>{esc(name)}{h}</td><td>{lager_txt[lager]}</td>'
-                    f'<td class="d">{ein}</td><td>{esc(eintxt)} {q(*qe, einfach=e1)}</td>'
-                    f'<td class="d">{aus}</td><td>{esc(austxt)} {a_q}</td></tr>')
+                    f'<td class="d">{ein}</td><td>{esc(eintxt)}{q(*qe, einfach=e1)}</td>'
+                    f'<td class="d">{aus}</td><td>{esc(austxt)}{a_q}</td></tr>')
     return '\n'.join(rows)
 
 
@@ -413,6 +415,7 @@ def main():
         art, ids = m.group(1), m.group(2).split(',')
         return q(*[i.strip() for i in ids], einfach=(art == 'q1'))
     T = T.replace('{{FRONTEN}}', fronten_html())
+    T = re.sub(r'[ \t]+(\{\{q1?:)', r'\1', T)  # Verweise hochgestellt: kein Leerzeichen davor
     T = re.sub(r'\{\{(q1?):([^}]+)\}\}', rep, T)
     T = T.replace('{{TABELLE}}', tabelle_html())
     T = T.replace('{{PERSONEN}}', personen_html())
