@@ -1,6 +1,6 @@
 {
- "erstellt": "2026-11-15T06:45+0100",
- "umfragen_stand": "2026-11-13T08:17:08+01:00",
+ "erstellt": "2026-11-23T09:09+0100",
+ "umfragen_stand": "2026-11-21T18:49:22+01:00",
  "regeln": {
   "sperrklausel": 5,
   "fenster_tage": 90,
@@ -22,7 +22,7 @@
    "url": "https://www.wahlrecht.de/termine.htm"
   }
  ],
- "historie_stand": "2026-11-19",
+ "historie_stand": "2026-11-23",
  "parlamente": [
   {
    "id": "bund",
@@ -68,6 +68,64 @@
    "historie_geprueft": true,
    "umfragen": [
     {
+     "institut": "INSA",
+     "datum": "2026-11-21",
+     "befragte": 1201,
+     "werte": {
+      "AfD": 28.0,
+      "CDU/CSU": 19.0,
+      "SPD": 14.0,
+      "Grüne": 14.0,
+      "Linke": 10.0,
+      "Sonstige": 7.0,
+      "FDP": 5.0,
+      "BSW": 3.0
+     }
+    },
+    {
+     "institut": "Verian (Emnid)",
+     "datum": "2026-11-20",
+     "befragte": 1472,
+     "werte": {
+      "AfD": 28.0,
+      "CDU/CSU": 20.0,
+      "Grüne": 15.0,
+      "SPD": 14.0,
+      "Linke": 10.0,
+      "Sonstige": 6.0,
+      "FDP": 4.0,
+      "BSW": 3.0
+     }
+    },
+    {
+     "institut": "YouGov",
+     "datum": "2026-11-17",
+     "befragte": 1790,
+     "werte": {
+      "AfD": 29.0,
+      "CDU/CSU": 19.0,
+      "SPD": 15.0,
+      "Grüne": 15.0,
+      "Linke": 10.0,
+      "Sonstige": 7.0,
+      "FDP": 5.0
+     }
+    },
+    {
+     "institut": "Forsa",
+     "datum": "2026-11-17",
+     "befragte": 2501,
+     "werte": {
+      "AfD": 26.0,
+      "CDU/CSU": 21.0,
+      "Grüne": 16.0,
+      "SPD": 13.0,
+      "Linke": 11.0,
+      "Sonstige": 9.0,
+      "FDP": 4.0
+     }
+    },
+    {
      "institut": "Forschungsgruppe Wahlen",
      "datum": "2026-11-13",
      "befragte": 1297,
@@ -97,35 +155,6 @@
      }
     },
     {
-     "institut": "INSA",
-     "datum": "2026-11-10",
-     "befragte": 2009,
-     "werte": {
-      "AfD": 28.5,
-      "CDU/CSU": 19.5,
-      "Grüne": 14.5,
-      "SPD": 14.0,
-      "Linke": 9.5,
-      "Sonstige": 5.5,
-      "FDP": 5.0,
-      "BSW": 3.5
-     }
-    },
-    {
-     "institut": "Forsa",
-     "datum": "2026-11-10",
-     "befragte": 2501,
-     "werte": {
-      "AfD": 27.0,
-      "CDU/CSU": 20.0,
-      "Grüne": 16.0,
-      "SPD": 13.0,
-      "Linke": 11.0,
-      "Sonstige": 9.0,
-      "FDP": 4.0
-     }
-    },
-    {
      "institut": "Infratest dimap",
      "datum": "2026-11-05",
      "befragte": 1297,
@@ -136,21 +165,6 @@
       "SPD": 13.0,
       "Linke": 11.0,
       "Sonstige": 7.0,
-      "FDP": 3.0,
-      "BSW": 3.0
-     }
-    },
-    {
-     "institut": "Verian (Emnid)",
-     "datum": "2026-10-23",
-     "befragte": 1470,
-     "werte": {
-      "AfD": 28.0,
-      "CDU/CSU": 20.0,
-      "Grüne": 16.0,
-      "SPD": 13.0,
-      "Linke": 11.0,
-      "Sonstige": 6.0,
       "FDP": 3.0,
       "BSW": 3.0
      }
@@ -182,21 +196,6 @@
       "FDP": 5.0,
       "Sonstige": 4.0,
       "BSW": 4.0
-     }
-    },
-    {
-     "institut": "YouGov",
-     "datum": "2026-10-20",
-     "befragte": 1773,
-     "werte": {
-      "AfD": 28.0,
-      "CDU/CSU": 18.0,
-      "Grüne": 16.0,
-      "SPD": 14.0,
-      "Linke": 10.0,
-      "Sonstige": 6.0,
-      "FDP": 5.0,
-      "BSW": 3.0
      }
     },
     {
@@ -442,6 +441,21 @@
    "historie_geprueft": true,
    "umfragen": [
     {
+     "institut": "Infratest dimap",
+     "datum": "2026-11-15",
+     "befragte": 1173,
+     "werte": {
+      "CDU": 30.0,
+      "AfD": 18.0,
+      "Grüne": 17.0,
+      "SPD": 16.0,
+      "Linke": 7.0,
+      "Sonstige": 6.0,
+      "FDP": 3.0,
+      "BSW": 3.0
+     }
+    },
+    {
      "institut": "INSA",
      "datum": "2026-10-16",
      "befragte": 1000,
@@ -467,20 +481,6 @@
       "Linke": 8.0,
       "Sonstige": 6.0,
       "FDP": 3.0
-     }
-    },
-    {
-     "institut": "Infratest dimap",
-     "datum": "2026-06-28",
-     "befragte": 1139,
-     "werte": {
-      "CDU": 32.0,
-      "SPD": 17.0,
-      "AfD": 17.0,
-      "Grüne": 15.0,
-      "Sonstige": 8.0,
-      "Linke": 6.0,
-      "FDP": 5.0
      }
     },
     {
@@ -619,6 +619,20 @@
    "historie_geprueft": true,
    "umfragen": [
     {
+     "institut": "Infratest dimap",
+     "datum": "2026-11-19",
+     "befragte": 1152,
+     "werte": {
+      "SPD": 27.0,
+      "AfD": 21.0,
+      "CDU": 21.0,
+      "Grüne": 15.0,
+      "Sonstige": 7.0,
+      "Linke": 5.0,
+      "FDP": 4.0
+     }
+    },
+    {
      "institut": "INSA",
      "datum": "2026-09-11",
      "befragte": 1000,
@@ -645,21 +659,6 @@
       "Linke": 7.0,
       "Sonstige": 6.0,
       "FDP": 3.0
-     }
-    },
-    {
-     "institut": "Infratest dimap",
-     "datum": "2025-11-19",
-     "befragte": 1156,
-     "werte": {
-      "SPD": 26.0,
-      "CDU": 26.0,
-      "AfD": 20.0,
-      "Grüne": 12.0,
-      "Linke": 6.0,
-      "Sonstige": 4.0,
-      "FDP": 3.0,
-      "BSW": 3.0
      }
     },
     {
@@ -711,6 +710,22 @@
    "historie_geprueft": true,
    "umfragen": [
     {
+     "institut": "Civey",
+     "datum": "2026-11-14",
+     "befragte": 5000,
+     "werte": {
+      "CSU": 36.0,
+      "AfD": 20.0,
+      "Grüne": 14.0,
+      "Freie Wähler": 10.0,
+      "SPD": 7.0,
+      "Sonstige": 4.0,
+      "Linke": 4.0,
+      "BSW": 3.0,
+      "FDP": 2.0
+     }
+    },
+    {
      "institut": "Infratest dimap",
      "datum": "2026-10-20",
      "befragte": 1207,
@@ -737,22 +752,6 @@
       "Sonstige": 5.0,
       "Linke": 3.0,
       "FDP": 2.0
-     }
-    },
-    {
-     "institut": "Civey",
-     "datum": "2026-10-17",
-     "befragte": 5000,
-     "werte": {
-      "CSU": 38.0,
-      "AfD": 18.0,
-      "Grüne": 13.0,
-      "Freie Wähler": 12.0,
-      "SPD": 7.0,
-      "Sonstige": 5.0,
-      "Linke": 3.0,
-      "FDP": 2.0,
-      "BSW": 2.0
      }
     },
     {
@@ -1394,11 +1393,11 @@
      "SPD",
      "Linke"
     ],
-   [
-    "SPD",
-    "Linke",
-    "Grüne"
-   ]
+    [
+     "SPD",
+     "Linke",
+     "Grüne"
+    ]
    ],
    "historie_quelle": {
     "name": "Wikipedia: Landesregierung von Mecklenburg-Vorpommern (abgerufen 15.11.2026)",
