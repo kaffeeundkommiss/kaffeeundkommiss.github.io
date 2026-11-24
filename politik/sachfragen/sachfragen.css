@@ -1,0 +1,17 @@
+/* Sachfragen im Vergleich. Baut auf bundeswehr.css und ../abstimmungen/abstimmungen.css auf.
+   Neutral: keine Parteifarben. Übersicht wird auf dem Handy zur Liste. */
+.matrix.sach th,.matrix.sach td{white-space:normal;text-align:left;vertical-align:top}
+.matrix.sach th:first-child{min-width:120px}
+.matrix.sach td{font-size:14px;min-width:0;hyphens:auto;-webkit-hyphens:auto}
+.matrix.sach td.nicht{color:var(--kk-grau);font-style:italic}
+.zitate .leer{margin:0;font-size:15px;color:var(--kk-grau);font-style:italic}
+.zitate .fund + .fund{margin-top:3px}
+@media (max-width:640px){
+  .tab table.sach{min-width:0;display:block}
+  table.sach tbody{display:block}
+  table.sach thead{display:none}
+  table.sach tr{display:block;border-bottom:1px solid var(--kk-linie);padding:8px 0}
+  table.sach th[scope="row"]{display:block;border:0;padding:0 0 4px;font-size:16px}
+  table.sach td{display:block;border:0;padding:1px 0;min-width:0}
+  table.sach td[data-k]::before{content:attr(data-k) ": ";font-weight:600;color:var(--kk-grau);font-style:normal}
+}
