@@ -119,3 +119,7 @@ td.jahr{font:500 13px var(--kk-mono);white-space:nowrap}
 .gk .bild{font-size:12px;color:var(--kk-grau);margin:auto 0 0;padding:0 14px 12px}
 .gk .bild a{color:var(--kk-grau)}
 .weiterliste{display:grid;gap:10px;margin:12px 0}
+/* Block 2 (24.11.2026): Ablauf eines Mandats als nummerierte Schritte */
+ol.ablauf{list-style:none;counter-reset:schritt;margin:12px 0;padding:0;display:flex;flex-direction:column;gap:8px}
+ol.ablauf li{counter-increment:schritt;position:relative;padding:8px 12px 8px 48px;background:var(--kk-papier);border:1px solid var(--kk-linie)}
+ol.ablauf li::before{content:counter(schritt);position:absolute;left:10px;top:8px;width:26px;height:26px;border-radius:50%;background:var(--kk-akzent);color:var(--kk-papier);font:700 15px/26px var(--kk-titel);text-align:center}
