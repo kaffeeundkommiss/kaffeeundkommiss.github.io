@@ -1,0 +1,14 @@
+/* Seite Verteidigungspolitik. Grundlayout aus ../bundeswehr/bundeswehr.css. */
+blockquote.zitat{margin:14px 0;padding:10px 16px;border-left:4px solid var(--kk-akzent);background:var(--kk-papier)}
+blockquote.zitat p{margin:0 0 6px;font-size:17px}
+blockquote.zitat footer{font-size:13px;color:var(--kk-grau)}
+table.organe td:first-child{font-weight:600;white-space:nowrap}
+@media (max-width:640px){
+  .tab table.organe{min-width:0;display:block;font-size:14px}
+  table.organe tbody{display:block}
+  table.organe thead{display:none}
+  table.organe tr{display:block;border-bottom:1px solid var(--kk-linie);padding:6px 0}
+  table.organe td{display:block;border:0;padding:2px 0}
+  table.organe td:first-child{white-space:normal}
+  table.organe td[data-k]::before{content:attr(data-k) ": ";font-weight:600;color:var(--kk-grau)}
+}
