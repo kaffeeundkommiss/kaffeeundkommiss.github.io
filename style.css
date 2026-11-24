@@ -153,3 +153,16 @@ body.kk-breit{--kk-max:1200px}
 .bezug-liste a span{font-size:14px;line-height:1.45;color:var(--kk-grau)}
 .bezug-liste a:hover b,.bezug-liste a:focus-visible b{text-decoration:underline;text-decoration-color:var(--kk-akzent)}
 .bezug-liste a:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:2px}
+
+/* Politik-Übersicht: Umfragevergleich Bundestag (Block 4, 24.11.2026). Neutral, keine Parteifarben. */
+.umfragevergleich{margin-top:28px}
+.uv-text{color:var(--kk-grau);font-size:15px;margin:6px 0 10px}
+.uv-tab{overflow-x:auto;background:var(--kk-papier);border:1px solid var(--kk-linie)}
+.uv-tab table{border-collapse:collapse;width:100%;font-size:14px}
+.uv-tab th,.uv-tab td{padding:7px 10px;border-bottom:1px solid var(--kk-linie);text-align:right;white-space:nowrap}
+.uv-tab th:first-child{text-align:left}
+.uv-tab thead th{font:600 12px var(--kk-mono);color:var(--kk-grau);text-transform:uppercase;letter-spacing:.03em}
+.uv-tab td{font-family:var(--kk-mono)}
+.uv-tab tfoot td,.uv-tab tfoot th{font-weight:700;border-bottom:0;border-top:2px solid var(--kk-linie)}
+.uv-d{font:400 12px var(--kk-mono);color:var(--kk-grau)}
+.uv-quelle{font-size:13px;color:var(--kk-grau);margin:8px 0 0}
