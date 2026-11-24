@@ -1,0 +1,14 @@
+/* Kaiserreich 1871–1914. Bausteine aus ../einigungskriege/einigungskriege.css (gleiche Kartenfarben --r-*). */
+.organe{width:100%;border-collapse:collapse;font-size:15px;background:var(--kk-papier);border:1px solid var(--kk-linie)}
+.organe th,.organe td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--kk-linie)}
+.organe thead th{font:600 13px var(--kk-mono);color:var(--kk-grau);text-transform:uppercase;letter-spacing:.03em}
+.organe tbody th{font:700 17px/1.15 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+@media (max-width:640px){.organe,.organe tbody,.organe tr,.organe th,.organe td{display:block}.organe thead{display:none}.organe tr{border-bottom:1px solid var(--kk-linie);padding:6px 0}.organe td,.organe th{border:0;padding:2px 10px}.organe td::before{content:attr(data-k) ": ";font-weight:600}}
+.zeitachse{list-style:none;margin:12px 0;padding:0;border-left:3px solid var(--kk-akzent)}
+.zeitachse li{position:relative;margin:0 0 10px;padding:0 0 0 16px}
+.zeitachse li::before{content:"";position:absolute;left:-8px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--kk-papier);border:3px solid var(--kk-akzent)}
+.zeitachse .datum{display:block;font:500 13px var(--kk-mono);color:var(--kk-grau)}
+.zitat{margin:14px 0;padding:10px 16px;border-left:4px solid var(--kk-akzent);background:var(--kk-papier);font-size:17px}
+.zitat footer{font-size:13px;color:var(--kk-grau);margin-top:6px}
+.weiterliste{display:grid;gap:10px;margin:12px 0}
+.ek-orte text{font-size:14px}
