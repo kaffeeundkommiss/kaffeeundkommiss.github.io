@@ -27,7 +27,7 @@
     { id: "s1887", kurz: "1887", titel: "Rückversicherungsvertrag 1887",
       rollen: { DE: "pr", AH: "pv", IT: "pv", RU: "db", FR: "ge" },
       legende: { pr: "Deutsches Reich", pv: "Dreibund-Partner", db: "Russland: geheimer Neutralitätsvertrag mit dem Reich", ge: "Frankreich" } },
-    { id: "s1894", kurz: "1894", titel: "Russland und Frankreich verbündet, bis 1894",
+    { id: "s1894", kurz: "1894", titel: "Russisch-französisches Bündnis 1894",
       rollen: { DE: "pr", AH: "pv", IT: "pv", RU: "ge", FR: "ge" },
       legende: { pr: "Deutsches Reich", pv: "Dreibund-Partner", ge: "Russland und Frankreich, durch Militärkonvention verbunden" } },
     { id: "s1904", kurz: "1904", titel: "Entente cordiale 1904",
