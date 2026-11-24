@@ -166,3 +166,27 @@ nav.kapitel a{color:var(--kk-tinte);font-weight:600;text-decoration-color:var(--
 details.nachschlagen>summary{cursor:pointer;margin:0 0 10px;padding:9px 12px;border:1px solid var(--kk-linie);background:var(--kk-papier);font-weight:600;width:max-content;max-width:100%;box-sizing:border-box}
 details.nachschlagen>summary:focus-visible{outline:2px solid var(--kk-akzent);outline-offset:2px}
 details.nachschlagen[open]>summary{margin-bottom:12px}
+
+/* Grenzkarte 1914/1920 (Kapitel Kriegsende) */
+#grenz-karte{display:block;width:100%;height:auto;background:var(--wk-meer);margin-top:10px}
+#grenz-karte .meer{fill:var(--wk-meer)}
+#grenz-karte path{fill:var(--wk-n);stroke:var(--wk-rand);stroke-width:.6px;vector-effect:non-scaling-stroke}
+#grenz-karte path.g-reich{fill:var(--wk-m)}
+#grenz-karte path.g-neu{fill:var(--wk-a)}
+#grenz-karte path.g-de{fill:var(--wk-x)}
+#grenz-karte text{font:600 3.6px var(--kk-text);fill:var(--kk-tinte);text-anchor:middle;paint-order:stroke;stroke:var(--kk-papier);stroke-width:.9px;stroke-linejoin:round}
+.verlust{margin:12px 0 0;padding-left:1.2em}
+.verlust li{margin:4px 0}
+.vertraege{width:100%;border-collapse:collapse;font-size:15px}
+.vertraege th,.vertraege td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--kk-linie)}
+.vertraege th{font:600 13px var(--kk-mono);color:var(--kk-grau);text-transform:uppercase;letter-spacing:.03em}
+.tabelle-rahmen{overflow-x:auto;background:var(--kk-papier);border:1px solid var(--kk-linie)}
+@media (max-width:600px){.vertraege,.vertraege tbody,.vertraege tr,.vertraege td{display:block}.vertraege thead{display:none}.vertraege tr{border-bottom:1px solid var(--kk-linie);padding:6px 0}.vertraege td{border:0;padding:2px 10px}.vertraege td:first-child{font-weight:700}}
+#grenz-karte g[hidden]{display:none}
+@media (min-width:700px){#grenz-karte text{font-size:2.2px;stroke-width:.55px}}
+.unterkopf{margin:26px 0 10px!important}
+#kriegsende .karten{margin-top:16px}
+#kriegsende .karte-text p:last-child{margin-bottom:0}
+#kriegsende .tabelle-rahmen{margin-top:10px}
+.legende[hidden]{display:none}
+@media (max-width:699px){#grenz-karte text.klein{display:none}}
