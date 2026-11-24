@@ -1,0 +1,12 @@
+/* Abstimmungen Sicherheitspolitik. Baut auf ../../sicherheitspolitik/bundeswehr/bundeswehr.css auf.
+   Neutral: keine Parteifarben, keine Wertung über Farben. Ja/Nein/Enthaltung nur als Text und Linienstärke. */
+.matrix th,.matrix td{text-align:center;white-space:nowrap}
+.matrix th:first-child,.matrix td:first-child{text-align:left;white-space:normal;min-width:190px}
+.matrix td.v{font:600 13px var(--kk-mono)}
+.matrix td.v.nicht{color:var(--kk-grau);font-weight:400}
+.legende{font-size:14px;color:var(--kk-grau)}
+.entscheid{border-top:1px solid var(--kk-linie);padding-top:6px;margin-top:26px}
+.entscheid h3{margin-top:10px}
+.entscheid .datum{font:600 13px var(--kk-mono);color:var(--kk-grau);margin:0 0 6px}
+.zahlen-tab td{font-family:var(--kk-mono);font-size:13px}
+.zahlen-tab td:first-child{font-family:var(--kk-text);font-size:15px}

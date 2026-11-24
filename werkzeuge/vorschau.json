@@ -94,6 +94,13 @@
       "unter": "Schützengraben, Fokker Dr.I, Panzer Mark II und Gewehr 98 als drehbare 3D-Modelle, jeweils mit Belegstand.",
       "karte": "#m-graben .m-buehne img",
       "vorbereitung": "(() => { const s = document.createElement('style'); s.textContent = '.vs-karte{padding:0!important} .vs-karte img{width:100%;height:100%;object-fit:cover;display:block}'; document.head.appendChild(s); })()"
+    },
+    {
+      "datei": "politik/abstimmungen/index.html",
+      "bild": "abstimmungen",
+      "kicker": "Kaffee und Kommiss · Politik",
+      "titel": "Sicherheitspolitik im Bundestag",
+      "unter": "Wie die Fraktionen bei vier Entscheidungen seit 2022 abgestimmt haben: Sondervermögen Bundeswehr, Grundgesetzänderung 2025, Brigade Litauen und neuer Wehrdienst. Jede Angabe mit Quelle."
     }
   ]
 }
