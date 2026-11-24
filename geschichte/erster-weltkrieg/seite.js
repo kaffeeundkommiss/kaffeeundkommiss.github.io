@@ -84,3 +84,22 @@
     });
   });
 })();
+
+/* Grenzkarte 1914/1920: Umschalter zeigt die gewählte Schicht. */
+(function () {
+  var svg = document.getElementById('grenz-karte');
+  if (!svg) return;
+  var knoepfe = Array.prototype.slice.call(document.querySelectorAll('[data-grenzjahr]'));
+  var stand = document.getElementById('grenz-stand');
+  knoepfe.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var j = b.getAttribute('data-grenzjahr');
+      Array.prototype.forEach.call(svg.querySelectorAll('g[data-jahr]'), function (g) {
+        if (g.getAttribute('data-jahr') === j) g.removeAttribute('hidden'); else g.setAttribute('hidden', '');
+      });
+      knoepfe.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-legende]'), function (l) { l.hidden = l.getAttribute('data-legende') !== j; });
+      if (stand) stand.textContent = j === '1914' ? 'Europa 1914' : 'Europa um 1920';
+    });
+  });
+})();

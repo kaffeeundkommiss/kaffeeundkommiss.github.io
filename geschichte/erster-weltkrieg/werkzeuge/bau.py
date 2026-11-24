@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Baut geschichte/erster-weltkrieg/index.html und daten.js aus den Daten in dieser Datei.
 Inhalte nur hier ändern, dann: python3 werkzeuge/bau.py
-Die Karte (karte.svg) erzeugt werkzeuge/karte.py; sie wird hier eingebettet.
+Die Karten (karte.svg, grenzen.svg) erzeugen werkzeuge/karte.py und werkzeuge/grenzen.py; sie werden hier eingebettet.
 Quellen abgerufen am 15.11.2026, sofern beim Eintrag nicht anders angegeben."""
 import json, pathlib, html
 
@@ -38,7 +38,7 @@ Q = {
  'SWW': ('U.S. Department of State, Office of the Historian: U.S. Entry into World War I, 1917', 'https://history.state.gov/milestones/1914-1920/wwi', 'Seite laut Hinweis nicht mehr gepflegt.'),
  'S14': ('U.S. Department of State, Office of the Historian: Wilson’s Fourteen Points, 1918', 'https://history.state.gov/milestones/1914-1920/fourteen-points', 'Seite laut Hinweis nicht mehr gepflegt.'),
  'PCL': ('Perlentaucher: Christopher Clark, „Die Schlafwandler“ (DVA 2013), mit Rezensionsnotizen zu FAZ, SZ, ZEIT, NZZ, taz', 'https://www.perlentaucher.de/buch/christopher-clark/die-schlafwandler.html', ''),
- 'HGB': ('aourednik: historical-basemaps, world_1914.geojson (GPL-3.0)', 'https://github.com/aourednik/historical-basemaps', 'Grundlage der Kartengrenzen; laut Projekt teils Näherungen.'),
+ 'HGB': ('aourednik: historical-basemaps, world_1914.geojson und world_1920.geojson (GPL-3.0)', 'https://github.com/aourednik/historical-basemaps', 'Grundlage der Kartengrenzen; laut Projekt teils Näherungen.'),
  'IWS': ('Imperial War Museums: What happened during the Battle of the Somme', 'https://www.iwm.org.uk/history/what-happened-during-the-battle-of-the-somme', '', '18.11.2026'),
  'NAS': ('National Army Museum: Battle of the Somme', 'https://www.nam.ac.uk/explore/battle-somme', '', '18.11.2026'),
  'BTA': ('Encyclopaedia Britannica: Battle of Tannenberg (1914)', 'https://www.britannica.com/event/Battle-of-Tannenberg-World-War-I-1914', '', '18.11.2026'),
@@ -60,6 +60,31 @@ Q = {
  'BGA': ('Encyclopaedia Britannica: Gallipoli Campaign', 'https://www.britannica.com/event/Gallipoli-Campaign', '', '19.11.2026'),
  'OGT': ('1914-1918-online, John W. Steinberg: Warfare 1914-1918 (Russian Empire)', 'https://encyclopedia.1914-1918-online.net/article/warfare-1914-1918-russian-empire', '', '19.11.2026'),
  'BSE': ('Encyclopaedia Britannica: History of Serbia, Modern Serbia', 'https://www.britannica.com/topic/history-of-Serbia/Modern-Serbia', '', '18.11.2026'),
+ # Kapitel Kriegsende und Folgen (24.11.2026)
+ 'KWL': ('DHM, LeMO: Waffenstillstand 1918', 'https://www.dhm.de/lemo/kapitel/erster-weltkrieg/kriegsverlauf/waffenstillstand-1918', '', '24.11.2026'),
+ 'KWB': ('Bundesarchiv: Waffenstillstand von Compiègne', 'https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/waffenstillstand-von-compiegne', '', '24.11.2026'),
+ 'KBK': ('Bundeszentrale für politische Bildung (bpb): Vom Kaiserreich zur Republik 1918/19', 'https://www.bpb.de/themen/nationalsozialismus-zweiter-weltkrieg/dossier-nationalsozialismus/168748/vom-kaiserreich-zur-republik-1918-19', '', '24.11.2026'),
+ 'KMA': ('DHM, LeMO: Matrosenaufstand 1918', 'https://www.dhm.de/lemo/kapitel/weimarer-republik/revolution-191819/matrosenaufstand-1918', '', '24.11.2026'),
+ 'KBM': ('bpb: Arbeiter- und Matrosenaufstand 1918', 'https://www.bpb.de/kurz-knapp/taegliche-dosis-politik/542368/arbeiter-matrosenaufstand-1918', '', '24.11.2026'),
+ 'KSC': ('DHM, LeMO: Biografie Philipp Scheidemann', 'https://www.dhm.de/lemo/biografie/philipp-scheidemann', '', '24.11.2026'),
+ 'KIZ': ('bpb, Informationen zur politischen Bildung: Das Kaiserreich in der Kontinuität deutscher Geschichte (Zeittafel)', 'https://www.bpb.de/shop/zeitschriften/izpb/das-deutsche-kaiserreich-1871-1918-329/224764/das-kaiserreich-in-der-kontinuitaet-deutscher-geschichte', '', '24.11.2026'),
+ 'KAL': ('DHM, LeMO: Abdankung Wilhelms II.', 'https://www.dhm.de/lemo/kapitel/weimarer-republik/revolution-191819/abdankung-wilhelms-ii', '', '24.11.2026'),
+ 'KAB': ('Bundesarchiv: Abdankung des Kaisers', 'https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/abdankung-des-kaisers', '', '24.11.2026'),
+ 'KFL': ('DHM, LeMO: Einführung des Frauenwahlrechts', 'https://www.dhm.de/lemo/kapitel/weimarer-republik/revolution/einfuehrung-frauenwahlrecht', '', '24.11.2026'),
+ 'KFB': ('Bundesarchiv: Die Frauen in der Nationalversammlung', 'https://weimar.bundesarchiv.de/WEIMAR/DE/Content/Virtuelle-Ausstellungen/Aufbruch-in-die-Moderne/frauen_nationalversammlung.html', '', '24.11.2026'),
+ 'KWV': ('bpb, Informationen zur politischen Bildung 346: Weimarer Republik, Zeittafel', 'https://www.bpb.de/shop/zeitschriften/izpb/weimarer-republik-346/333544/zeittafel', '', '24.11.2026'),
+ 'KBT': ('Deutscher Bundestag, Textarchiv: 31. Juli 1919, Reichsverfassung', 'https://www.bundestag.de/dokumente/textarchiv/1919-07-31-reichsverfassung-652448', '', '24.11.2026'),
+ 'KBA': ('Bundesarchiv: Unterzeichnung der Weimarer Verfassung', 'https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/unterzeichnung-der-weimarer-verfassung', '', '24.11.2026'),
+ 'KVL': ('DHM, LeMO: Versailler Vertrag', 'https://www.dhm.de/lemo/kapitel/weimarer-republik/aussenpolitik/versailles', '', '24.11.2026'),
+ 'KVB': ('bpb: Kampf um die Republik 1919–1923', 'https://www.bpb.de/themen/nationalsozialismus-zweiter-weltkrieg/dossier-nationalsozialismus/39531/kampf-um-die-republik-1919-1923', '', '24.11.2026'),
+ 'KVT': ('Encyclopaedia Britannica: Treaty of Versailles (1919)', 'https://www.britannica.com/event/Treaty-of-Versailles-1919', '', '24.11.2026'),
+ 'KFR': ('U.S. Department of State, Office of the Historian: FRUS, Paris Peace Conference 1919, Bd. XIII, Kap. 5', 'https://history.state.gov/historicaldocuments/frus1919Parisv13/ch5', '', '24.11.2026'),
+ 'KOW': ('Bundesarchiv: Volksabstimmung in Ost- und Westpreußen, 11. Juli 1920', 'https://weimar.bundesarchiv.de/WEIMAR/DE/Content/Dokumente-zur-Zeitgeschichte/1920-07-11_abstimmung_ost_westpreussen.html', '', '24.11.2026'),
+ 'KOS': ('Bundesarchiv: Abtretung Ostoberschlesiens', 'https://weimar.bundesarchiv.de/WEIMAR/DE/Content/Dokumente-zur-Zeitgeschichte/1922-07-09_Abtritt-Oberschlesiens-in-Kraft.html', '', '24.11.2026'),
+ 'KTP': ('Encyclopaedia Britannica: Treaties of Paris (1919–1920)', 'https://www.britannica.com/topic/Treaties-of-Paris-1919-1920', '', '24.11.2026'),
+ 'KSG': ('Encyclopaedia Britannica: Treaty of Saint-Germain', 'https://www.britannica.com/event/Treaty-of-Saint-Germain', '', '24.11.2026'),
+ 'KTR': ('Encyclopaedia Britannica: Treaty of Trianon', 'https://www.britannica.com/event/Treaty-of-Trianon', '', '24.11.2026'),
+ 'KBB': ('BBC Bitesize: Terms of the Paris Peace Treaties', 'https://www.bbc.co.uk/bitesize/guides/zbg4t39/revision/4', '', '24.11.2026'),
 }
 # Personen: je Person Wikipedia und, wo erreichbar, Britannica oder LeMO
 PQ = {
@@ -421,6 +446,7 @@ def main():
     T = T.replace('{{PERSONEN}}', personen_html())
     T = T.replace('{{BILDER}}', bildnachweis_html())
     T = T.replace('{{KARTE}}', (HIER / 'karte.svg').read_text())
+    T = T.replace('{{GRENZEN}}', (HIER / 'grenzen.svg').read_text())
     T = T.replace('{{N_STAATEN}}', str(len(STAATEN)))
     T = T.replace('{{N_M}}', str(sum(1 for s in STAATEN if s[2] == 'M')))
     T = T.replace('{{N_A}}', str(sum(1 for s in STAATEN if s[2] == 'A')))
