@@ -142,3 +142,14 @@ body.kk-breit{--kk-max:1200px}
 .einleitung p.beleg-hinweis{margin-top:14px;padding:2px 0 2px 12px;border-left:2px solid var(--kk-linie);font:400 13px/1.5 var(--kk-text);color:var(--kk-grau);max-width:44em}
 .beleg-hinweis .marke{display:block;margin-bottom:2px;font:500 11px/1.3 var(--kk-mono);letter-spacing:.06em;text-transform:uppercase}
 .nb{white-space:nowrap}
+/* Block 1 Vernetzung (24.11.2026): Leitfragen auf der Startseite, Bezüge zwischen den Bereichen auf den Übersichten */
+.leitfragen{margin-top:18px;padding:12px 14px;border:1px solid var(--kk-linie);border-left:4px solid var(--kk-akzent);background:var(--kk-papier);max-width:44em}
+.leitfragen ul{margin:8px 0 0;padding-left:1.2em}
+.leitfragen li{margin:3px 0;color:var(--kk-tinte)}
+.bezuege{display:flex;flex-direction:column;gap:12px}
+.bezug-liste{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.bezug-liste a{display:block;background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:3px solid var(--kk-akzent);padding:10px 12px;color:var(--kk-tinte);text-decoration:none}
+.bezug-liste a b{display:block;margin-bottom:3px;font:700 18px/1.1 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em}
+.bezug-liste a span{font-size:14px;line-height:1.45;color:var(--kk-grau)}
+.bezug-liste a:hover b,.bezug-liste a:focus-visible b{text-decoration:underline;text-decoration-color:var(--kk-akzent)}
+.bezug-liste a:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:2px}
