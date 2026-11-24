@@ -10,3 +10,10 @@
 .entscheid .datum{font:600 13px var(--kk-mono);color:var(--kk-grau);margin:0 0 6px}
 .zahlen-tab td{font-family:var(--kk-mono);font-size:13px}
 .zahlen-tab td:first-child{font-family:var(--kk-text);font-size:15px}
+/* Wahlprogramme: Zitate je Partei, gleiche Gestaltung für alle Parteien */
+.thema{margin-top:18px}
+.zitate{margin:8px 0 0}
+.zitate dt{font:700 19px/1.2 var(--kk-titel);letter-spacing:.02em;margin:16px 0 4px}
+.zitate dd{margin:0;padding:0 0 10px 12px;border-left:3px solid var(--kk-linie)}
+.zitate blockquote{margin:0 0 4px;font-size:16px}
+.zitate .fund{display:block;font-size:13px;color:var(--kk-grau)}
