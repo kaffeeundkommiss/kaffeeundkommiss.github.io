@@ -1,0 +1,40 @@
+/* Seite Deutschland in der NATO. Grundlayout aus ../bundeswehr/bundeswehr.css; hier nur Karte und Tabelle. */
+:root{
+  --m-neu:#2E4A7A; --m-mitglied:#8FA8CC; --m-nicht:#E7E3DA;
+  --nm-meer:#DCE5EA; --nm-rand:#FFFFFF; --nm-schrift:#23211C; --nm-halo:rgba(255,255,255,.85);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --m-neu:#8FB0E6; --m-mitglied:#3F5578; --m-nicht:#34312A;
+    --nm-meer:#1B252B; --nm-rand:#1D1B16; --nm-schrift:#ECE5D6; --nm-halo:rgba(29,27,22,.85);
+  }
+}
+:root[data-theme="dark"]{
+  --m-neu:#8FB0E6; --m-mitglied:#3F5578; --m-nicht:#34312A;
+  --nm-meer:#1B252B; --nm-rand:#1D1B16; --nm-schrift:#ECE5D6; --nm-halo:rgba(29,27,22,.85);
+}
+.m-neu{fill:var(--m-neu);background:var(--m-neu)} .m-mitglied{fill:var(--m-mitglied);background:var(--m-mitglied)}
+.m-nicht{fill:var(--m-nicht);background:var(--m-nicht)}
+.karte{background:var(--kk-papier);border:1px solid var(--kk-linie);padding:12px;margin:12px 0}
+.nm-steuer{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:10px}
+#nm-schritte{display:flex;flex-wrap:wrap;gap:6px}
+#nm-schritte button{font:600 15px/1 var(--kk-titel);letter-spacing:.04em;padding:9px 10px;min-width:52px;min-height:40px;border:1px solid var(--kk-linie);background:var(--kk-grund);color:var(--kk-tinte);cursor:pointer}
+#nm-schritte button[aria-pressed="true"]{background:var(--kk-akzent);border-color:var(--kk-akzent);color:var(--kk-papier)}
+#nm-schritte button:focus-visible,#nm-regler:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:2px}
+#nm-regler{flex:1 1 200px;accent-color:var(--kk-akzent);min-height:32px}
+#nm-titel{margin:4px 0 8px;font:700 20px/1.15 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em}
+#nm-svg{display:block;width:100%;height:auto;background:var(--nm-meer)}
+.nm-meer{fill:var(--nm-meer)}
+.nm-land{stroke:var(--nm-rand);stroke-width:.8;stroke-linejoin:round;transition:fill .35s ease}
+@media (prefers-reduced-motion:reduce){.nm-land{transition:none}}
+.nm-namen text{font:600 14px var(--kk-titel);letter-spacing:.05em;text-transform:uppercase;text-anchor:middle;fill:var(--nm-schrift);paint-order:stroke;stroke:var(--nm-halo);stroke-width:3px;stroke-linejoin:round}
+@media (max-width:640px){.nm-namen text{font-size:26px;stroke-width:5px}}
+#nm-legende{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}
+#nm-legende li{display:flex;align-items:flex-start;gap:6px;max-width:100%}
+#nm-legende .feld{flex:none;width:16px;height:16px;margin-top:2px;border:1px solid var(--kk-linie)}
+.nm-schritt{margin-top:12px;padding-top:10px;border-top:1px solid var(--kk-linie)}
+.nm-schritt p{margin:0 0 8px}
+.nm-hinweis{font-size:13px;color:var(--kk-grau);margin:10px 0 0}
+blockquote.zitat{margin:14px 0;padding:10px 16px;border-left:4px solid var(--kk-akzent);background:var(--kk-papier)}
+blockquote.zitat p{margin:0 0 6px;font-size:17px}
+blockquote.zitat footer{font-size:13px;color:var(--kk-grau)}
