@@ -123,3 +123,30 @@ td.jahr{font:500 13px var(--kk-mono);white-space:nowrap}
 ol.ablauf{list-style:none;counter-reset:schritt;margin:12px 0;padding:0;display:flex;flex-direction:column;gap:8px}
 ol.ablauf li{counter-increment:schritt;position:relative;padding:8px 12px 8px 48px;background:var(--kk-papier);border:1px solid var(--kk-linie)}
 ol.ablauf li::before{content:counter(schritt);position:absolute;left:10px;top:8px;width:26px;height:26px;border-radius:50%;background:var(--kk-akzent);color:var(--kk-papier);font:700 15px/26px var(--kk-titel);text-align:center}
+/* Block 6 (24.11.2026): Zeitleiste Wiederbewaffnung und Ausgaben-Diagramm */
+ol.ablauf.daten li{padding-left:12px}
+ol.ablauf.daten li::before{content:none}
+ol.ablauf.daten time{display:block;font:500 13px var(--kk-mono);color:var(--kk-grau)}
+.ausgaben{margin:16px 0;background:var(--kk-papier);border:1px solid var(--kk-linie);padding:12px 14px}
+.ag-legende{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px;margin:0 0 6px}
+.ag-legende span::before{content:"";display:inline-block;width:22px;margin-right:6px;vertical-align:middle;border-top:3px solid var(--kk-akzent)}
+.ag-legende .ag-l-nato::before{border-top:2px dashed var(--kk-tinte)}
+.ag-flaeche{position:relative}
+.ag-svg{display:block;width:100%;height:auto;font-family:var(--kk-text)}
+.ag-gitter{stroke:var(--kk-linie);stroke-width:1}
+.ag-ach{fill:var(--kk-grau);font:500 15px var(--kk-mono)}
+.ag-bruch{stroke:var(--kk-grau);stroke-width:1.5;stroke-dasharray:4 4}
+.ag-notiz{fill:var(--kk-grau);font-size:15px}
+.ag-sipri{fill:none;stroke:var(--kk-akzent);stroke-width:2.5;stroke-linejoin:round}
+.ag-nato{fill:none;stroke:var(--kk-tinte);stroke-width:2;stroke-dasharray:6 4}
+.ag-nato-pkt{fill:var(--kk-tinte);stroke:var(--kk-papier);stroke-width:2}
+.ag-wert{fill:var(--kk-tinte);font:600 16px var(--kk-text)}
+.ag-name{fill:var(--kk-tinte);font:600 16px var(--kk-text)}
+.ag-hit{fill:transparent}
+.ag-kreuz{stroke:var(--kk-grau);stroke-width:1}
+.ag-tip{position:absolute;top:0;pointer-events:none;background:var(--kk-tinte);color:var(--kk-papier);font:500 13px/1.35 var(--kk-text);padding:6px 8px;border-radius:3px;white-space:nowrap}
+.ausgaben figcaption{font-size:13px;color:var(--kk-grau);margin:8px 0 0}
+.ag-tab{min-width:0}
+.ag-tab td,.ag-tab th{padding:3px 8px}
+@media (max-width:560px){.ag-ach,.ag-notiz{font-size:25px}.ag-wert,.ag-name{font-size:26px}}
+.ag-kreuz[hidden]{display:none}
