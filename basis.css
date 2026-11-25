@@ -64,11 +64,11 @@
 .kk-b-sipo{--kk-akzent:#4C5233;--kk-akzent-hell:#E4E5D6;--kk-kopf:#CBB18C;--kk-markierung:#A4AE7A;--kk-muster:url("tarn.svg")}
 .kk-b-poli{--kk-akzent:#1E4FD8;--kk-akzent-hell:#E3EAFB;--kk-kopf:#ECEEF3;--kk-markierung:#7C9BF0;--kk-muster:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40'%3E%3Crect y='6' width='78' height='6' fill='%231E4FD8' fill-opacity='.24'/%3E%3Crect y='22' width='54' height='6' fill='%23787060' fill-opacity='.2'/%3E%3Cpath d='M66.5 0V40' stroke='%23C8322B' stroke-opacity='.5' stroke-dasharray='3 3'/%3E%3C/svg%3E")}
 @media (prefers-color-scheme: dark){
-  :root.kk-b-gesch:not([data-theme="light"]),:root:not([data-theme="light"]) .kk-b-gesch{--kk-akzent:#E4533F;--kk-akzent-hell:#3D2420;--kk-kopf:#24221D;--kk-markierung:#E4533F}
+  :root.kk-b-gesch:not([data-theme="light"]),:root:not([data-theme="light"]) .kk-b-gesch{--kk-akzent:#E4533F;--kk-akzent-hell:#3D2420;--kk-kopf:#24221D;--kk-markierung:#E4533F;--kk-akzent-schrift:#EA6A58}
   :root.kk-b-sipo:not([data-theme="light"]),:root:not([data-theme="light"]) .kk-b-sipo{--kk-akzent:#A4AE7A;--kk-akzent-hell:#2F3324;--kk-kopf:#CBB18C;--kk-markierung:#A4AE7A}
   :root.kk-b-poli:not([data-theme="light"]),:root:not([data-theme="light"]) .kk-b-poli{--kk-akzent:#7C9BF0;--kk-akzent-hell:#1F2740;--kk-kopf:#22242A;--kk-markierung:#7C9BF0}
 }
-:root[data-theme="dark"].kk-b-gesch,:root[data-theme="dark"] .kk-b-gesch{--kk-akzent:#E4533F;--kk-akzent-hell:#3D2420;--kk-kopf:#24221D;--kk-markierung:#E4533F}
+:root[data-theme="dark"].kk-b-gesch,:root[data-theme="dark"] .kk-b-gesch{--kk-akzent:#E4533F;--kk-akzent-hell:#3D2420;--kk-kopf:#24221D;--kk-markierung:#E4533F;--kk-akzent-schrift:#EA6A58}
 :root[data-theme="dark"].kk-b-sipo,:root[data-theme="dark"] .kk-b-sipo{--kk-akzent:#A4AE7A;--kk-akzent-hell:#2F3324;--kk-kopf:#CBB18C;--kk-markierung:#A4AE7A}
 :root[data-theme="dark"].kk-b-poli,:root[data-theme="dark"] .kk-b-poli{--kk-akzent:#7C9BF0;--kk-akzent-hell:#1F2740;--kk-kopf:#22242A;--kk-markierung:#7C9BF0}
 

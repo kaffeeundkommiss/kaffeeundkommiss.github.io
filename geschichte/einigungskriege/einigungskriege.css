@@ -24,7 +24,7 @@ a{color:var(--kk-tinte);text-decoration-color:var(--kk-akzent);text-underline-of
 main{max-width:var(--kk-max);margin:0 auto;padding:22px 16px 40px}
 .pfad{font:400 13px var(--kk-text);color:var(--kk-grau);margin:0 0 14px}
 .pfad a{color:var(--kk-grau)}
-.kicker{font:600 13px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent)}
+.kicker{font:600 13px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent-schrift,var(--kk-akzent))}
 h1{margin:6px 0 10px;font:700 clamp(30px,5vw,42px)/1.02 var(--kk-titel);text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
 h2{margin:40px 0 10px;font:700 26px/1.1 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em;padding-top:10px;border-top:3px solid var(--kk-akzent)}
 h3,h2.h3{margin:22px 0 6px;font:700 19px/1.15 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em}
@@ -32,7 +32,7 @@ h2.h3{padding-top:0;border-top:0}
 p{margin:0 0 12px}
 .lead{font-size:18px}
 .q{font:500 11px var(--kk-mono);vertical-align:super;line-height:0;white-space:nowrap}
-.q a{text-decoration:none;color:var(--kk-akzent)}
+.q a{text-decoration:none;color:var(--kk-akzent-schrift,var(--kk-akzent))}
 .eine{font:500 11px var(--kk-mono);color:var(--kk-grau);background:var(--kk-akzent-hell);padding:0 4px;border-radius:3px;white-space:nowrap}
 
 /* Kästen */
@@ -40,7 +40,7 @@ p{margin:0 0 12px}
 .kasten h3,.kasten h2.h3{margin-top:0}
 .kasten p:last-child{margin-bottom:0}
 .marke{display:inline-block;font:600 11px/1 var(--kk-mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;border:1px solid var(--kk-linie);border-radius:3px;color:var(--kk-grau);margin-right:6px;vertical-align:1px}
-.marke.deutung{border-color:var(--kk-akzent);color:var(--kk-akzent)}
+.marke.deutung{border-color:var(--kk-akzent);color:var(--kk-akzent-schrift,var(--kk-akzent))}
 
 /* Inhaltsverzeichnis */
 .inhalt{display:flex;flex-wrap:wrap;gap:6px 14px;margin:18px 0 0;padding:10px 0;border-top:1px solid var(--kk-linie);border-bottom:1px solid var(--kk-linie);font-size:14px}
@@ -106,7 +106,7 @@ p{margin:0 0 12px}
 .person .foto img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
 .person .foto .leer{font:500 12px var(--kk-mono);color:var(--kk-grau);padding:12px;text-align:center}
 .person .txt{padding:12px 14px 14px}
-.person .staat{font:600 12px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent)}
+.person .staat{font:600 12px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent-schrift,var(--kk-akzent))}
 .person h3{margin:6px 0 2px}
 .person .leben{font:500 13px var(--kk-mono);color:var(--kk-grau);margin:0 0 8px}
 .person p{font-size:15px;margin:0 0 6px}

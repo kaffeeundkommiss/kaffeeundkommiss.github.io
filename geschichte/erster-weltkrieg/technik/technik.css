@@ -16,7 +16,7 @@
 .m-laden-info{font-size:14px}
 .modell{display:flex;flex-direction:column;gap:10px;padding:0 16px 16px;background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:4px solid var(--kk-akzent);min-width:0}
 .m-kopf{display:flex;flex-direction:column;gap:6px;padding-top:14px}
-.m-kopf .rubrik{font:600 13px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent)}
+.m-kopf .rubrik{font:600 13px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:var(--kk-akzent-schrift,var(--kk-akzent))}
 .m-kopf h2{margin:0;font:700 26px/1.05 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em}
 
 .m-buehne{position:relative;display:grid}
@@ -27,7 +27,7 @@
 .m-laden:hover{background:var(--kk-akzent)}
 .m-laden:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:3px}
 .m-laden:disabled{cursor:progress;opacity:.85}
-.m-fehler{margin:8px 0 0;font-size:14px;color:var(--kk-akzent)}
+.m-fehler{margin:8px 0 0;font-size:14px;color:var(--kk-akzent-schrift,var(--kk-akzent))}
 
 .m-text{margin:0;font-size:15px;line-height:1.5}
 .m-beleg{display:grid;gap:6px}
@@ -96,6 +96,6 @@ details.m-beleg>summary::-webkit-details-marker{display:none}
 details.m-beleg>summary::before{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);margin-right:2px;transition:transform .15s}
 details.m-beleg[open]>summary::before{transform:rotate(45deg)}
 details.m-beleg>summary:focus-visible{outline:2px solid var(--kk-akzent);outline-offset:2px}
-.m-beleg-kopf{font:500 11px/1.3 var(--kk-mono);letter-spacing:.06em;text-transform:uppercase}
+.m-beleg-kopf{font:500 12px/1.3 var(--kk-mono);letter-spacing:.06em;text-transform:uppercase}
 details.m-beleg[open]{display:grid;gap:6px}
 details.m-beleg[open]>summary .b{display:none}

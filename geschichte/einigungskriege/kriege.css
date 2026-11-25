@@ -6,7 +6,7 @@
 /* Steckbrief */
 .steckbrief{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px;margin:16px 0}
 .steckbrief div{background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:3px solid var(--kk-akzent);padding:10px 14px}
-.steckbrief dt{font:600 13px/1 var(--kk-titel);letter-spacing:.12em;text-transform:uppercase;color:var(--kk-akzent);margin-bottom:6px}
+.steckbrief dt{font:600 13px/1 var(--kk-titel);letter-spacing:.12em;text-transform:uppercase;color:var(--kk-akzent-schrift,var(--kk-akzent));margin-bottom:6px}
 .steckbrief dd{margin:0;font-size:15px}
 .verweis{font-size:14px;color:var(--kk-grau)}
 
@@ -64,19 +64,19 @@
 .kk-chronik p{margin:0;font-size:15px}
 
 /* Personen */
-.seite-titel{margin:24px 0 4px;color:var(--kk-akzent)}
+.seite-titel{margin:24px 0 4px;color:var(--kk-akzent-schrift,var(--kk-akzent))}
 .person .foto.ohne-bild{background:linear-gradient(var(--kk-dimm),var(--kk-dimm)),var(--kk-muster),var(--kk-kopf);background-size:auto,220px auto,auto}
 .person .foto.ohne-bild span{display:flex;align-items:center;justify-content:center;width:96px;height:96px;border-radius:50%;background:var(--kk-papier);border:3px solid var(--kk-akzent);font:700 30px/1 var(--kk-titel);letter-spacing:.04em;color:var(--kk-tinte)}
 
 /* Weiter */
 .kriegsweiter{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
 .kriegsweiter a{display:block;background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:3px solid var(--kk-akzent);padding:12px 14px;text-decoration:none;color:var(--kk-tinte);font:700 19px/1.15 var(--kk-titel);text-transform:uppercase;letter-spacing:.03em}
-.kriegsweiter a span{display:block;font:600 12px/1 var(--kk-titel);letter-spacing:.14em;color:var(--kk-akzent);margin-bottom:6px}
+.kriegsweiter a span{display:block;font:600 12px/1 var(--kk-titel);letter-spacing:.14em;color:var(--kk-akzent-schrift,var(--kk-akzent));margin-bottom:6px}
 .kriegsweiter .vor{text-align:right}
 .kriegsweiter a:hover{border-color:var(--kk-akzent)}
 
 /* Links auf die Kriegsseiten in der Übersicht */
-.krieg .zur-seite{display:inline-block;margin-top:10px;font:700 15px/1 var(--kk-titel);letter-spacing:.06em;text-transform:uppercase;color:var(--kk-akzent);text-decoration:none}
+.krieg .zur-seite{display:inline-block;margin-top:10px;font:700 15px/1 var(--kk-titel);letter-spacing:.06em;text-transform:uppercase;color:var(--kk-akzent-schrift,var(--kk-akzent));text-decoration:none}
 .krieg .zur-seite:hover{text-decoration:underline}
 
 @media (max-width:1023px){

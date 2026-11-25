@@ -34,6 +34,14 @@
       return '<td>' + (mm[p][0] === mm[p][1] ? zahl(mm[p][0]) : zahl(mm[p][0]) + '–' + zahl(mm[p][1])) + '</td>';
     }).join('') + '</tr>';
     feld.innerHTML = '<table><thead>' + kopf + '</thead><tbody>' + zeilen + '</tbody><tfoot>' + spanne + '</tfoot></table>';
+    // Barrierefreiheit: Scrollbereich per Tastatur erreichbar; Hinweis nur, wenn die Tabelle breiter als ihr Rahmen ist
+    feld.setAttribute('tabindex', '0');
+    feld.setAttribute('role', 'region');
+    feld.setAttribute('aria-label', 'Umfragen im Vergleich, Tabelle');
+    var hinweis = document.getElementById('uv-hinweis');
+    var pruefen = function () { if (hinweis) hinweis.hidden = feld.scrollWidth <= feld.clientWidth + 1; };
+    pruefen();
+    window.addEventListener('resize', pruefen);
     var st = document.getElementById('uv-stand');
     if (st && d.umfragen_stand) st.textContent = ', Stand ' + d.umfragen_stand.slice(8, 10) + '.' + d.umfragen_stand.slice(5, 7) + '.' + d.umfragen_stand.slice(0, 4);
   }).catch(function () {});
