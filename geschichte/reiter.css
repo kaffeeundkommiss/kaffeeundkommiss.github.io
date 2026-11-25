@@ -1,6 +1,6 @@
 /* Gemeinsame Reiter der Übersichtsseiten, Aussehen wie auf der Richthofen-Seite (nav.pages). */
 .seitenkopf{display:grid;gap:6px}
-.seitenkopf .kicker{color:var(--kk-akzent)}
+.seitenkopf .kicker{color:var(--kk-akzent-schrift,var(--kk-akzent))}
 .seitenkopf h1{margin:0;font-size:clamp(30px,5vw,50px);line-height:1}
 nav.pages{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
 nav.pages a{font:600 14px/1 var(--kk-titel);letter-spacing:.08em;text-transform:uppercase;color:var(--kk-tinte);text-decoration:none;
