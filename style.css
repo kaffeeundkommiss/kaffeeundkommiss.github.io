@@ -169,3 +169,10 @@ body.kk-breit{--kk-max:1200px}
 .uv-tab tfoot td,.uv-tab tfoot th{font-weight:700;border-bottom:0;border-top:2px solid var(--kk-linie)}
 .uv-d{font:400 12px var(--kk-mono);color:var(--kk-grau)}
 .uv-quelle{font-size:13px;color:var(--kk-grau);margin:8px 0 0}
+
+/* Kontakt und Datenschutz (Block 3, 25.11.2026) */
+.rechtliches section[id]{max-width:720px;margin:0;padding:0}
+.rechtliches h2{font:600 22px/1.2 var(--kk-titel);margin:24px 0 10px;padding-top:16px;border-top:1px solid var(--kk-linie)}
+.rechtliches h3{font:600 16px/1.3 var(--kk-text);margin:18px 0 4px}
+.rechtliches p{max-width:70ch;margin:4px 0 8px}
+.rechtliches .stand{color:var(--kk-grau);font-size:13px}

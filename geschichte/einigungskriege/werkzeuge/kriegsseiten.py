@@ -252,7 +252,7 @@ def seite(k):
     o.append("</nav>")
     o.append("</main>")
     o.append('''<footer class="kk-fuss"><div class="kk-in">
-  <p><a href="https://kaffeeundkommiss.github.io/">Kaffee und Kommiss</a>: Geschichte, Sicherheitspolitik und Politik mit Quellen. Private, nichtkommerzielle Zusammenstellung. Fehler gefunden? Bitte mit Quelle melden.</p>
+  <p><a href="https://kaffeeundkommiss.github.io/">Kaffee und Kommiss</a>: Geschichte, Sicherheitspolitik und Politik mit Quellen. Private, nichtkommerzielle Zusammenstellung. Fehler gefunden? <a href="https://kaffeeundkommiss.github.io/kontakt/">Bitte mit Quelle melden</a>. <a href="https://kaffeeundkommiss.github.io/kontakt/#datenschutz">Datenschutz</a></p>
 </div></footer>
 <script src="../ablauf.js"></script>
 <script src="../../reiter.js"></script>
