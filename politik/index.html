@@ -134,6 +134,42 @@
     </div>
   </section>
 
+  <!-- Plenarsaal (26.11.2026): Sitzverteilung des 21. Bundestages als Datengrafik. Die Tabelle ist die einzige Datenquelle:
+       plenarsaal.js liest Sitzzahlen und Farben aus ihr und zeichnet daraus den Halbkreis. Bei Austritten nur Tabelle und Stichtag ändern.
+       Belege: /mnt/project-files/plenarsaal/belegmatrix.md (Bundestag, Bundeswahlleiterin, Bundesregierung, Wikipedia, Grundgesetz). -->
+  <section class="plenarsaal" id="plenarsaal" aria-labelledby="g-plenar">
+    <h2 class="gruppe" id="g-plenar">Bundestag heute: Sitzverteilung</h2>
+    <p class="ps-text">Der 21. Bundestag hat 630 Abgeordnete. Wählen Sie eine oder mehrere Fraktionen aus: Die Grafik zählt die Sitze zusammen und zeigt, ob sie für eine Mehrheit reichen. Fraktionslos sind Abgeordnete, die keiner Fraktion angehören.</p>
+    <div class="ps-rahmen">
+      <div class="ps-bild" id="ps-bild" hidden></div>
+      <div class="ps-seite">
+        <div class="ps-wahl" id="ps-wahl" role="group" aria-label="Fraktionen auswählen" hidden></div>
+        <div class="ps-ergebnis" id="ps-ergebnis" aria-live="polite" hidden></div>
+      </div>
+        <table class="ps-tab" id="sitze-tabelle">
+          <caption>Sitze je Fraktion, Stand 26.11.2026</caption>
+          <thead><tr><th scope="col">Fraktion</th><th scope="col">Sitze</th><th scope="col">bei der Wahl 2025</th></tr></thead>
+          <tbody>
+            <tr data-linie="linke" data-sitze="64" data-wahl="64" data-rolle="Opposition"><th scope="row">Die Linke</th><td>64</td><td>64</td></tr>
+            <tr data-linie="spd" data-sitze="120" data-wahl="120" data-rolle="Regierung"><th scope="row">SPD</th><td>120</td><td>120</td></tr>
+            <tr data-linie="gruene" data-sitze="85" data-wahl="85" data-rolle="Opposition"><th scope="row">Bündnis 90/Die Grünen</th><td>85</td><td>85</td></tr>
+            <tr data-linie="union" data-sitze="208" data-wahl="208" data-rolle="Regierung"><th scope="row">CDU/CSU</th><td>208</td><td>208</td></tr>
+            <tr data-linie="afd" data-sitze="150" data-wahl="152" data-rolle="Opposition"><th scope="row">AfD</th><td>150</td><td>152</td></tr>
+            <tr data-linie="ohne" data-sitze="3" data-wahl="1" data-rolle="fraktionslos"><th scope="row">fraktionslos</th><td>3</td><td>1</td></tr>
+          </tbody>
+          <tfoot><tr><th scope="row">Zusammen</th><td>630</td><td>630</td></tr></tfoot>
+        </table>
+    </div>
+    <div class="ps-erkl">
+      <p><b>Präsidium.</b> Präsidentin Julia Klöckner (CDU), Vizepräsidentinnen und Vizepräsidenten Andrea Lindholz (CSU), Josephine Ortleb (SPD), Omid Nouripour (Grüne) und Bodo Ramelow (Linke). In der Regel stellt jede Fraktion ein Mitglied des Präsidiums. Der Platz der AfD-Fraktion ist unbesetzt: Kein von ihr vorgeschlagener Kandidat hat bisher die nötige Mehrheit erhalten. Die Mitglieder des Präsidiums sind Abgeordnete und in den Sitzen ihrer Fraktion mitgezählt.</p>
+      <p><b>Regierungsbank.</b> Die Bundesregierung aus Bundeskanzler Friedrich Merz (CDU) und 17 Bundesministerinnen und Bundesministern, getragen von CDU/CSU und SPD. Wer zugleich Abgeordneter ist, zählt bei seiner Fraktion mit. Gegenüber sitzen Mitglieder des Bundesrates, die an den Sitzungen teilnehmen dürfen.</p>
+      <p><b>Fraktionslos (3).</b> Stefan Seidler vom Südschleswigschen Wählerverband (SSW, Partei der dänischen Minderheit), seit Beginn der Wahlperiode; Sieghard Knodel, im Mai 2025 aus der AfD ausgetreten; Jan Wenzel Schmidt, im März 2026 aus der AfD-Fraktion ausgeschlossen.</p>
+      <p><b>Mehrheiten.</b> Für die Wahl des Bundeskanzlers braucht es im ersten Wahlgang die Mehrheit der Mitglieder, also 316 der 630 Stimmen (Art. 63 und 121 Grundgesetz). Eine Änderung des Grundgesetzes braucht zwei Drittel der Mitglieder, also 420 (Art. 79 Abs. 2). Für die meisten Gesetze reicht die Mehrheit der abgegebenen Stimmen.</p>
+      <p class="ps-los"><a href="koalitionen/#bund">Und nach aktuellen Umfragen? Mögliche Koalitionen für die nächste Bundestagswahl →</a></p>
+    </div>
+    <p class="uv-quelle">Grafik schematisch: Im Plenarsaal gibt es keine festen Plätze, nur Fraktionsblöcke (Reihenfolge vom Präsidium aus von rechts AfD bis links Die Linke). Lage von Regierungs- und Bundesratsbank sowie der Fraktionslosen vereinfacht. Stand: 26.11.2026. Quellen: <a href="https://www.bundestag.de/parlament/plenum/sitzverteilung" rel="noopener">Deutscher Bundestag, Sitzverteilung</a> und <a href="https://www.bundestag.de/parlament/praesidium" rel="noopener">Präsidium</a>; <a href="https://de.wikipedia.org/wiki/Liste_der_Mitglieder_des_Deutschen_Bundestages_(21._Wahlperiode)" rel="noopener">Wikipedia, Mitglieder des 21. Bundestages</a>; Wahl 2025: <a href="https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/bund-99.html" rel="noopener">Die Bundeswahlleiterin, endgültiges Ergebnis</a>; Regierung: <a href="https://www.bundesregierung.de/breg-de/bundesregierung/bundeskabinett" rel="noopener">Bundesregierung, Bundeskabinett</a> und <a href="https://de.wikipedia.org/wiki/Kabinett_Merz" rel="noopener">Wikipedia, Kabinett Merz</a>; Mehrheiten: <a href="https://www.gesetze-im-internet.de/gg/art_121.html" rel="noopener">Art. 121</a> und <a href="https://www.gesetze-im-internet.de/gg/art_79.html" rel="noopener">Art. 79 Grundgesetz</a>.</p>
+  </section>
+
   <section class="umfragevergleich" aria-labelledby="g-umfragen">
     <h2 class="gruppe" id="g-umfragen">Bundestag: Umfragen im Vergleich</h2>
     <p class="uv-text">Die neueste Umfrage jedes Instituts zur nächsten Bundestagswahl, in Prozent; wie im Koalitionsrechner nur Umfragen aus den 90 Tagen vor der neuesten. Umfragen sind Momentaufnahmen, keine Prognosen. Wie aus Zweitstimmen Sitze werden, erklärt die Seite <a href="wahlen/">Wahlen und Koalitionen</a>.</p>
@@ -156,5 +192,6 @@
 </div></footer>
 <script src="wahlen.js"></script>
 <script src="umfragen.js"></script>
+<script src="plenarsaal.js" defer></script>
 </body>
 </html>
