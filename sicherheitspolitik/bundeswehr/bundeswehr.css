@@ -150,3 +150,44 @@ ol.ablauf.daten time{display:block;font:500 13px var(--kk-mono);color:var(--kk-g
 .ag-tab td,.ag-tab th{padding:3px 8px}
 @media (max-width:560px){.ag-ach,.ag-notiz{font-size:25px}.ag-wert,.ag-name{font-size:26px}}
 .ag-kreuz[hidden]{display:none}
+/* Truppenstärke seit 1955 (werkzeuge/personal.py, personal.js) */
+.personal{margin:16px 0;background:var(--kk-papier);border:1px solid var(--kk-linie);padding:12px 14px}
+.pz-kopf{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:8px 16px;margin:0 0 6px}
+.pz-legende{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px}
+.pz-legende span::before{content:"";display:inline-block;width:22px;margin-right:6px;vertical-align:middle;border-top:3px solid var(--kk-akzent)}
+.pz-legende .pz-l-cow::before{border-top:2px dashed var(--kk-grau)}
+.pz-legende .pz-l-akt::before{width:10px;height:10px;border:2px solid var(--kk-akzent);border-radius:50%;background:var(--kk-papier)}
+.pz-schalter{font:600 13px/1 var(--kk-text);padding:8px 10px;min-height:36px;border:1px solid var(--kk-linie);border-radius:6px;background:var(--kk-papier);color:var(--kk-tinte);cursor:pointer}
+.pz-schalter:focus-visible,.pz-ereignis:focus-visible{outline:2px solid var(--kk-akzent);outline-offset:2px}
+.pz-flaeche{position:relative}
+.pz-svg{display:block;width:100%;height:auto;font-family:var(--kk-text)}
+.pz-phase-pflicht{fill:var(--kk-akzent-hell);opacity:.55}
+.pz-phasen-name{fill:var(--kk-grau);font:600 14px var(--kk-text);letter-spacing:.03em}
+.pz-schraffur-linie{stroke:var(--kk-linie);stroke-width:3}
+.pz-gitter{stroke:var(--kk-linie);stroke-width:1}
+.pz-ach{fill:var(--kk-grau);font:500 15px var(--kk-mono)}
+.pz-bruch{stroke:var(--kk-grau);stroke-width:1.5;stroke-dasharray:4 4}
+.pz-nr circle{fill:var(--kk-tinte)}
+.pz-nr text{fill:var(--kk-papier);font:700 13px var(--kk-text)}
+.pz-notiz{fill:var(--kk-grau);font-size:14px}
+.pz-wb{fill:none;stroke:var(--kk-akzent);stroke-width:3;stroke-linejoin:round}
+.pz-cow{fill:none;stroke:var(--kk-grau);stroke-width:1.75;stroke-dasharray:6 4}
+.pz-ohne-cow .pz-cow{display:none}
+.pz-spanne{stroke:var(--kk-akzent);stroke-width:6;stroke-linecap:round}
+.pz-akt{fill:var(--kk-papier);stroke:var(--kk-akzent);stroke-width:3}
+.pz-wert{fill:var(--kk-tinte);font:600 15px var(--kk-text)}
+.pz-hit{fill:transparent}
+.pz-kreuz{stroke:var(--kk-tinte);stroke-width:1}
+.pz-kreuz[hidden]{display:none}
+.pz-tip{position:absolute;top:0;pointer-events:none;background:var(--kk-tinte);color:var(--kk-papier);font:500 13px/1.4 var(--kk-text);padding:6px 8px;border-radius:3px;white-space:nowrap}
+.pz-tip i{font-style:normal;opacity:.85}
+.pz-ereignisse{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px}
+.pz-ereignisse li{font-size:14px;line-height:1.4}
+.pz-ereignis{display:inline;text-align:left;font:inherit;color:var(--kk-tinte);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:var(--kk-linie);text-underline-offset:3px}
+.pz-ereignis[aria-current]{text-decoration-color:var(--kk-akzent);text-decoration-thickness:2px}
+.pz-enr{display:inline-block;min-width:20px;height:20px;margin-right:6px;border-radius:50%;background:var(--kk-tinte);color:var(--kk-papier);font:700 12px/20px var(--kk-text);text-align:center;text-decoration:none}
+.personal figcaption{font-size:13px;color:var(--kk-grau);margin:10px 0 0}
+.pz-tab td,.pz-tab th{padding:3px 8px}
+.pz-tabnotiz{font-size:13px;color:var(--kk-grau)}
+.pz-schmal{display:none}
+@media (max-width:560px){.pz-breit{display:none}.pz-schmal{display:block}.pz-schmal .pz-ach{font-size:14px}.pz-schmal .pz-wert{font-size:14px}.pz-schmal .pz-phasen-name{font-size:14px}}
