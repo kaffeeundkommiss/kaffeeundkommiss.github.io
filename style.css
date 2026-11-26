@@ -199,6 +199,8 @@ body.kk-breit{--kk-max:1200px}
 .ps-leer{fill:none;stroke:var(--linie);stroke-width:2.5;stroke-dasharray:4 3}
 .ps-reg{fill:var(--kk-tinte);opacity:.75}
 .ps-br{fill:none;stroke:var(--kk-grau);stroke-width:2;stroke-dasharray:6 4}
+.ps-wb{fill:var(--kk-papier);stroke:var(--kk-tinte);stroke-width:2.5}
+.ps-trib{fill:none;stroke:var(--kk-linie);stroke-width:10;stroke-dasharray:2 6}
 .ps-seite{display:flex;flex-direction:column;gap:12px}
 .ps-wahl{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .ps-knopf{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:44px;padding:0 10px;background:var(--kk-papier);border:1px solid var(--kk-linie);border-left:6px solid var(--linie);color:var(--kk-tinte);font:700 17px/1.05 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em;text-align:left;cursor:pointer}

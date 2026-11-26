@@ -38,7 +38,7 @@
   var prozent = function (n) { return (n / gesamt * 100).toFixed(1).replace('.', ',') + ' %'; };
 
   // Halbkreis: Reihen mit Sitzzahl proportional zum Radius (Startwerte: 13 Reihen, Radius 165 bis 450)
-  var W = 1000, CX = 500, CY = 460, R0 = 165, R1 = 450, REIHEN = 13, PUNKT = 7.6;
+  var W = 1000, CX = 500, CY = 540, R0 = 165, R1 = 450, REIHEN = 13, PUNKT = 7.6;
   var radien = [], summeR = 0;
   for (var i = 0; i < REIHEN; i++) { var r = R0 + (R1 - R0) * i / (REIHEN - 1); radien.push(r); summeR += r; }
   var proReihe = radien.map(function (r) { return Math.floor(nSaal * r / summeR); });
@@ -54,9 +54,13 @@
   });
   plaetze.sort(function (a, b) { return b.w - a.w || a.ri - b.ri; });
 
-  var svg = el('svg', { viewBox: '-70 0 ' + (W + 140) + ' 590', role: 'img', 'aria-labelledby': 'ps-titel' });
+  var svg = el('svg', { viewBox: '-70 -14 ' + (W + 160) + ' 694', role: 'img', 'aria-labelledby': 'ps-titel' });
   var t = el('title', { id: 'ps-titel' }, svg);
   t.textContent = 'Schematischer Plenarsaal mit ' + gesamt + ' Sitzen: ' + fr.map(function (f) { return f.name + ' ' + f.sitze; }).join(', ') + '.';
+  // Tribünen über dem Saal (Besucher, Presse), als gestrichelter Bogen hinter den Sitzen
+  el('path', { d: 'M' + (CX - 520) + ' ' + CY + ' A520 520 0 0 1 ' + (CX + 520) + ' ' + CY, 'class': 'ps-trib' }, svg);
+  var tt = el('text', { x: CX, y: CY - 528, 'text-anchor': 'middle', 'class': 'ps-klein' }, svg);
+  tt.textContent = 'Tribünen: Besucher und Presse';
   var gruppen = {};
   var p = 0;
   imSaal.forEach(function (f) {
@@ -70,9 +74,11 @@
     tx.textContent = (f.id === 'gruene' ? 'Grüne' : f.name.replace('Die ', '')) + ' ' + f.sitze;
   });
 
-  // Unterer Teil: Regierungsbank (links), Präsidium (Mitte), Bundesratsbank (rechts), Fraktionslose
+  // Unterer Teil, Blick vom Präsidium in den Saal: links Bundesratsbank und Platz des Wehrbeauftragten,
+  // Mitte Präsidium, rechts Regierungsbank (Wikipedia „Deutscher Bundestag“; OA-Kommentar Art. 43 GG, Rn. 19 f.)
   var unten = el('g', { 'class': 'ps-unten' }, svg);
   var y0 = CY + 40;
+  function txt(x, y, s, eltern) { var e = el('text', { x: x, y: y, 'text-anchor': 'middle', 'class': 'ps-klein' }, eltern || unten); e.textContent = s; return e; }
   // Präsidium: Präsidentin in der Mitte, je zwei Stellvertreter daneben, rechts außen der unbesetzte Platz
   var praes = [
     { x: CX - 110, l: 'union', t: 'Lindholz (CSU)' }, { x: CX - 55, l: 'spd', t: 'Ortleb (SPD)' },
@@ -85,22 +91,25 @@
     var c = el('circle', { cx: q.x, cy: y0, r: q.gross ? 15 : 11, 'data-linie': q.l, 'class': q.leer ? 'ps-leer' : 'ps-praes' }, unten);
     el('title', {}, c).textContent = q.t;
   });
-  var tp = el('text', { x: CX + 27, y: y0 + 46, 'text-anchor': 'middle', 'class': 'ps-klein' }, unten);
-  tp.textContent = 'Präsidium';
+  txt(CX + 27, y0 + 46, 'Präsidium');
+  // Bundesratsbank: Mitglieder der Landesregierungen, etwa Ministerpräsidenten (Art. 43 Abs. 2, Art. 51 Abs. 1 GG)
+  var br = el('rect', { x: -50, y: y0 - 20, width: 180, height: 42, rx: 4, 'class': 'ps-br' }, unten);
+  el('title', {}, br).textContent = 'Bundesratsbank: Mitglieder der Landesregierungen, zum Beispiel Ministerpräsidentinnen und Ministerpräsidenten';
+  txt(40, y0 + 46, 'Bundesrat');
+  var wb = el('circle', { cx: 200, cy: y0, r: 10, 'class': 'ps-wb' }, unten);
+  el('title', {}, wb).textContent = 'Platz des Wehrbeauftragten';
+  txt(200, y0 + 46, 'Wehrbeauftragter');
   // Regierungsbank: 18 Plätze (Bundeskanzler und 17 Bundesministerinnen und -minister)
   var rb = el('g', {}, unten);
-  for (var m = 0; m < 18; m++) el('rect', { x: 20 + (m % 9) * 26, y: y0 - 20 + Math.floor(m / 9) * 24, width: 18, height: 18, rx: 3, 'class': 'ps-reg' }, rb);
-  var tr = el('text', { x: 20 + 4 * 26 + 9, y: y0 + 46, 'text-anchor': 'middle', 'class': 'ps-klein' }, unten);
-  tr.textContent = 'Regierungsbank (18)';
-  el('rect', { x: 730, y: y0 - 20, width: 110, height: 42, rx: 4, 'class': 'ps-br' }, unten);
-  var tb = el('text', { x: 785, y: y0 + 46, 'text-anchor': 'middle', 'class': 'ps-klein' }, unten);
-  tb.textContent = 'Bundesrat';
+  for (var m = 0; m < 18; m++) el('rect', { x: 710 + (m % 9) * 26, y: y0 - 20 + Math.floor(m / 9) * 24, width: 18, height: 18, rx: 3, 'class': 'ps-reg' }, rb);
+  el('title', {}, rb).textContent = 'Regierungsbank: Bundeskanzler und 17 Bundesministerinnen und Bundesminister';
+  txt(710 + 4 * 26 + 9, y0 + 46, 'Regierungsbank (18)');
   if (ohne) {
     var go = el('g', { 'data-linie': 'ohne', 'class': 'ps-fr', 'data-id': 'ohne' }, svg);
     gruppen.ohne = go;
-    for (var o = 0; o < ohne.sitze; o++) el('circle', { cx: 940 + o * 22, cy: y0, r: PUNKT }, go);
-    var to = el('text', { x: 962, y: y0 + 46, 'text-anchor': 'middle', 'class': 'ps-klein' }, go);
-    to.textContent = 'fraktionslos (' + ohne.sitze + ')';
+    for (var o = 0; o < ohne.sitze; o++) el('circle', { cx: 988 + o * 22, cy: y0, r: PUNKT }, go);
+    txt(1010, y0 + 46, 'fraktionslos', go);
+    txt(1010, y0 + 70, '(' + ohne.sitze + ')', go);
   }
   bild.appendChild(svg);
 
