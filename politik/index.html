@@ -160,16 +160,76 @@
           <tfoot><tr><th scope="row">Zusammen</th><td>630</td><td>630</td></tr></tfoot>
         </table>
     </div>
+    <div class="ps-schema-box" id="ps-schema">
+      <div class="ps-schema-kopf">
+        <b>Grundriss des Plenarsaals</b>
+        <div class="ps-stand-wahl" role="group" aria-label="Stand wählen">
+          <button type="button" class="ps-stand-btn aktiv" data-stand="aktuell">Stand 26.11.2026</button>
+          <button type="button" class="ps-stand-btn" data-stand="wahl">Wahl 2025</button>
+        </div>
+      </div>
+    <svg id="ps-raum-svg" viewBox="0 0 560 392" role="group" aria-labelledby="ps-raum-titel">
+      <title id="ps-raum-titel">Grundriss des Plenarsaals in der Vogelperspektive, Präsidium oben</title>
+      <path class="raum-trib raum-zone" data-zone="tribuenen" tabindex="0" role="button" aria-label="Tribünen" d="M8 92 A272 272 0 0 0 552 92"/>
+      <text class="raum-klein" x="280" y="384">Tribünen über dem Saal</text>
+      <g class="raum-zone" data-zone="afd" data-fraktion="afd" data-linie="afd" tabindex="0" role="button" aria-label="AfD">
+        <path d="M25.0 92.0A255 255 0 0 0 93.7 266.1L225.2 143.2A75 75 0 0 1 205.0 92.0Z"/>
+        <text class="raum-name" x="127" y="150">AfD</text>
+        <text class="raum-zahl" id="svg-sitze-afd" x="127" y="170">150</text>
+      </g>
+      <g class="raum-zone" data-zone="union" data-fraktion="union" data-linie="union" tabindex="0" role="button" aria-label="CDU/CSU">
+        <path d="M93.7 266.1A255 255 0 0 0 336.4 340.7L296.6 165.1A75 75 0 0 1 225.2 143.2Z"/>
+        <text class="raum-name" x="232" y="247">CDU/CSU</text>
+        <text class="raum-zahl" id="svg-sitze-union" x="232" y="267">208</text>
+      </g>
+      <g class="raum-zone" data-zone="spd" data-fraktion="spd" data-linie="spd" tabindex="0" role="button" aria-label="SPD">
+        <path d="M336.4 340.7A255 255 0 0 0 467.2 265.2L335.1 142.9A75 75 0 0 1 296.6 165.1Z"/>
+        <text class="raum-name" x="362" y="232">SPD</text>
+        <text class="raum-zahl" id="svg-sitze-spd" x="362" y="252">120</text>
+      </g>
+      <g class="raum-zone" data-zone="gruene" data-fraktion="gruene" data-linie="gruene" tabindex="0" role="button" aria-label="Grüne">
+        <path d="M467.2 265.2A255 255 0 0 0 522.0 172.4L351.2 115.6A75 75 0 0 1 335.1 142.9Z"/>
+        <text class="raum-name" x="422" y="173">Grüne</text>
+        <text class="raum-zahl" id="svg-sitze-gruene" x="422" y="193">85</text>
+      </g>
+      <g class="raum-zone" data-zone="linke" data-fraktion="linke" data-linie="linke" tabindex="0" role="button" aria-label="Linke">
+        <path d="M522.0 172.4A255 255 0 0 0 535.0 92.0L355.0 92.0A75 75 0 0 1 351.2 115.6Z"/>
+        <text class="raum-name" x="443" y="115">Linke</text>
+        <text class="raum-zahl" id="svg-sitze-linke" x="443" y="135">64</text>
+      </g>
+      <g class="raum-zone" data-zone="fraktionslos" data-linie="ohne" tabindex="0" role="button" aria-label="Fraktionslos">
+        <rect x="400" y="340" width="152" height="32" rx="4"/>
+        <text class="raum-zahl raum-ohne" id="svg-sitze-ohne" x="476" y="361">Fraktionslos: 3 Sitze</text>
+      </g>
+      <g class="raum-zone" data-zone="praesidium" tabindex="0" role="button" aria-label="Präsidium und Rednerpult">
+        <rect class="raum-bank" x="205" y="12" width="150" height="46" rx="4"/>
+        <text class="raum-name raum-tinte" x="280" y="40">Präsidium</text>
+      </g>
+      <g class="raum-zone" data-zone="regierung" tabindex="0" role="button" aria-label="Regierungsbank">
+        <rect class="raum-bank" x="8" y="12" width="165" height="46" rx="4"/>
+        <text class="raum-name raum-tinte" x="90" y="40">Regierungsbank</text>
+      </g>
+      <g class="raum-zone" data-zone="bundesrat" tabindex="0" role="button" aria-label="Bundesratsbank">
+        <rect class="raum-bank" x="387" y="12" width="165" height="30" rx="4"/>
+        <text class="raum-name raum-tinte" x="470" y="33">Bundesrat</text>
+      </g>
+      <g class="raum-zone" data-zone="wehrbeauftragter" tabindex="0" role="button" aria-label="Wehrbeauftragter">
+        <rect class="raum-bank" x="387" y="48" width="165" height="30" rx="4"/>
+        <text class="raum-name raum-tinte raum-eng" x="470" y="68">Wehrbeauftragter</text>
+      </g>
+    </svg>
+      <p class="ps-schema-info" id="ps-schema-info" aria-live="polite">Alle Bereiche sichtbar. Tippen Sie auf einen Bereich im Grundriss oder einen markierten Begriff im Text.</p>
+    </div>
     <div class="ps-erkl">
-      <p><b>Präsidium.</b> Präsidentin Julia Klöckner (CDU), Vizepräsidentinnen und Vizepräsidenten Andrea Lindholz (CSU), Josephine Ortleb (SPD), Omid Nouripour (Grüne) und Bodo Ramelow (Linke). In der Regel stellt jede Fraktion ein Mitglied des Präsidiums. Der Platz der AfD-Fraktion ist unbesetzt: Kein von ihr vorgeschlagener Kandidat hat bisher die nötige Mehrheit erhalten. Die Mitglieder des Präsidiums sind Abgeordnete und in den Sitzen ihrer Fraktion mitgezählt.</p>
-      <p><b>Regierungsbank.</b> Vom Präsidium aus rechts sitzt die Bundesregierung: Bundeskanzler Friedrich Merz (CDU) und 17 Bundesministerinnen und Bundesminister, getragen von CDU/CSU und SPD. Wer zugleich Abgeordneter ist, zählt bei seiner Fraktion mit.</p>
-      <p><b>Gäste mit eigenem Platz.</b> Gegenüber, vom Präsidium aus links, liegt die Bundesratsbank. Dort sitzen Mitglieder des Bundesrates, also Mitglieder der Landesregierungen, zum Beispiel Ministerpräsidentinnen und Ministerpräsidenten. Sie dürfen an jeder Sitzung teilnehmen und müssen jederzeit gehört werden (Art. 43 Abs. 2 und Art. 51 Grundgesetz). Neben der Bundesratsbank hat der Wehrbeauftragte einen einzelnen Platz. Er ist kein Abgeordneter, sondern ein Hilfsorgan des Bundestages bei der Kontrolle der Bundeswehr.</p>
-      <p><b>Tribünen.</b> Über dem Saal liegen Tribünen mit fast 400 Plätzen, drei für Besucherinnen und Besucher und zwei für Presse und Medien. Wer dort sitzt, darf nicht dazwischenrufen oder klatschen.</p>
-      <p><b>Fraktionslos (3).</b> Stefan Seidler vom Südschleswigschen Wählerverband (SSW, Partei der dänischen Minderheit), seit Beginn der Wahlperiode; Sieghard Knodel, im Mai 2025 aus der AfD ausgetreten; Jan Wenzel Schmidt, im März 2026 aus der AfD-Fraktion ausgeschlossen.</p>
+      <p><b><button type="button" class="ps-begriff" data-ziel="praesidium">Präsidium</button>.</b> Präsidentin Julia Klöckner (CDU), Vizepräsidentinnen und Vizepräsidenten Andrea Lindholz (CSU), Josephine Ortleb (SPD), Omid Nouripour (Grüne) und Bodo Ramelow (Linke). In der Regel stellt jede Fraktion ein Mitglied des Präsidiums. Der Platz der AfD-Fraktion ist unbesetzt: Kein von ihr vorgeschlagener Kandidat hat bisher die nötige Mehrheit erhalten. Die Mitglieder des Präsidiums sind Abgeordnete und in den Sitzen ihrer Fraktion mitgezählt.</p>
+      <p><b><button type="button" class="ps-begriff" data-ziel="regierung">Regierungsbank</button>.</b> Vom Präsidium aus rechts sitzt die Bundesregierung: Bundeskanzler Friedrich Merz (CDU) und 17 Bundesministerinnen und Bundesminister, getragen von CDU/CSU und SPD. Wer zugleich Abgeordneter ist, zählt bei seiner Fraktion mit.</p>
+      <p><b>Gäste mit eigenem Platz.</b> Gegenüber, vom Präsidium aus links, liegt die <button type="button" class="ps-begriff" data-ziel="bundesrat">Bundesratsbank</button>. Dort sitzen Mitglieder des Bundesrates, also Mitglieder der Landesregierungen, zum Beispiel Ministerpräsidentinnen und Ministerpräsidenten. Sie dürfen an jeder Sitzung teilnehmen und müssen jederzeit gehört werden (Art. 43 Abs. 2 und Art. 51 Grundgesetz). Neben der Bundesratsbank hat der <button type="button" class="ps-begriff" data-ziel="wehrbeauftragter">Wehrbeauftragte</button> einen einzelnen Platz. Er ist kein Abgeordneter, sondern ein Hilfsorgan des Bundestages bei der Kontrolle der Bundeswehr.</p>
+      <p><b><button type="button" class="ps-begriff" data-ziel="tribuenen">Tribünen</button>.</b> Über dem Saal liegen Tribünen mit fast 400 Plätzen, drei für Besucherinnen und Besucher und zwei für Presse und Medien. Wer dort sitzt, darf nicht dazwischenrufen oder klatschen.</p>
+      <p><b><button type="button" class="ps-begriff" data-ziel="fraktionslos">Fraktionslos</button> (3).</b> Stefan Seidler vom Südschleswigschen Wählerverband (SSW, Partei der dänischen Minderheit), seit Beginn der Wahlperiode; Sieghard Knodel, im Mai 2025 aus der AfD ausgetreten; Jan Wenzel Schmidt, im März 2026 aus der AfD-Fraktion ausgeschlossen.</p>
       <p><b>Mehrheiten.</b> Für die Wahl des Bundeskanzlers braucht es im ersten Wahlgang die Mehrheit der Mitglieder, also 316 der 630 Stimmen (Art. 63 und 121 Grundgesetz). Eine Änderung des Grundgesetzes braucht zwei Drittel der Mitglieder, also 420 (Art. 79 Abs. 2). Für die meisten Gesetze reicht die Mehrheit der abgegebenen Stimmen.</p>
       <p class="ps-los"><a href="koalitionen/#bund">Und nach aktuellen Umfragen? Mögliche Koalitionen für die nächste Bundestagswahl →</a></p>
     </div>
-    <p class="uv-quelle">Grafik schematisch: Im Plenarsaal gibt es keine festen Plätze, nur Fraktionsblöcke (Reihenfolge vom Präsidium aus von rechts AfD bis links Die Linke). Blick vom Präsidium in den Saal. Lage des Wehrbeauftragten-Platzes und der Fraktionslosen vereinfacht. Stand: 26.11.2026. Quellen: <a href="https://www.bundestag.de/parlament/plenum/sitzverteilung" rel="noopener">Deutscher Bundestag, Sitzverteilung</a> und <a href="https://www.bundestag.de/parlament/praesidium" rel="noopener">Präsidium</a>; <a href="https://de.wikipedia.org/wiki/Liste_der_Mitglieder_des_Deutschen_Bundestages_(21._Wahlperiode)" rel="noopener">Wikipedia, Mitglieder des 21. Bundestages</a>; Wahl 2025: <a href="https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/bund-99.html" rel="noopener">Die Bundeswahlleiterin, endgültiges Ergebnis</a>; Plätze von Regierung, Bundesrat, Wehrbeauftragtem und Tribünen: <a href="https://oa-kommentar.de/de/kommentierungen/artikel-43" rel="noopener">Open Access Kommentar zu Art. 43 GG</a>, <a href="https://de.wikipedia.org/wiki/Deutscher_Bundestag" rel="noopener">Wikipedia, Deutscher Bundestag</a>, <a href="https://www.kuppelkucker.de/entdecke-den-bundestag/wer-sitzt-wo-im-plenarsaal" rel="noopener">Bundestag, Kuppelkucker</a> und <a href="https://www.btg-bestellservice.de/pdf/20056000.pdf" rel="noopener">Faltblatt „Das Plenum“</a>; <a href="https://www.gesetze-im-internet.de/gg/art_43.html" rel="noopener">Art. 43</a> und <a href="https://www.gesetze-im-internet.de/gg/art_51.html" rel="noopener">Art. 51 GG</a>; Regierung: <a href="https://www.bundesregierung.de/breg-de/bundesregierung/bundeskabinett" rel="noopener">Bundesregierung, Bundeskabinett</a> und <a href="https://de.wikipedia.org/wiki/Kabinett_Merz" rel="noopener">Wikipedia, Kabinett Merz</a>; Mehrheiten: <a href="https://www.gesetze-im-internet.de/gg/art_121.html" rel="noopener">Art. 121</a> und <a href="https://www.gesetze-im-internet.de/gg/art_79.html" rel="noopener">Art. 79 Grundgesetz</a>.</p>
+    <p class="uv-quelle">Grafik schematisch: Im Plenarsaal gibt es keine festen Plätze, nur Fraktionsblöcke (Reihenfolge vom Präsidium aus von rechts AfD bis links Die Linke). Blick vom Präsidium in den Saal (Halbkreis); der Grundriss darunter zeigt den Saal von oben mit dem Präsidium am oberen Rand, daher liegen dort AfD und Regierungsbank links und Die Linke rechts. Lage des Wehrbeauftragten-Platzes und der Fraktionslosen vereinfacht. Stand: 26.11.2026. Quellen: <a href="https://www.bundestag.de/parlament/plenum/sitzverteilung" rel="noopener">Deutscher Bundestag, Sitzverteilung</a> und <a href="https://www.bundestag.de/parlament/praesidium" rel="noopener">Präsidium</a>; <a href="https://de.wikipedia.org/wiki/Liste_der_Mitglieder_des_Deutschen_Bundestages_(21._Wahlperiode)" rel="noopener">Wikipedia, Mitglieder des 21. Bundestages</a>; Wahl 2025: <a href="https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/bund-99.html" rel="noopener">Die Bundeswahlleiterin, endgültiges Ergebnis</a>; Plätze von Regierung, Bundesrat, Wehrbeauftragtem und Tribünen: <a href="https://oa-kommentar.de/de/kommentierungen/artikel-43" rel="noopener">Open Access Kommentar zu Art. 43 GG</a>, <a href="https://de.wikipedia.org/wiki/Deutscher_Bundestag" rel="noopener">Wikipedia, Deutscher Bundestag</a>, <a href="https://www.kuppelkucker.de/entdecke-den-bundestag/wer-sitzt-wo-im-plenarsaal" rel="noopener">Bundestag, Kuppelkucker</a> und <a href="https://www.btg-bestellservice.de/pdf/20056000.pdf" rel="noopener">Faltblatt „Das Plenum“</a>; <a href="https://www.gesetze-im-internet.de/gg/art_43.html" rel="noopener">Art. 43</a> und <a href="https://www.gesetze-im-internet.de/gg/art_51.html" rel="noopener">Art. 51 GG</a>; Regierung: <a href="https://www.bundesregierung.de/breg-de/bundesregierung/bundeskabinett" rel="noopener">Bundesregierung, Bundeskabinett</a> und <a href="https://de.wikipedia.org/wiki/Kabinett_Merz" rel="noopener">Wikipedia, Kabinett Merz</a>; Mehrheiten: <a href="https://www.gesetze-im-internet.de/gg/art_121.html" rel="noopener">Art. 121</a> und <a href="https://www.gesetze-im-internet.de/gg/art_79.html" rel="noopener">Art. 79 Grundgesetz</a>.</p>
   </section>
 
   <section class="umfragevergleich" aria-labelledby="g-umfragen">
@@ -195,5 +255,6 @@
 <script src="wahlen.js"></script>
 <script src="umfragen.js"></script>
 <script src="plenarsaal.js" defer></script>
+<script src="plenarsaal-schema.js" defer></script>
 </body>
 </html>

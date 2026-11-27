@@ -234,3 +234,19 @@ body.kk-breit{--kk-max:1200px}
   .ps-bild,.ps-seite,.ps-tab{grid-column:1;grid-row:auto}
   .ps-erkl{grid-template-columns:1fr;gap:10px}
 }
+
+/* Plenarsaal-Grundriss (plenarsaal-schema.js). Farben über data-linie; Fokus dimmt alle anderen Zonen. Startwerte, anpassbar. */
+#ps-raum-svg{display:block;width:100%;height:auto}
+#ps-raum-svg .raum-zone{cursor:pointer;transition:opacity .15s}
+#ps-raum-svg .raum-zone path,#ps-raum-svg .raum-zone rect{fill:var(--linie,var(--kk-akzent-hell));stroke:var(--kk-papier);stroke-width:2}
+#ps-raum-svg .raum-bank{fill:var(--kk-akzent-hell)!important;stroke:var(--kk-tinte)!important;stroke-width:1.5!important}
+#ps-raum-svg .raum-trib{fill:none!important;stroke:var(--kk-linie)!important;stroke-width:10!important;stroke-dasharray:2 6}
+#ps-raum-svg .raum-name{font:700 17px var(--kk-titel);fill:var(--kk-papier);text-anchor:middle;text-transform:uppercase;pointer-events:none}
+#ps-raum-svg .raum-zahl{font:500 15px var(--kk-mono);fill:var(--kk-papier);text-anchor:middle;pointer-events:none}
+#ps-raum-svg .raum-name.raum-tinte{fill:var(--kk-tinte)}
+#ps-raum-svg .raum-eng{font-size:14px}
+#ps-raum-svg .raum-ohne{font:600 13px var(--kk-text)}
+#ps-raum-svg .raum-klein{font:500 13px var(--kk-mono);fill:var(--kk-grau);text-anchor:middle}
+#ps-raum-svg.hat-fokus .raum-zone{opacity:.25}
+#ps-raum-svg.hat-fokus .raum-zone.fokus{opacity:1}
+#ps-raum-svg .raum-zone:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:2px}
