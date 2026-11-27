@@ -1,6 +1,6 @@
 /* Technik im Modell: lädt ein 3D-Modell erst auf Klick.
    Die Modellskripte liegen in modell/ (seit 21.11.2026 nur noch hier, nicht mehr auf den Einzelseiten)
-   und suchen beim Laden ihr Element per id (dr1, mk2, g98). three.js 0.159.0 wird einmal geladen. */
+   und suchen beim Laden ihr Element per id (dr1, mk2, g98, luetzow). three.js 0.159.0 wird einmal geladen. */
 (function () {
   "use strict";
   var THREE_URL = "modell/vendor/three-0.159.0.min.js";

@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Technik im Modell · Erster Weltkrieg · Kaffee und Kommiss</title>
-<meta name="description" content="Vier 3D-Modelle zum Ersten Weltkrieg an einem Ort: ein deutscher Schützengraben von 1916, der Dreidecker Fokker Dr.I, der britische Panzer Mark II und das Gewehr 98, jeweils mit Belegstand.">
+<meta name="description" content="Fünf 3D-Modelle zum Ersten Weltkrieg an einem Ort: ein deutscher Schützengraben von 1916, der Dreidecker Fokker Dr.I, der britische Panzer Mark II, das Gewehr 98 und der Schlachtkreuzer SMS Lützow, jeweils mit Belegstand.">
 <link rel="canonical" href="https://kaffeeundkommiss.github.io/geschichte/erster-weltkrieg/technik/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="Kaffee und Kommiss">
 <meta property="og:title" content="Technik im Modell · Erster Weltkrieg · Kaffee und Kommiss">
-<meta property="og:description" content="Vier 3D-Modelle zum Ersten Weltkrieg an einem Ort: ein deutscher Schützengraben von 1916, der Dreidecker Fokker Dr.I, der britische Panzer Mark II und das Gewehr 98, jeweils mit Belegstand.">
+<meta property="og:description" content="Fünf 3D-Modelle zum Ersten Weltkrieg an einem Ort: ein deutscher Schützengraben von 1916, der Dreidecker Fokker Dr.I, der britische Panzer Mark II, das Gewehr 98 und der Schlachtkreuzer SMS Lützow, jeweils mit Belegstand.">
 <meta property="og:url" content="https://kaffeeundkommiss.github.io/geschichte/erster-weltkrieg/technik/">
 <!-- Vorschau für Linkvorschauen, erzeugt mit werkzeuge/vorschau.js -->
 <meta property="og:image" content="https://kaffeeundkommiss.github.io/vorschau/technik.jpg?v=f7fd9b57">
@@ -50,7 +50,7 @@
   <section class="einleitung">
     <div class="kicker">Erster Weltkrieg · 3D-Modelle</div>
     <h1>Technik im Modell</h1>
-    <p>Am Anfang steht der Schützengraben: die Stellung, in der der Krieg an der Westfront ab Herbst 1914 erstarrte. Darauf folgen ein Flugzeug, ein Panzer und ein Gewehr. Jedes Modell lässt sich drehen und aus festen Blickwinkeln ansehen. Zu jedem stehen der Belegstand und der Weg zur Seite, auf der es eingeordnet ist.</p>
+    <p>Am Anfang steht der Schützengraben: die Stellung, in der der Krieg an der Westfront ab Herbst 1914 erstarrte. Darauf folgen ein Flugzeug, ein Panzer, ein Gewehr und ein Kriegsschiff. Jedes Modell lässt sich drehen und aus festen Blickwinkeln ansehen. Zu jedem stehen der Belegstand und der Weg zur Seite, auf der es eingeordnet ist.</p>
     <p class="m-laden-info">Die Modelle laden erst, wenn du auf „3D-Modell laden“ oder „3D-Modell öffnen“ tippst. Beim ersten Modell kommt die 3D-Bibliothek three.js dazu. Alle Modelle sind vereinfachte Nachbildungen, keine maßstabsgetreuen Rekonstruktionen.</p>
   </section>
 
@@ -262,6 +262,77 @@
       </template>
     </article>
 
+    <article class="modell" id="m-luetzow" aria-labelledby="m-luetzow-t" data-modell="luetzow" data-skript="modell/luetzow.js">
+      <div class="m-kopf">
+        <span class="rubrik">Seekrieg · Schiff</span>
+        <h2 id="m-luetzow-t">SMS Lützow</h2>
+      </div>
+      <div class="m-buehne">
+        <picture>
+          <source srcset="bilder/luetzow-dunkel.jpg" media="(prefers-color-scheme: dark)">
+          <img src="bilder/luetzow-hell.jpg" width="640" height="400" alt="Vorschau des 3D-Modells: grauer Schlachtkreuzer Lützow mit vier Doppeltürmen und zwei Schornsteinen, schräg von vorn auf dem Wasser" decoding="async">
+        </picture>
+        <button type="button" class="m-laden" aria-describedby="m-luetzow-t">3D-Modell laden</button>
+      </div>
+      <p class="m-text">Großer Kreuzer (Schlachtkreuzer) der Derfflinger-Klasse, 1915 in Dienst gestellt. In der Skagerrakschlacht war die Lützow Flaggschiff von Vizeadmiral Franz Hipper. Schwer beschädigt, wurde sie am 1. Juni 1916 von der eigenen Besatzung aufgegeben und vom Torpedoboot G 38 mit zwei Torpedos versenkt.</p>
+      <details class="m-beleg">
+        <summary><span class="m-beleg-kopf">Belegstand</span><span class="b ok">belegt</span><span class="b part">teilweise</span></summary>
+        <div class="meta"><span class="b ok">belegt</span>Werft, Daten, Maße, Antrieb, Bewaffnung, Gürtel- und Turmpanzer, Versenkung: <a href="#q-luetzow">Quellen</a></div>
+        <div class="meta"><span class="b part">teilweise</span>Geschwindigkeit und Verdrängung: <a href="#q-luetzow">Quellen</a></div>
+        <p class="why">Die Quellen nennen 26,4 oder 26,5 Knoten und als Konstruktionsverdrängung 26.600 oder 26.741 t; deshalb stehen Spannen. Nicht angegeben, weil widersprüchlich oder nur einfach belegt: Zahl der 8,8-cm-Geschütze, Kommandoturm- und Deckpanzer, Probefahrtleistung.</p>
+      </details>
+      <p class="m-weg">Eingeordnet auf: <a href="/geschichte/erster-weltkrieg/seekrieg/">Erster Weltkrieg: Seekrieg</a></p>
+      <template>
+    <figure class="lz" id="luetzow" aria-label="3D-Modell SMS Lützow">
+      <div class="lz-stage">
+        <canvas role="img" aria-label="Drehbares 3D-Modell des Schlachtkreuzers Lützow mit vier Doppeltürmen A bis D"></canvas>
+        <div class="lz-lbl" data-label="a" aria-hidden="true">A</div>
+        <div class="lz-lbl" data-label="b" aria-hidden="true">B</div>
+        <div class="lz-lbl" data-label="c" aria-hidden="true">C</div>
+        <div class="lz-lbl" data-label="d" aria-hidden="true">D</div>
+        <div class="lz-zoom"><button type="button" data-zoom="in" aria-label="Heranzoomen">+</button><button type="button" data-zoom="out" aria-label="Herauszoomen">−</button></div>
+        <p class="lz-msg" hidden></p>
+      </div>
+      <div class="lz-btns" role="group" aria-label="Ansicht">
+        <button type="button" data-view="drei" aria-pressed="false">Schräg</button>
+        <button type="button" data-view="seite" aria-pressed="false">Seite</button>
+        <button type="button" data-view="vorne" aria-pressed="false">Bug</button>
+        <button type="button" data-view="oben" aria-pressed="false">Oben</button>
+        <button type="button" data-view="heck" aria-pressed="false">Heck</button>
+        <button type="button" data-view="unten" aria-pressed="false">Unter Wasser</button>
+      </div>
+      <div class="lz-btns lz-tg" role="group" aria-label="Anzeige und Bewegung">
+        <button type="button" data-toggle="spin" aria-pressed="true">Drehen</button>
+        <button type="button" data-toggle="water" aria-pressed="true">Wasser</button>
+        <button type="button" data-toggle="broad" aria-pressed="false">Breitseite</button>
+        <button type="button" data-toggle="labels" aria-pressed="true">Turmnamen</button>
+      </div>
+      <figcaption>
+        <details class="lz-daten"><summary>Technische Daten</summary>
+        <dl>
+          <dt>Bauwerft</dt><dd>F. Schichau, Danzig</dd>
+          <dt>Stapellauf</dt><dd>29.11.1913</dd>
+          <dt>Indienststellung</dt><dd>8.8.1915</dd>
+          <dt>Länge über alles</dt><dd>210,4 m</dd>
+          <dt>Breite</dt><dd>29,0 m</dd>
+          <dt>Tiefgang</dt><dd>bis 9,56 m</dd>
+          <dt>Verdrängung</dt><dd>26.600 bis 26.741 t, maximal 31.200 t</dd>
+          <dt>Antrieb</dt><dd>18 Kessel, Dampfturbinen, 4 Schrauben</dd>
+          <dt>Leistung</dt><dd>63.000 PS (Konstruktion)</dd>
+          <dt>Geschwindigkeit</dt><dd>26,4 bis 26,5 kn</dd>
+          <dt>Besatzung</dt><dd>1.112 bis 1.182</dd>
+          <dt>Hauptartillerie</dt><dd>8 × 30,5 cm SK L/50 in vier Doppeltürmen A bis D</dd>
+          <dt>Mittelartillerie</dt><dd>14 × 15 cm SK L/45 in Kasematten</dd>
+          <dt>Torpedorohre</dt><dd>4 × 60 cm, unter Wasser</dd>
+          <dt>Panzer</dt><dd>Gürtel bis 300 mm, Türme 270 mm</dd>
+        </dl>
+        </details>
+        <p class="hint">Ziehen dreht das Modell. Türme A und B stehen vorn, C und D achtern. Rumpfform, Aufbauten, Masten, Boote und 8,8-cm-Geschütze sind angenähert; die orangefarbenen Punkte unter Wasser zeigen die Torpedorohre nur schematisch.</p>
+      </figcaption>
+    </figure>
+      </template>
+    </article>
+
   </div>
 
   <section class="m-hinweis" id="q-graben">
@@ -274,9 +345,20 @@
     <p>Abgerufen am 21.11.2026. Darstellung des Grabens mit three.js r128 (MIT-Lizenz).</p>
   </section>
 
+  <section class="m-hinweis" id="q-luetzow">
+    <h2>Quellen zur SMS Lützow</h2>
+    <ul class="m-quellen">
+      <li>Wikipedia (deutsch), „Lützow (Schiff, 1915)“: <a href="https://de.wikipedia.org/wiki/L%C3%BCtzow_(Schiff,_1915)">de.wikipedia.org</a>. Werft, Stapellauf, Indienststellung, Maße, Verdrängung 26.741 t und maximal 31.200 t, 18 Kessel, 63.000 PS, 26,5 kn, Besatzung 1.112 bis 1.182, Versenkung durch G 38 mit zwei Torpedos.</li>
+      <li>Wikipedia (englisch), „SMS Lützow“: <a href="https://en.wikipedia.org/wiki/SMS_L%C3%BCtzow">en.wikipedia.org</a>. Werft, Stapellauf, Indienststellung, Maße (Tiefgang 9,2 m vorn, 9,56 m achtern), Konstruktionsverdrängung 26.600 t, 18 Kessel, 4 Schrauben, 63.000 PS, 26,4 kn, 44 Offiziere und 1.068 bis 1.138 Mann, Bewaffnung, Gürtel 300 mm, Türme 270 mm, Versenkung durch G 38 mit zwei Torpedos. Stützt sich nach eigenen Angaben auf Gröner und Staff.</li>
+      <li>sms-navy.com, „Große Kreuzer of the Derfflinger-Class“: <a href="https://www.sms-navy.com/bc/sms_bc_derfflinger.htm">sms-navy.com</a>. Werft, Indienststellung, 210,4 × 29,0 × 9,56 m, 26.600 t / 31.200 t, 4 Schrauben, 26,5 kn, 8 × 30,5 cm in vier Doppeltürmen, 14 × 15 cm. Abweichend: Stapellauf 11.11.1913, Versenkung 31.5.1916, Torpedorohre 50 cm (für die Klasse).</li>
+      <li>Naval Encyclopedia, „Derfflinger class battlecruisers (1913)“: <a href="https://naval-encyclopedia.com/ww1/germany/derfflinger-class-battlecruiser.php">naval-encyclopedia.com</a>. Stapellauf 29.11.1913, Indienststellung 8.8.1915, Maße, 31.200 t, 60-cm-Torpedorohre bei Lützow, Gürtel 300 mm, Türme 270 mm (Angaben für die Klasse).</li>
+    </ul>
+    <p>Abgerufen am 27.11.2026. Alle vier sind Sekundärdarstellungen; die beiden Wikipedia-Artikel beruhen teilweise auf derselben Literatur (Gröner), Fachliteratur selbst ist noch nicht eingesehen. Torpedorohre: Die Quellen nennen unterschiedliche Lagen (Bug, Heck, Seiten), deshalb zeigt das Modell sie nur schematisch. Bauform nach dem claude.ai-Entwurf „SMS Lützow 3D“ (27.11.2026), keine Rekonstruktion nach Bauplänen.</p>
+  </section>
+
   <section class="m-hinweis">
     <h2>Zu den Modellen</h2>
-    <p>Die Modelle sind für die Einzelseiten zum Jagdgeschwader Richthofen, zu Bullecourt und zu Ernst Jünger entstanden und stehen jetzt nur noch hier. Die Quellen zu den technischen Daten liegen weiter auf den Quellenseiten dieser Einzelseiten. Technische Daten stehen nur dort, wo zwei voneinander unabhängige Quellen sie stützen. Darstellung mit three.js 0.159.0 (MIT-Lizenz).</p>
+    <p>Flugzeug, Panzer und Gewehr sind für die Einzelseiten zum Jagdgeschwader Richthofen, zu Bullecourt und zu Ernst Jünger entstanden und stehen jetzt nur noch hier; ihre Quellen liegen weiter auf den Quellenseiten dieser Einzelseiten. Die Quellen zur Lützow stehen oben auf dieser Seite. Technische Daten stehen nur dort, wo zwei voneinander unabhängige Quellen sie stützen. Darstellung mit three.js 0.159.0 (MIT-Lizenz).</p>
   </section>
 </main>
 
