@@ -1,0 +1,46 @@
+/* Seite Seeschlachten. Grundlayout aus ../../../einigungskriege/einigungskriege.css und kriege.css (Karte, Ablauf, Verlauf). */
+:root{--ss-meer:#D2DFE6;--ss-land:#E9E4D8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ss-meer:#1B252B;--ss-land:#34312A}}
+:root[data-theme="dark"]{--ss-meer:#1B252B;--ss-land:#34312A}
+
+/* Kennzahlen */
+.zahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:16px 0}
+.zahl{background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:4px solid var(--kk-akzent);padding:10px 12px}
+.zahl b{display:block;font:700 30px/1 var(--kk-titel);margin-bottom:4px}
+.zahl span{font-size:14px}
+
+/* Gefechte im Überblick */
+ol.ablauf{list-style:none;margin:12px 0;padding:0;display:flex;flex-direction:column;gap:8px}
+ol.ablauf li{padding:8px 12px;background:var(--kk-papier);border:1px solid var(--kk-linie)}
+ol.ablauf time{display:block;font:500 13px var(--kk-mono);color:var(--kk-grau)}
+.ss-tab{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
+.ss-tab th,.ss-tab td{text-align:left;padding:5px 8px 5px 0;border-bottom:1px solid var(--kk-linie);vertical-align:top}
+.ss-tab th{font:600 13px var(--kk-titel);letter-spacing:.08em;text-transform:uppercase}
+.ss-einl{max-width:72ch}
+
+/* Karten */
+.ss-karte{background:var(--ss-meer)}
+.ss-meer{fill:var(--ss-meer)}
+.ss-land{fill:var(--ss-land);stroke:#8A8272;stroke-width:.6}
+.ss-dr{fill:var(--r-gv);fill-opacity:.75}
+.ss-uk{fill:var(--r-pv);fill-opacity:.75}
+.ss-grenzen{fill:none;stroke:#3A352B;stroke-width:.8;stroke-dasharray:4 3;opacity:.5}
+.ss-gebiet{fill:var(--r-ge);fill-opacity:.12;stroke:var(--r-ge);stroke-width:1.2;stroke-dasharray:5 4}
+.mit-ablauf .ss-gebiete [data-s]:not(.an){display:none}
+.kk-pfeile .tx-pr{fill:var(--r-pr)}
+.kk-pfeile .tx-ge{fill:var(--r-ge)}
+.ek-orte rect.stuetz{fill:var(--kk-tinte);stroke:var(--ek-halo);stroke-width:1.5}
+.kk-marke.gefecht circle{fill:var(--r-ge);stroke:var(--kk-papier)}
+.kk-marke.gefecht text{fill:#fff}
+.kk-legende .ss-f-dr{background:var(--r-gv)}
+.kk-legende .ss-f-uk{background:var(--r-pv)}
+.kk-legende .ss-f-de{background:var(--r-ge)}
+.kk-legende .ss-f-gb{background:var(--r-pr)}
+.kk-legende .sym.ss-stuetz{border-radius:0;width:12px;height:12px;margin-top:3px;background:var(--kk-tinte);border-color:var(--kk-tinte)}
+.kk-chronik li.gefecht .nr{background:var(--r-ge);border-color:var(--r-ge);color:#fff}
+.hinweise{margin-top:6px}
+@media (max-width:600px){
+  .ek-orte text.klein{display:none}
+  /* Am Rand angeschnittene Ländernamen (beide Karten) und Meeresnamen (Pazifikkarte) auf dem Handy weglassen */
+  .ss-karte .ek-namen text.gross,[data-reiter="uebersee"] .kk-landschaft text{display:none}
+}
