@@ -201,6 +201,25 @@ body.kk-breit{--kk-max:1200px}
 .ps-br{fill:none;stroke:var(--kk-grau);stroke-width:2;stroke-dasharray:6 4}
 .ps-wb{fill:var(--kk-papier);stroke:var(--kk-tinte);stroke-width:2.5}
 .ps-trib{fill:none;stroke:var(--kk-linie);stroke-width:10;stroke-dasharray:2 6}
+/* Raumzonen im Plenarsaal (27.11.2026): antippbar, verknüpft mit .ps-begriff im Text, Infozeile .ps-info unter der Grafik */
+.ps-zone{cursor:pointer;transition:opacity .2s}
+.ps-zone:focus{outline:none}
+.ps-zone:focus-visible .ps-klein,.ps-zone:hover .ps-klein{fill:var(--kk-tinte);text-decoration:underline}
+.ps-tipp{fill:none;stroke:transparent;stroke-width:44;pointer-events:stroke}
+.ps-tipp-flaeche{fill:transparent}
+.ps-fokus .ps-zone,.ps-fokus .ps-fr{opacity:.22}
+.ps-fokus .ps-zone-an{opacity:1}
+.ps-zone-an .ps-klein{fill:var(--kk-tinte);font-weight:700}
+.ps-zone-an .ps-tisch,.ps-zone-an .ps-br{stroke:var(--kk-tinte);stroke-width:4;fill:var(--kk-akzent-hell)}
+.ps-zone-an .ps-trib{stroke:var(--kk-tinte)}
+.ps-zone-an .ps-reg{opacity:1}
+.ps-info{margin:8px 0 0;padding:8px 12px;background:var(--kk-akzent-hell);border-left:4px solid var(--kk-tinte);font-size:15px;line-height:1.45;min-height:3em}
+.ps-stand{display:flex;border:1px solid var(--kk-linie);align-self:flex-start}
+.ps-stand-knopf{min-height:40px;padding:0 12px;background:transparent;border:0;color:var(--kk-tinte);font:500 13px var(--kk-mono);cursor:pointer}
+.ps-stand-knopf[aria-pressed="true"]{background:var(--kk-tinte);color:var(--kk-papier);font-weight:700}
+.ps-stand-knopf:focus-visible,.ps-begriff:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:2px}
+.ps-begriff{background:var(--kk-akzent-hell);border:0;border-bottom:1.5px dashed var(--kk-tinte);padding:0 4px;font:inherit;color:inherit;cursor:pointer}
+.ps-begriff:hover,.ps-begriff.aktiv{background:var(--kk-tinte);color:var(--kk-papier)}
 .ps-seite{display:flex;flex-direction:column;gap:12px}
 .ps-wahl{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .ps-knopf{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:44px;padding:0 10px;background:var(--kk-papier);border:1px solid var(--kk-linie);border-left:6px solid var(--linie);color:var(--kk-tinte);font:700 17px/1.05 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em;text-align:left;cursor:pointer}
