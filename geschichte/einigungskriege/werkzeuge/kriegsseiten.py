@@ -43,6 +43,7 @@ def kopf(k, pfad_bild):
     m = re.search(r"<!-- Vorschau für Linkvorschauen, erzeugt mit werkzeuge/vorschau\.js -->\n(?:<meta [^>]*>\n)*", open(alt).read()) if os.path.exists(alt) else None
     vorschau = m.group(0) if m else ""
     pfad = ('<nav class="kk-pfad" aria-label="Pfad"><div class="kk-in"><a href="https://kaffeeundkommiss.github.io/geschichte/">Geschichte</a> › '
+            '<a href="https://kaffeeundkommiss.github.io/geschichte/einigungskriege-kaiserreich/">Einigungskriege und Kaiserreich</a> › '
             f'<a href="../">Einigungskriege 1864–1871</a> › <span aria-current="page">{html.escape(k["titel"])}</span></div></nav>\n')
     return f'''<!doctype html>
 <html lang="de">

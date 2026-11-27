@@ -253,3 +253,34 @@ body.kk-breit{--kk-max:1200px}
   .ps-bild,.ps-seite,.ps-tab{grid-column:1;grid-row:auto}
   .ps-erkl{grid-template-columns:1fr;gap:10px}
 }
+
+/* Gliederung Geschichte (27.11.2026, geschichte/werkzeuge/gliederung.py): Bereichskacheln auf Geschichte, Einigungskriege und
+   Kaiserreich, den Übersichten und den fünf Weltkriegs-Bereichen. Kacheln ohne Seite: gestrichelt, „In Vorbereitung“.
+   Startwerte: Spaltenbreite mindestens 220 px, zwei große Kacheln nebeneinander ab 760 px. */
+.bereiche-raster{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.bereiche-raster .projekt .titel{font-size:21px}
+.bereiche-raster.zwei{grid-template-columns:1fr 1fr}
+.bereiche-raster.zwei .projekt .band{height:76px}
+.bereiche-raster.zwei .projekt .titel{font-size:clamp(24px,3vw,30px)}
+.bereiche-raster.zwei .projekt .text{font-size:17px}
+.bereiche-raster.fuenf{grid-template-columns:repeat(5,1fr);gap:12px}
+.bereiche-raster.fuenf .projekt{padding:0 14px 14px}
+.bereiche-raster.fuenf .projekt .band{height:52px;margin:0 -14px 6px;padding:0 14px}
+.bereiche-raster.fuenf .projekt .titel{font-size:19px}
+.bereiche-raster.fuenf .projekt .text{font-size:14px;line-height:1.4;color:var(--kk-grau)}
+.projekt.vorbereitung{border:1px dashed var(--kk-linie);border-top:0;color:var(--kk-grau)}
+.projekt.vorbereitung .band{opacity:.45}
+.projekt.vorbereitung .rubrik{color:var(--kk-grau)}
+.vorbereitung-hinweis,.bereiche-auch{margin:2px 0 0;font-size:14px;color:var(--kk-grau)}
+.themen.bereiche{margin-bottom:8px}
+@media (max-width:1023px){.bereiche-raster.fuenf{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.bereiche-raster.zwei{grid-template-columns:1fr}.bereiche-raster.fuenf{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.bereiche-raster.fuenf{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .bereiche-raster{gap:10px}
+  .bereiche-raster .projekt .band,.bereiche-raster.zwei .projekt .band,.bereiche-raster.fuenf .projekt .band{height:34px}
+  .bereiche-raster .projekt .band img{width:32px;height:32px;margin-bottom:-14px}
+  .bereiche-raster .projekt .rubrik{margin-top:10px}
+  .bereiche-raster .projekt .titel,.bereiche-raster.zwei .projekt .titel{font-size:20px}
+  .bereiche-raster .projekt.vorbereitung .hinweis{display:none}
+}
