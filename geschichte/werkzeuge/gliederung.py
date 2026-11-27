@@ -48,6 +48,11 @@ RICHTHOFEN = dict(titel="Der „Rote Baron“ und sein Jagdgeschwader 1916–191
                        "Einheit an der Westfront lag; dazu Seiten zu einzelnen Ereignissen bis zu seinem Tod 1918.",
                   hinweis="Mit Karte und Ereignisseiten")
 
+UBOOT = dict(titel="Der U-Boot-Krieg 1914–1918", href="u-boot-krieg/", icon="erster-weltkrieg",
+             text="Deutsche U-Boote versenkten Tausende Handelsschiffe. Der uneingeschränkte U-Boot-Krieg ab Februar 1917 "
+                  "führte zum Kriegseintritt der USA; Geleitzüge nahmen ihm die Wirkung.",
+             hinweis="Mit Karte der Sperrgebiete und Lesarten")
+
 WK_BEREICHE = [
     dict(ordner="landkrieg", titel="Landkrieg", rubrik="Bereich 1 von 5",
          einleitung="Zwei Seiten zum Krieg an Land: der Weg des Infanteristen Ernst Jünger an der Westfront und ein "
@@ -59,9 +64,10 @@ WK_BEREICHE = [
          kurz="Jagdgeschwader Richthofen · Luftschiffe (in Vorbereitung)",
          kacheln=[RICHTHOFEN, dict(titel="Luftschiffe")]),
     dict(ordner="seekrieg", titel="Seekrieg", rubrik="Bereich 3 von 5",
-         einleitung="Der Krieg auf See. Beide Seiten dieses Bereichs sind in Vorbereitung.",
-         kurz="U-Boot-Krieg · Seeschlachten (beide in Vorbereitung)",
-         kacheln=[dict(titel="U-Boot-Krieg"), dict(titel="Seeschlachten")]),
+         einleitung="Der Krieg auf See: der deutsche U-Boot-Krieg gegen den Handel von 1914 bis 1918. Eine Seite zu den "
+                    "Seeschlachten ist in Vorbereitung.",
+         kurz="U-Boot-Krieg · Seeschlachten (in Vorbereitung)",
+         kacheln=[UBOOT, dict(titel="Seeschlachten")]),
     dict(ordner="uebersee", titel="Krieg in Übersee", rubrik="Bereich 4 von 5",
          einleitung="Der Krieg außerhalb Europas. Beide Seiten dieses Bereichs sind in Vorbereitung.",
          kurz="Kolonien · Felix Graf von Luckner (beide in Vorbereitung)",

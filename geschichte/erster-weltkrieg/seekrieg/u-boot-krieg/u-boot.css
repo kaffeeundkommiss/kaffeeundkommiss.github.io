@@ -1,0 +1,61 @@
+/* Seite U-Boot-Krieg. Grundlayout aus ../../../einigungskriege/einigungskriege.css und kriege.css (Karte, Ablauf, Verlauf). */
+:root{--ub-meer:#D2DFE6;--ub-land:#E9E4D8;--ub-15:#C9852E;--ub-17:#A8442A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ub-meer:#1B252B;--ub-land:#34312A;--ub-15:#D9A057;--ub-17:#D4704F}}
+:root[data-theme="dark"]{--ub-meer:#1B252B;--ub-land:#34312A;--ub-15:#D9A057;--ub-17:#D4704F}
+
+/* Kennzahlen */
+.zahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:16px 0}
+.zahl{background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:4px solid var(--kk-akzent);padding:10px 12px}
+.zahl b{display:block;font:700 30px/1 var(--kk-titel);margin-bottom:4px}
+.zahl span{font-size:14px}
+
+/* Drei Feldzüge */
+ol.ablauf{list-style:none;margin:12px 0;padding:0;display:flex;flex-direction:column;gap:8px}
+ol.ablauf li{padding:8px 12px;background:var(--kk-papier);border:1px solid var(--kk-linie)}
+ol.ablauf time{display:block;font:500 13px var(--kk-mono);color:var(--kk-grau)}
+
+/* Balken Versenkungen 1917 */
+.ub-balken{margin:12px 0 8px;background:var(--kk-papier);border:1px solid var(--kk-linie);padding:12px 14px}
+.ub-legende{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px;margin:0 0 8px}
+.ub-legende span::before{content:"";display:inline-block;width:18px;height:12px;margin-right:6px;vertical-align:-1px}
+.ub-l-de::before,.ub-de{background:var(--r-ge)}
+.ub-l-gb::before,.ub-gb{background:var(--r-pr)}
+.ub-reihe{display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:center;padding:4px 0;border-bottom:1px solid var(--kk-linie)}
+.ub-monat{font:600 14px var(--kk-mono)}
+.ub-paar{display:flex;flex-direction:column;gap:3px;padding-right:76px}
+.ub-b{height:14px;width:var(--w);position:relative}
+.ub-b span{position:absolute;left:100%;top:-1px;padding-left:6px;font:600 12px/16px var(--kk-mono);white-space:nowrap;color:var(--kk-tinte)}
+.ub-ziel{font-size:14px;margin:8px 0 0}
+.ub-balken figcaption{font-size:13px;color:var(--kk-grau);margin-top:8px}
+.ub-tab{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
+.ub-tab th,.ub-tab td{text-align:left;padding:5px 8px 5px 0;border-bottom:1px solid var(--kk-linie);vertical-align:top}
+.ub-tab th{font:600 13px var(--kk-titel);letter-spacing:.08em;text-transform:uppercase}
+
+/* Karte */
+.ub-karte{background:var(--ub-meer)}
+.ub-meer{fill:var(--ub-meer)}
+.ub-land{fill:var(--ub-land);stroke:#8A8272;stroke-width:.6}
+.ub-mittel{fill:var(--r-gv);fill-opacity:.75}
+.ub-gb{fill:var(--r-pv);fill-opacity:.75}
+.ub-grenzen{fill:none;stroke:#3A352B;stroke-width:.8;stroke-dasharray:4 3;opacity:.5}
+.uz path{stroke-width:1.2}
+.uz-15{fill:var(--ub-15);fill-opacity:.35;stroke:var(--ub-15)}
+.uz-17{fill:var(--ub-17);fill-opacity:.30;stroke:var(--ub-17)}
+.mit-ablauf .uz [data-s]:not(.an){display:none}
+.mit-ablauf .uz .an{animation:kk-ein .6s ease-out}
+.ek-orte rect.stuetz{fill:var(--r-ge);stroke:var(--ek-halo);stroke-width:1.5}
+.kk-marke.versenkung circle{fill:var(--r-ge);stroke:var(--kk-papier)}
+.kk-marke.versenkung text{fill:#fff}
+.kk-legende .ub-f-mittel{background:var(--r-gv)}
+.kk-legende .ub-f-gb{background:var(--r-pv)}
+.kk-legende .ub-f-15{background:var(--ub-15);opacity:.6}
+.kk-legende .ub-f-17{background:var(--ub-17);opacity:.6}
+.kk-legende .ub-f-pfeil{background:var(--r-pr)}
+.kk-legende .sym.ub-stuetz{border-radius:0;width:12px;height:12px;margin-top:3px;background:var(--r-ge);border-color:var(--r-ge)}
+.kk-chronik li.versenkung .nr{background:var(--r-ge);border-color:var(--r-ge);color:#fff}
+.hinweise{margin-top:6px}
+@media (max-width:600px){
+  .ub-reihe{grid-template-columns:70px 1fr}
+  .ub-paar{padding-right:64px}
+  .ek-orte text.klein{display:none}
+}
