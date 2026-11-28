@@ -185,7 +185,7 @@ def raster(kacheln, pre, klasse="bereiche-raster", gross=False):
 
 
 def seite(*, pfad, titel, beschreibung, kicker, h1, einleitung, name, unter, icon, vorschau, pfadleiste, inhalt,
-          noindex=False, muster=False):
+          noindex=False, muster=False, banner=True):
     tiefe = pfad.count("/")
     pre = "../" * tiefe
     url = SITE + pfad
@@ -197,6 +197,21 @@ def seite(*, pfad, titel, beschreibung, kicker, h1, einleitung, name, unter, ico
         kopf = ('<nav class="kk-pfad" aria-label="Pfad"><div class="kk-in">' + " › ".join(teile)
                 + f' › <span aria-current="page">{e(name)}</span></div></nav>\n')
     schild_href = pfadleiste[-1][1] if pfadleiste else SITE
+    # banner=False (nur Geschichte-Übersicht): kein Bereichsbanner, Titel direkt unter der Hauptnavigation.
+    if banner:
+        kopf += f'''<header class="kk-kopf">
+  <div class="wrap">
+    <a class="kk-schild" href="{e(schild_href)}">
+      <img class="logo" src="{pre}icons/{icon}.svg" alt="" width="44" height="44">
+      <div>
+        <div class="kk-name">{e(name)}</div>
+        <div class="kk-unter">{e(unter)}</div>
+      </div>
+    </a>
+  </div>
+</header>
+'''
+    kicker_html = f'    <div class="kicker">{e(kicker)}</div>\n' if kicker else ""
     return f'''<!doctype html>
 <html lang="de">
 <head>
@@ -232,22 +247,10 @@ def seite(*, pfad, titel, beschreibung, kicker, h1, einleitung, name, unter, ico
   <a class="kk-haus" href="{SITE}"><img src="{pre}kk-tasse.svg" alt="" width="22" height="22"><span>Kaffee und Kommiss</span></a>
   <nav class="kk-bereiche" aria-label="Bereiche"><a href="{G}" aria-current="true">Geschichte</a><a href="{SITE}sicherheitspolitik/"><span class="kk-lang">Sicherheitspolitik</span><span class="kk-kurz">Sicherheit</span></a><a href="{SITE}politik/">Politik</a></nav>
 </div></div>
-{kopf}<header class="kk-kopf">
-  <div class="wrap">
-    <a class="kk-schild" href="{e(schild_href)}">
-      <img class="logo" src="{pre}icons/{icon}.svg" alt="" width="44" height="44">
-      <div>
-        <div class="kk-name">{e(name)}</div>
-        <div class="kk-unter">{e(unter)}</div>
-      </div>
-    </a>
-  </div>
-</header>
-
+{kopf}
 <main>
   <section class="einleitung mittig">
-    <div class="kicker">{e(kicker)}</div>
-    <h1>{e(h1)}</h1>
+{kicker_html}    <h1>{e(h1)}</h1>
     <p>{e(einleitung)}</p>
   </section>
 
@@ -262,7 +265,9 @@ def seite(*, pfad, titel, beschreibung, kicker, h1, einleitung, name, unter, ico
 '''
 
 
-def abschnitt(gid, titel, koerper):
+def abschnitt(gid, titel, koerper, sichtbar=True):
+    if not sichtbar:  # ohne sichtbare Zwischenüberschrift, Name nur für Screenreader
+        return f'  <section class="themen" aria-label="{e(titel)}">\n{koerper}\n  </section>\n'
     return (f'  <section class="themen" aria-labelledby="{gid}">\n    <h2 class="gruppe" id="{gid}">{e(titel)}</h2>\n'
             f'{koerper}\n  </section>\n')
 
@@ -306,7 +311,7 @@ def main():
                   "auf See, in Übersee und zum Kaiserreich im Krieg.",
              hinweis="Landkrieg · Luftkrieg · Seekrieg · Übersee · Kaiserreich 1914–1918"),
     ]
-    inhalt = abschnitt("g-bereiche", "Zwei Bereiche", raster(oben, "../", "bereiche-raster zwei", gross=True))
+    inhalt = abschnitt("g-bereiche", "Zwei Bereiche", raster(oben, "../", "bereiche-raster zwei", gross=True), sichtbar=False)
     inhalt += bezuege("g-bezug", "Bezüge zu den anderen Bereichen", [
         ("Sicherheitspolitik: Die Bundeswehr seit 1955", SITE + "sicherheitspolitik/bundeswehr/",
          "Die Streitkräfte der Bundesrepublik: Gründung 1955, Auftrag im Bündnis und Auslandseinsätze bis heute."),
@@ -317,9 +322,8 @@ def main():
     besch = ("Geschichte von 1864 bis 1918 in zwei Bereichen: Einigungskriege und Kaiserreich 1864–1914 sowie der Erste "
              "Weltkrieg 1914–1918 mit Landkrieg, Luftkrieg, Seekrieg, Übersee und dem Kaiserreich im Krieg, jede Angabe mit Quelle.")
     schreiben("geschichte/index.html", seite(
-        pfad="geschichte/", titel="Geschichte", beschreibung=besch, kicker="Bereich Geschichte", h1="Geschichte 1864–1918",
-        einleitung="Zwei Bereiche: die Einigungskriege und das Kaiserreich von 1864 bis 1914 sowie der Erste Weltkrieg "
-                   "1914–1918. Jede Aussage auf den Themenseiten trägt Quellen, Widersprüche zwischen ihnen sind ausgewiesen.",
+        pfad="geschichte/", titel="Geschichte", beschreibung=besch, kicker=None, h1="Geschichte 1864–1918",
+        einleitung="Von den Einigungskriegen über die Gründung des Kaiserreichs bis zum Ersten Weltkrieg.", banner=False,
         name="Geschichte", unter="Kriege 1864 bis 1918, mit Karten und Belegen", icon="geschichte", vorschau="geschichte",
         pfadleiste=None, inhalt=inhalt))
 
