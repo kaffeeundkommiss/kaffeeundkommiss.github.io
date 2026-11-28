@@ -60,6 +60,14 @@ KOLONIEN = dict(titel="Die Kolonien 1914–1918", href="kolonien/", icon="erster
                 text="Togo, Kamerun, Südwestafrika, die Südsee und Tsingtau gingen schnell verloren; in Ostafrika "
                      "kämpfte Lettow-Vorbeck bis November 1918.",
                 hinweis="Mit zwei Karten und Lesarten")
+KAISER = dict(titel="Der Kaiser im Krieg", href="kaiser/", icon="kaiserreich",
+              text="Wilhelm II. von der Thronrede 1914 bis zur Abdankung 1918: wo er war und wie viel er noch zu sagen hatte.",
+              hinweis="Mit Karte und Lesarten")
+LUDENDORFF = dict(titel="Hindenburg und Ludendorff", href="ludendorff-hindenburg/", icon="kaiserreich",
+                  text="Von Tannenberg 1914 über die Oberste Heeresleitung bis zum Eingeständnis der Niederlage 1918 "
+                       "und zur Dolchstoßlegende.",
+                  hinweis="Mit Karte und Lesarten")
+
 LUFTSCHIFFE = dict(titel="Luftschiffe 1914–1918", href="luftschiffe/", icon="erster-weltkrieg",
                    text="Die Zeppelinangriffe auf England von 1915 bis 1918 und die Afrika-Fahrt von L 59 im November 1917.",
                    hinweis="Mit zwei Karten und Lesarten")
@@ -96,9 +104,10 @@ WK_BEREICHE = [
          kurz="Kolonien · Felix Graf von Luckner",
          kacheln=[KOLONIEN, LUCKNER]),
     dict(ordner="kaiserreich", bild=("kaiserreich.jpg", "36% 20%"), titel="Kaiserreich 1914–1918", rubrik="Bereich 5 von 5",
-         einleitung="Das Deutsche Reich im Krieg. Alle drei Seiten dieses Bereichs sind in Vorbereitung.",
-         kurz="Kaiser · Ludendorff und Hindenburg · Revolution (in Vorbereitung)",
-         kacheln=[dict(titel="Der Kaiser"), dict(titel="Ludendorff und Hindenburg"), dict(titel="Revolution")]),
+         einleitung="Das Deutsche Reich im Krieg: der Kaiser als Oberster Kriegsherr und die Generäle Hindenburg und "
+                    "Ludendorff. Die Seite zur Revolution ist in Vorbereitung.",
+         kurz="Kaiser · Hindenburg und Ludendorff · Revolution (teils in Vorbereitung)",
+         kacheln=[KAISER, LUDENDORFF, dict(titel="Revolution")]),
 ]
 
 EK_KACHELN = [
