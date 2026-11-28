@@ -30,7 +30,7 @@ EUK = G + "einigungskriege-kaiserreich/"
 VORSCHAU = {  # vorhandene Vorschaubilder (werkzeuge/vorschau.js); neue Bereichsseiten nutzen das ihres Oberbereichs
     "geschichte": ("geschichte.jpg?v=0f378e6e", "Kriege 1864 bis 1918: Kaffee und Kommiss"),
     "einigungskriege": ("einigungskriege.jpg?v=0e8a6dc7", "Einigungskriege 1864–1871: Kaffee und Kommiss"),
-    "erster-weltkrieg": ("erster-weltkrieg.jpg?v=926bd7bb", "Der Erste Weltkrieg 1914–1918: Kaffee und Kommiss"),
+    "erster-weltkrieg": ("erster-weltkrieg.jpg?v=4285885d", "Der Erste Weltkrieg 1914–1918: drei KI-generierte Illustrationen (Soldat im Schützengraben, Flieger vor einem roten Doppeldecker, Marineoffizier an Deck), keine historischen Fotos. Kaffee und Kommiss"),
 }
 
 # ---------------------------------------------------------------------------------------------------------------
@@ -61,17 +61,23 @@ KOLONIEN = dict(titel="Die Kolonien 1914–1918", href="kolonien/", icon="erster
                      "kämpfte Lettow-Vorbeck bis November 1918.",
                 hinweis="Mit zwei Karten und Lesarten")
 
+# "bild": (Datei in geschichte/erster-weltkrieg/bilder/bereiche/, Bildausschnitt als object-position). Bereiche ohne
+# "bild" zeigen im Bildband das Muster; ein neues Bild dort ablegen, hier eintragen, Skripte neu ausführen.
+# Alle Bilder im Bildband sind KI-generiert und tragen deshalb das Schild „KI-Bild“ (siehe KI_HINWEIS).
+KI_HINWEIS = ("KI-generierte Illustrationen (erstellt mit Gemini und ChatGPT), keine historischen Fotos. Uniformen, "
+              "Flugzeug und Schiff sind nicht quellengeprüft und zeigen keine bestimmte Person.")
+
 WK_BEREICHE = [
-    dict(ordner="landkrieg", titel="Landkrieg", rubrik="Bereich 1 von 5",
+    dict(ordner="landkrieg", bild=("landkrieg.jpg", "50% 14%"), titel="Landkrieg", rubrik="Bereich 1 von 5",
          einleitung="Zwei Seiten zum Krieg an Land: der Weg des Infanteristen Ernst Jünger an der Westfront und ein "
                     "Panzerangriff bei Bullecourt 1917.",
          kurz="Ernst Jünger an der Westfront · Bullecourt 1917", kacheln=[JUENGER, BULLECOURT]),
-    dict(ordner="luftkrieg", titel="Luftkrieg", rubrik="Bereich 2 von 5",
+    dict(ordner="luftkrieg", bild=("luftkrieg.jpg", "58% 24%"), titel="Luftkrieg", rubrik="Bereich 2 von 5",
          einleitung="Der Krieg in der Luft: das Jagdgeschwader Richthofen an der Westfront. Eine Seite zu den Luftschiffen "
                     "ist in Vorbereitung.",
          kurz="Jagdgeschwader Richthofen · Luftschiffe (in Vorbereitung)",
          kacheln=[RICHTHOFEN, dict(titel="Luftschiffe")]),
-    dict(ordner="seekrieg", titel="Seekrieg", rubrik="Bereich 3 von 5",
+    dict(ordner="seekrieg", bild=("seekrieg.jpg", "50% 12%"), titel="Seekrieg", rubrik="Bereich 3 von 5",
          einleitung="Der Krieg auf See: der deutsche U-Boot-Krieg gegen den Handel von 1914 bis 1918 und die großen "
                     "Seeschlachten von Coronel bis zum Skagerrak.",
          kurz="U-Boot-Krieg · Seeschlachten",
@@ -129,6 +135,28 @@ def kachel(k, pre, gross=False):
             f'        <span class="titel">{e(k["titel"])}</span>\n'
             f'        <span class="text">{e(k["text"])}</span>\n'
             f'        <span class="hinweis">{e(k["hinweis"])}</span>\n      </a>')
+
+
+def bildwahl(bereiche, pre):
+    """Bildband der fünf Weltkriegs-Bereiche (Vorschlag B, 28.11.2026). pre: relativer Weg zum Repo-Wurzelordner."""
+    teile = []
+    for b in bereiche:
+        if b.get("bild"):
+            datei, pos = b["bild"]
+            bild = (f'<img src="bilder/bereiche/{e(datei)}" alt="" style="object-position:{e(pos)}" loading="lazy">'
+                    '<span class="ki">KI-Bild</span>')
+            klasse = "bw mit-foto"
+        else:
+            bild = (f'<span class="bw-muster"><img src="{pre}icons/erster-weltkrieg.svg" alt="" width="48" '
+                    'height="48"></span>')
+            klasse = "bw ohne-foto"
+        teile.append(f'      <a class="{klasse}" href="{e(b["ordner"])}/">{bild}<span class="bw-text">'
+                     f'<span class="bw-rubrik">{e(b["rubrik"])}</span><span class="bw-titel">{e(b["titel"])}</span>'
+                     f'<span class="bw-kurz">{e(b["kurz"])}</span></span></a>')
+    hinweis = f'    <p class="ki-hinweis"><span class="ki">KI-Bild</span> {e(KI_HINWEIS)}'
+    if any(not b.get("bild") for b in bereiche):
+        hinweis += " Bereiche ohne Bild erhalten ihres später."
+    return '    <div class="bildwahl">\n' + "\n".join(teile) + "\n    </div>\n" + hinweis + "</p>"
 
 
 def raster(kacheln, pre, klasse="bereiche-raster", gross=False):
@@ -319,11 +347,9 @@ def main():
             pfadleiste=[("Geschichte", G), ("Erster Weltkrieg 1914–1918", WK)], inhalt=inhalt, noindex=not fertig))
 
     # 4. Kachelreihen in den vorhandenen Übersichten
-    wk = [dict(rubrik=b["rubrik"], titel=b["titel"], href=b["ordner"] + "/", text=b["kurz"],
-               hinweis="Zum Bereich") for b in WK_BEREICHE]
     einsetzen("geschichte/erster-weltkrieg/werkzeuge/vorlage.html",
               '  <section class="themen bereiche" data-reiter="ueberblick" aria-labelledby="h-bereiche">\n'
-              '    <h2 class="gruppe" id="h-bereiche">Fünf Bereiche</h2>\n' + raster(wk, "../../", "bereiche-raster fuenf")
+              '    <h2 class="gruppe" id="h-bereiche">Fünf Bereiche</h2>\n' + bildwahl(WK_BEREICHE, "../../")
               + '\n    <p class="bereiche-auch">Außerdem: <a href="technik/">Technik im Modell</a>, drehbare 3D-Modelle '
                 'von Schützengraben, Flugzeug, Panzer und Gewehr.</p>\n  </section>')
     einsetzen("geschichte/einigungskriege/index.html",
