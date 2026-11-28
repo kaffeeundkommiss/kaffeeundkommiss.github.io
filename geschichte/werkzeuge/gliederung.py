@@ -81,7 +81,7 @@ LUCKNER = dict(titel="Felix Graf von Luckner", href="luckner/", icon="erster-wel
 # "bild" zeigen im Bildband das Muster; ein neues Bild dort ablegen, hier eintragen, Skripte neu ausführen.
 # Alle Bilder im Bildband sind KI-generiert und tragen deshalb das Schild „KI-Bild“ (siehe KI_HINWEIS).
 KI_HINWEIS = ("KI-generierte Illustrationen (erstellt mit Gemini und ChatGPT), keine historischen Fotos. Uniformen, "
-              "Flaggen, Flugzeug und Schiff sind nicht quellengeprüft und zeigen keine bestimmte Person.")
+              "Flaggen, Schriften, Flugzeug und Schiff sind nicht quellengeprüft und zeigen keine bestimmte Person.")
 
 WK_BEREICHE = [
     dict(ordner="landkrieg", bild=("landkrieg.jpg", "50% 14%"), titel="Landkrieg", rubrik="Bereich 1 von 5",
@@ -103,7 +103,7 @@ WK_BEREICHE = [
                     "mit dem Segelschiff Seeadler Handelskrieg führte.",
          kurz="Kolonien · Felix Graf von Luckner",
          kacheln=[KOLONIEN, LUCKNER]),
-    dict(ordner="kaiserreich", titel="Kaiserreich 1914–1918", rubrik="Bereich 5 von 5",
+    dict(ordner="kaiserreich", bild=("kaiserreich.jpg", "36% 20%"), titel="Kaiserreich 1914–1918", rubrik="Bereich 5 von 5",
          einleitung="Das Deutsche Reich im Krieg: der Kaiser als Oberster Kriegsherr und die Generäle Hindenburg und "
                     "Ludendorff. Die Seite zur Revolution ist in Vorbereitung.",
          kurz="Kaiser · Hindenburg und Ludendorff · Revolution (teils in Vorbereitung)",
