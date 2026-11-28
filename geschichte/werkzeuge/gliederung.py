@@ -60,6 +60,10 @@ KOLONIEN = dict(titel="Die Kolonien 1914–1918", href="kolonien/", icon="erster
                 text="Togo, Kamerun, Südwestafrika, die Südsee und Tsingtau gingen schnell verloren; in Ostafrika "
                      "kämpfte Lettow-Vorbeck bis November 1918.",
                 hinweis="Mit zwei Karten und Lesarten")
+LUCKNER = dict(titel="Felix Graf von Luckner", href="luckner/", icon="erster-weltkrieg",
+               text="Die Kaperfahrt der Seeadler 1916 und 1917 durch Atlantik und Pazifik und der Mythos vom "
+                    "„Seeteufel“.",
+               hinweis="Mit zwei Karten und Lesarten")
 
 WK_BEREICHE = [
     dict(ordner="landkrieg", titel="Landkrieg", rubrik="Bereich 1 von 5",
@@ -77,10 +81,10 @@ WK_BEREICHE = [
          kurz="U-Boot-Krieg · Seeschlachten",
          kacheln=[UBOOT, SEESCHLACHTEN]),
     dict(ordner="uebersee", titel="Krieg in Übersee", rubrik="Bereich 4 von 5",
-         einleitung="Der Krieg außerhalb Europas: wie das Reich seine Kolonien verlor. Eine Seite zu Felix Graf von "
-                    "Luckner ist in Vorbereitung.",
-         kurz="Kolonien · Felix Graf von Luckner (in Vorbereitung)",
-         kacheln=[KOLONIEN, dict(titel="Felix Graf von Luckner")]),
+         einleitung="Der Krieg außerhalb Europas: wie das Reich seine Kolonien verlor und wie Felix Graf von Luckner "
+                    "mit dem Segelschiff Seeadler Handelskrieg führte.",
+         kurz="Kolonien · Felix Graf von Luckner",
+         kacheln=[KOLONIEN, LUCKNER]),
     dict(ordner="kaiserreich", titel="Kaiserreich 1914–1918", rubrik="Bereich 5 von 5",
          einleitung="Das Deutsche Reich im Krieg. Alle drei Seiten dieses Bereichs sind in Vorbereitung.",
          kurz="Kaiser · Ludendorff und Hindenburg · Revolution (in Vorbereitung)",

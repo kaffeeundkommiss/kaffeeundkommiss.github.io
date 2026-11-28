@@ -1,0 +1,38 @@
+/* Seite Luckner. Grundlayout aus ../../../einigungskriege/einigungskriege.css und kriege.css (Karte, Ablauf, Verlauf). */
+:root{--lu-meer:#D2DFE6;--lu-land:#E9E4D8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--lu-meer:#1B252B;--lu-land:#34312A}}
+:root[data-theme="dark"]{--lu-meer:#1B252B;--lu-land:#34312A}
+
+/* Kennzahlen */
+.zahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:16px 0}
+.zahl{background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:4px solid var(--kk-akzent);padding:10px 12px}
+.zahl b{display:block;font:700 30px/1 var(--kk-titel);margin-bottom:4px}
+.zahl span{font-size:14px}
+
+/* Gefechte im Überblick */
+ol.ablauf{list-style:none;margin:12px 0;padding:0;display:flex;flex-direction:column;gap:8px}
+ol.ablauf li{padding:8px 12px;background:var(--kk-papier);border:1px solid var(--kk-linie)}
+ol.ablauf time{display:block;font:500 13px var(--kk-mono);color:var(--kk-grau)}
+.lu-tab{min-width:0;width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
+.lu-tab th,.lu-tab td{text-align:left;padding:5px 8px 5px 0;border-bottom:1px solid var(--kk-linie);vertical-align:top}
+.lu-tab th{font:600 13px var(--kk-titel);letter-spacing:.08em;text-transform:uppercase}
+.lu-einl{max-width:72ch}
+
+/* Karten */
+.lu-karte{background:var(--lu-meer)}
+.lu-meer{fill:var(--lu-meer)}
+.lu-land{fill:var(--lu-land);stroke:#8A8272;stroke-width:.6}
+.lu-see{fill:var(--lu-meer);stroke:#8A8272;stroke-width:.5}
+.kk-pfeile .tx-pr{fill:var(--r-pr)}
+.kk-pfeile .tx-ge{fill:var(--r-ge)}
+.kk-marke.gefecht circle{fill:var(--r-ge);stroke:var(--kk-papier)}
+.kk-marke.gefecht text{fill:#fff}
+.kk-legende .lu-f-de{background:var(--r-ge)}
+.kk-legende .lu-f-al{background:var(--r-pr)}
+.kk-chronik li.gefecht .nr{background:var(--r-ge);border-color:var(--r-ge);color:#fff}
+.hinweise{margin-top:6px}
+@media (max-width:600px){
+  .ek-orte text.klein{display:none}
+  /* Große Namen am Kartenrand auf dem Handy weglassen */
+  .lu-karte .ek-namen text.gross,.lu-karte .kk-landschaft text:not(.klein){display:none}
+}
