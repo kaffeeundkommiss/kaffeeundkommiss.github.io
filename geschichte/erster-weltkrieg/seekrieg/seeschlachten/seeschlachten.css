@@ -13,7 +13,7 @@
 ol.ablauf{list-style:none;margin:12px 0;padding:0;display:flex;flex-direction:column;gap:8px}
 ol.ablauf li{padding:8px 12px;background:var(--kk-papier);border:1px solid var(--kk-linie)}
 ol.ablauf time{display:block;font:500 13px var(--kk-mono);color:var(--kk-grau)}
-.ss-tab{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
+.ss-tab{min-width:0;width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
 .ss-tab th,.ss-tab td{text-align:left;padding:5px 8px 5px 0;border-bottom:1px solid var(--kk-linie);vertical-align:top}
 .ss-tab th{font:600 13px var(--kk-titel);letter-spacing:.08em;text-transform:uppercase}
 .ss-einl{max-width:72ch}

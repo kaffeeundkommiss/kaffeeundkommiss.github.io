@@ -27,7 +27,7 @@ ol.ablauf time{display:block;font:500 13px var(--kk-mono);color:var(--kk-grau)}
 .ub-b span{position:absolute;left:100%;top:-1px;padding-left:6px;font:600 12px/16px var(--kk-mono);white-space:nowrap;color:var(--kk-tinte)}
 .ub-ziel{font-size:14px;margin:8px 0 0}
 .ub-balken figcaption{font-size:13px;color:var(--kk-grau);margin-top:8px}
-.ub-tab{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
+.ub-tab{min-width:0;width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
 .ub-tab th,.ub-tab td{text-align:left;padding:5px 8px 5px 0;border-bottom:1px solid var(--kk-linie);vertical-align:top}
 .ub-tab th{font:600 13px var(--kk-titel);letter-spacing:.08em;text-transform:uppercase}
 
