@@ -67,6 +67,10 @@ LUDENDORFF = dict(titel="Hindenburg und Ludendorff", href="ludendorff-hindenburg
                   text="Von Tannenberg 1914 über die Oberste Heeresleitung bis zum Eingeständnis der Niederlage 1918 "
                        "und zur Dolchstoßlegende.",
                   hinweis="Mit Karte und Lesarten")
+REVOLUTION = dict(titel="Revolution 1918/19", href="revolution/", icon="kaiserreich",
+                  text="Vom Matrosenaufstand in Kiel über den 9. November bis zur Nationalversammlung in Weimar "
+                       "und zu den Kämpfen im Frühjahr 1919.",
+                  hinweis="Mit Karte und Lesarten")
 
 LUFTSCHIFFE = dict(titel="Luftschiffe 1914–1918", href="luftschiffe/", icon="erster-weltkrieg",
                    text="Die Zeppelinangriffe auf England von 1915 bis 1918 und die Afrika-Fahrt von L 59 im November 1917.",
@@ -104,10 +108,10 @@ WK_BEREICHE = [
          kurz="Kolonien · Felix Graf von Luckner",
          kacheln=[KOLONIEN, LUCKNER]),
     dict(ordner="kaiserreich", bild=("kaiserreich.jpg", "36% 20%"), titel="Kaiserreich 1914–1918", rubrik="Bereich 5 von 5",
-         einleitung="Das Deutsche Reich im Krieg: der Kaiser als Oberster Kriegsherr und die Generäle Hindenburg und "
-                    "Ludendorff. Die Seite zur Revolution ist in Vorbereitung.",
-         kurz="Kaiser · Hindenburg und Ludendorff · Revolution (teils in Vorbereitung)",
-         kacheln=[KAISER, LUDENDORFF, dict(titel="Revolution")]),
+         einleitung="Das Deutsche Reich im Krieg: der Kaiser als Oberster Kriegsherr, die Generäle Hindenburg und "
+                    "Ludendorff und die Revolution, die 1918/19 das Kaiserreich beendete.",
+         kurz="Kaiser · Hindenburg und Ludendorff · Revolution",
+         kacheln=[KAISER, LUDENDORFF, REVOLUTION]),
 ]
 
 EK_KACHELN = [

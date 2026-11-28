@@ -30,8 +30,8 @@ ol.ablauf time{display:block;font:500 13px var(--kk-mono);color:var(--kk-grau)}
 .kk-marke.gefecht circle{fill:var(--r-ge);stroke:var(--kk-papier)}
 .kk-marke.gefecht text{fill:#fff}
 .kk-legende .ka-f-dr{background:var(--r-gv)}
-.kk-legende .ka-f-de{background:var(--r-ge)}
-.kk-legende .ka-f-ex{background:var(--r-pr)}
+.kk-legende .ka-f-de,.kk-legende .feld.pfeil.ka-f-de{background:var(--r-ge)}
+.kk-legende .ka-f-ex,.kk-legende .feld.pfeil.ka-f-ex{background:var(--r-pr)}
 .kk-chronik li.gefecht .nr{background:var(--r-ge);border-color:var(--r-ge);color:#fff}
 .hinweise{margin-top:6px}
 @media (max-width:600px){
