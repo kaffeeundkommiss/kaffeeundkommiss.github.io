@@ -60,6 +60,10 @@ KOLONIEN = dict(titel="Die Kolonien 1914–1918", href="kolonien/", icon="erster
                 text="Togo, Kamerun, Südwestafrika, die Südsee und Tsingtau gingen schnell verloren; in Ostafrika "
                      "kämpfte Lettow-Vorbeck bis November 1918.",
                 hinweis="Mit zwei Karten und Lesarten")
+LUFTSCHIFFE = dict(titel="Luftschiffe 1914–1918", href="luftschiffe/", icon="erster-weltkrieg",
+                   text="Die Zeppelinangriffe auf England von 1915 bis 1918 und die Afrika-Fahrt von L 59 im November 1917.",
+                   hinweis="Mit zwei Karten und Lesarten")
+
 LUCKNER = dict(titel="Felix Graf von Luckner", href="luckner/", icon="erster-weltkrieg",
                text="Die Kaperfahrt der Seeadler 1916 und 1917 durch Atlantik und Pazifik und der Mythos vom "
                     "„Seeteufel“.",
@@ -77,10 +81,10 @@ WK_BEREICHE = [
                     "Panzerangriff bei Bullecourt 1917.",
          kurz="Ernst Jünger an der Westfront · Bullecourt 1917", kacheln=[JUENGER, BULLECOURT]),
     dict(ordner="luftkrieg", bild=("luftkrieg.jpg", "58% 24%"), titel="Luftkrieg", rubrik="Bereich 2 von 5",
-         einleitung="Der Krieg in der Luft: das Jagdgeschwader Richthofen an der Westfront. Eine Seite zu den Luftschiffen "
-                    "ist in Vorbereitung.",
-         kurz="Jagdgeschwader Richthofen · Luftschiffe (in Vorbereitung)",
-         kacheln=[RICHTHOFEN, dict(titel="Luftschiffe")]),
+         einleitung="Der Krieg in der Luft: das Jagdgeschwader Richthofen an der Westfront und die Luftschiffe, die ab 1915 "
+                    "Städte in England bombardierten.",
+         kurz="Jagdgeschwader Richthofen · Luftschiffe",
+         kacheln=[RICHTHOFEN, LUFTSCHIFFE]),
     dict(ordner="seekrieg", bild=("seekrieg.jpg", "50% 12%"), titel="Seekrieg", rubrik="Bereich 3 von 5",
          einleitung="Der Krieg auf See: der deutsche U-Boot-Krieg gegen den Handel von 1914 bis 1918 und die großen "
                     "Seeschlachten von Coronel bis zum Skagerrak.",
