@@ -1,0 +1,18 @@
+/* Seite Gesellschaft im Kaiserreich 1871–1914. Grundlayout aus ../../einigungskriege/einigungskriege.css und kriege.css. */
+
+/* Kennzahlen */
+.zahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:16px 0}
+.zahl{background:var(--kk-papier);border:1px solid var(--kk-linie);border-top:4px solid var(--kk-akzent);padding:10px 12px}
+.zahl b{display:block;font:700 30px/1 var(--kk-titel);margin-bottom:4px}
+.zahl span{font-size:14px}
+
+/* Abläufe */
+ol.ablauf{list-style:none;margin:12px 0;padding:0;display:flex;flex-direction:column;gap:8px}
+ol.ablauf li{padding:8px 12px;background:var(--kk-papier);border:1px solid var(--kk-linie)}
+ol.ablauf time{display:block;font:500 13px var(--kk-mono);color:var(--kk-grau)}
+.ka-tab{min-width:0;width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
+.ka-tab th,.ka-tab td{text-align:left;padding:5px 8px 5px 0;border-bottom:1px solid var(--kk-linie);vertical-align:top}
+.ka-tab th{font:600 13px var(--kk-titel);letter-spacing:.08em;text-transform:uppercase}
+.ka-einl{max-width:72ch}
+
+@media (max-width:600px){.ka-tab{font-size:14px}}
