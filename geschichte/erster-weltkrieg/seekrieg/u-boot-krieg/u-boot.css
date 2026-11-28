@@ -59,3 +59,13 @@ ol.ablauf time{display:block;font:500 13px var(--kk-mono);color:var(--kk-grau)}
   .ub-paar{padding-right:64px}
   .ek-orte text.klein{display:none}
 }
+
+/* Kommandanten (Muster aus ../../seite.css) */
+.personen{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin:12px 0}
+.person{display:grid;grid-template-columns:84px 1fr;gap:12px;background:var(--kk-papier);border:1px solid var(--kk-linie);padding:12px}
+.person figure{margin:0}
+.person img{display:block;width:84px;height:108px;object-fit:cover;object-position:50% 20%;background:var(--kk-grund);border:1px solid var(--kk-linie);filter:grayscale(1)}
+.person .staat{font:600 12.5px/1.2 var(--kk-titel);letter-spacing:.12em;text-transform:uppercase;color:var(--kk-akzent-schrift,var(--kk-akzent))}
+.person h3{margin:3px 0 0;font-size:18px}
+.person .leben{font:500 12.5px var(--kk-mono);color:var(--kk-grau);margin:2px 0 0}
+.person p{margin:6px 0 0;font-size:14.5px}
