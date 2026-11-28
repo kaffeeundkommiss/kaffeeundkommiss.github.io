@@ -128,7 +128,10 @@ EK_KACHELN = [
 ]
 
 KR_KACHELN = [
-    dict(titel="Der Kaiser", icon="kaiserreich", muster=True),
+    dict(titel="Die drei Kaiser", href="kaiser/", icon="kaiserreich", muster=True,
+         text="Wilhelm I., Friedrich III. und Wilhelm II. von der Proklamation in Versailles 1871 bis zum Juli 1914: "
+              "was der Kaiser durfte und wie viel er zu sagen hatte.",
+         hinweis="Mit Karte und Lesarten"),
     dict(titel="Gesellschaft", icon="kaiserreich", muster=True),
     dict(rubrik="Auf dieser Seite", titel="Politik", href="#verfassung", icon="kaiserreich", muster=True,
          text="Reichsverfassung, Militär und Bismarcks Bündnissystem, dazu die Bündniskarte 1871–1907.",
@@ -331,8 +334,8 @@ def main():
                   "Frankreich. Dazu ein Soldat, der in zwei dieser Kriege kämpfte: Feldwebel Luchmann.",
              hinweis="1864 · 1866 · 1870/71 · Feldwebel Luchmann"),
         dict(rubrik="Bereich 2 von 2", titel="Kaiserreich 1871–1914", href="../kaiserreich/", icon="kaiserreich", muster=True,
-             text="Das Deutsche Kaiserreich von der Gründung 1871 bis 1914. Fertig ist die Politik: Reichsverfassung, "
-                  "Militär und Bismarcks Bündnissystem mit einer Karte der Bündnisse 1871–1907.",
+             text="Das Deutsche Kaiserreich von der Gründung 1871 bis 1914. Fertig sind die Politik mit Reichsverfassung, "
+                  "Militär und Bismarcks Bündnissystem sowie die drei Kaiser von 1871 bis 1914.",
              hinweis="Kaiser · Gesellschaft · Politik"),
     ]
     inhalt = abschnitt("g-bereiche", "Zwei Bereiche", raster(kacheln, "../../", "bereiche-raster zwei", gross=True))
