@@ -5,7 +5,8 @@
 //     "seiten": [ { "datei": "index.html", "bild": "start", "kicker": "…", "titel": "…", "unter": "…", "karte": "svg.kartesvg" } ] }
 // Ohne "unter" wird die Beschreibung (meta description) der Seite verwendet. "karte" ist optional:
 // ein Selektor, dessen Element rechts im Bild erscheint. "vorbereitung" ist optional: JavaScript, das vor dem
-// Bau des Bildes in der Seite läuft (etwa um eine Karte auf einen bestimmten Stand zu stellen).
+// Bau des Bildes in der Seite läuft (etwa um eine Karte auf einen bestimmten Stand zu stellen). "vorlage" ist optional:
+// eine eigene HTML-Datei (1200 × 630), die statt des Standardaufbaus aufgenommen wird; "alt" ersetzt dann den Alternativtext.
 //
 // Das Bild wird aus der Seite selbst gebaut (Leiste, Kopfband, Schriften), damit es zum Design passt.
 // Aufruf im Repo-Ordner:  npm install playwright  &&  npx playwright install chromium  &&  node werkzeuge/vorschau.js
@@ -103,7 +104,7 @@ function eintragen(datei, s, bildUrl) {
   if (!/rel="canonical"/.test(html)) zeilen.push(`<link rel="canonical" href="${esc(url)}">`);
   const og = (p, v) => { if (!new RegExp(`property="og:${p}"`).test(html)) zeilen.push(`<meta property="og:${p}" content="${v}">`); };
   og('type', 'website'); og('locale', 'de_DE'); og('site_name', esc(CFG.site_name)); og('title', titel); og('description', beschr); og('url', esc(url));
-  zeilen.push(...metaBlock(s, url, bildUrl, s.titel === CFG.site_name ? s.titel : `${s.titel}: ${CFG.site_name}`));
+  zeilen.push(...metaBlock(s, url, bildUrl, s.alt || (s.titel === CFG.site_name ? s.titel : `${s.titel}: ${CFG.site_name}`)));
   const anker = /(<meta name="description"[^>]*>\n)/;
   const ogUrl = /(<meta property="og:url"[^>]*>\n)/;
   const ziel = ogUrl.test(html) ? ogUrl : anker;
@@ -119,11 +120,11 @@ function eintragen(datei, s, bildUrl) {
   const nur = process.argv.slice(2);
   for (const s of CFG.seiten) {
     if (nur.length && !nur.includes(s.bild)) continue;
-    await page.goto('file://' + path.join(WURZEL, s.datei), { waitUntil: 'networkidle' });
+    await page.goto('file://' + path.join(WURZEL, s.vorlage || s.datei), { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
     if (s.vorbereitung) await page.evaluate(s.vorbereitung);
     const adresse = (CFG.basis + (s.datei === 'index.html' ? '' : s.datei)).replace(/^https:\/\//, '').replace(/\/index\.html$/, '').replace(/\/$/, '');
-    await page.evaluate(rendern, { ...s, adresse });
+    if (!s.vorlage) await page.evaluate(rendern, { ...s, adresse });
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(150);
     const ziel = path.join(ORDNER, s.bild + '.jpg');

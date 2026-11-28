@@ -276,6 +276,36 @@ body.kk-breit{--kk-max:1200px}
 @media (max-width:1023px){.bereiche-raster.fuenf{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:760px){.bereiche-raster.zwei{grid-template-columns:1fr}.bereiche-raster.fuenf{grid-template-columns:1fr 1fr}}
 @media (max-width:480px){.bereiche-raster.fuenf{grid-template-columns:1fr}}
+
+/* Bildband der fünf Weltkriegs-Bereiche (28.11.2026, gliederung.py bildwahl()). Bilder sind KI-generiert und tragen
+   das Schild „KI-Bild“. Startwerte: Höhe 400 px Desktop, 340 px bis 1023 px, Handy zweispaltig mit 220 px. */
+.ki{display:inline-block;padding:3px 6px 2px;background:rgba(20,18,15,.82);color:#fff;font:600 11px/1 var(--kk-titel);letter-spacing:.12em;text-transform:uppercase;border-radius:3px}
+.ki-hinweis{margin:10px 0 0;font-size:13px;line-height:1.45;color:var(--kk-grau)}
+.ki-hinweis .ki{margin-right:6px;vertical-align:1px}
+.bildwahl{display:flex;gap:8px;height:400px}
+.bw{position:relative;flex:1 1 0;min-width:0;overflow:hidden;display:flex;align-items:flex-end;color:#fff;text-decoration:none;background:#1d1b17;border-bottom:4px solid var(--kk-akzent);transition:flex-grow .35s}
+.bw:hover,.bw:focus-visible{flex-grow:1.7}
+.bw:focus-visible{outline:3px solid var(--kk-akzent);outline-offset:2px}
+.bw>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bw.mit-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,11,9,.92) 0,rgba(12,11,9,.55) 38%,rgba(12,11,9,0) 70%)}
+.bw .ki{position:absolute;top:10px;left:10px;z-index:2}
+.bw-muster{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(rgba(36,34,29,.86),rgba(36,34,29,.86)),var(--kk-muster),#24221D}
+.bw-muster img{opacity:.5;margin-bottom:90px}
+.bw-text{position:relative;z-index:1;display:flex;flex-direction:column;gap:6px;padding:16px 16px 18px}
+.bw-rubrik{font:600 12px/1 var(--kk-titel);letter-spacing:.14em;text-transform:uppercase;color:#EA6A58}
+.bw-titel{font:700 24px/1.05 var(--kk-titel);text-transform:uppercase;letter-spacing:.02em}
+.bw-kurz{font-size:13px;line-height:1.4;color:rgba(255,255,255,.82)}
+.bw:hover .bw-titel,.bw:focus-visible .bw-titel{text-decoration:underline;text-decoration-color:var(--kk-akzent);text-decoration-thickness:2px;text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){.bw{transition:none}}
+@media (max-width:1023px){.bildwahl{height:340px}.bw-titel{font-size:20px}.bw-kurz{display:none}}
+@media (max-width:760px){
+  .bildwahl{display:grid;grid-template-columns:1fr 1fr;height:auto}
+  .bw{height:220px}
+  .bw:first-child{grid-column:1/-1;height:260px}
+  .bw-kurz{display:block;font-size:12px}
+  .bw-titel{font-size:20px}
+  .bw-text{padding:12px}
+}
 @media (max-width:640px){
   .bereiche-raster{gap:10px}
   .bereiche-raster .projekt .band,.bereiche-raster.zwei .projekt .band,.bereiche-raster.fuenf .projekt .band{height:34px}
